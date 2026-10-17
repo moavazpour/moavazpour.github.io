@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mo Avazpour — Computer Vision &amp; Perception Engineer</title>
+<meta name="description" content="Mo Avazpour, computer vision and perception engineer: an edge ANPR engine and camera-based adaptive traffic-signal control in production, automotive working-student roles at CARIAD and diconium, and V2X cooperative perception research at AImotion Bavaria.">
+<style>
+  :root {
+    --bg: #ffffff; --fg: #0f1b33; --muted: #52607a; --line: #e2e7ef;
+    --card: #f6f8fb; --accent: #1e3a8a;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0b1220; --fg: #e6ebf4; --muted: #9aa7bd; --line: #1f2a40; --card: #111a2c; --accent: #8fb0ff; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg);
+    font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 56px 16px 72px; }
+  h1 { font-size: 2rem; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .role { color: var(--accent); font-weight: 600; margin: 0 0 20px; }
+  p { margin: 0 0 16px; }
+  .muted { color: var(--muted); }
+  h2 { font-size: 1.1rem; margin: 48px 0 16px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+  .links a { margin-right: 18px; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  ul.projects { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+  ul.projects a { display: block; padding: 16px 18px; background: var(--card);
+    border: 1px solid var(--line); border-radius: 10px; color: var(--fg); }
+  ul.projects a:hover { border-color: var(--accent); text-decoration: none; }
+  ul.projects strong { display: block; color: var(--accent); margin-bottom: 4px; }
+  ul.projects span { color: var(--muted); font-size: 0.95rem; }
+  footer { margin-top: 56px; color: var(--muted); font-size: 0.9rem; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Mo Avazpour</h1>
+  <p class="role">Computer Vision &amp; Perception Engineer · Germany</p>
+  <p>Computer vision and perception engineer focused on real-time and edge perception. Production experience in Intelligent Transportation Systems (ANPR, camera-based adaptive traffic signal control), plus automotive working-student experience in Germany (CARIAD, diconium) and research in V2X cooperative perception at AImotion Bavaria. M.Eng. student in Automated Driving and Vehicle Safety at THI.</p>
+  <p class="links">
+    <a href="https://github.com/moavazpour">GitHub</a>
+    <a href="https://linkedin.com/in/moavazpour">LinkedIn</a>
+    <a href="mailto:info@moavazpour.com">info@moavazpour.com</a>
+  </p>
+
+  <h2>Projects</h2>
+  <ul class="projects">
+    <li><a href="https://github.com/moavazpour/anpr">
+      <strong>Automatic Number Plate Recognition at the Edge</strong>
+      <span>An edge ANPR engine for access control and parking — detection, OCR, tracking and best-frame selection — rolled out from an 8-camera pilot to 74 cameras.</span></a></li>
+    <li><a href="https://github.com/moavazpour/AdaptiveIntersectionController">
+      <strong>Adaptive Intersection Controller — Camera-Based Vehicle Detection</strong>
+      <span>Camera-based vehicle-presence detection — lane-level ROIs as virtual inductive loops — feeding an adaptive traffic-signal controller.</span></a></li>
+    <li><a href="https://github.com/moavazpour/universal-roadside-3d-detector">
+      <strong>Universal Roadside 3D Object Detector</strong>
+      <span>One roadside 3D detection model trained on seven merged datasets — planned for integration at the High Definition Testfeld intersections in Ingolstadt.</span></a></li>
+    <li><a href="https://github.com/moavazpour/TSR-ISA-EU-Regulation">
+      <strong>Traffic Sign Recognition &amp; EU Intelligent Speed Assistance</strong>
+      <span>A two-stage YOLO traffic-sign pipeline, stress-tested in adverse conditions and analysed against EU Intelligent Speed Assistance (ISA) requirements.</span></a></li>
+    <li><a href="https://github.com/moavazpour/bakery-conveyor-cv">
+      <strong>Real-Time Detection, Tracking &amp; Classification on a Moving Conveyor</strong>
+      <span>Instance segmentation, multi-object tracking, counting and online classification on a moving conveyor — without a labeled training set.</span></a></li>
+  </ul>
+
+  <footer>© Mo Avazpour</footer>
+</main>
+</body>
+</html>
