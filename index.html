@@ -4,10 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mo Avazpour — Computer Vision &amp; Perception Engineer</title>
-<meta name="description" content="Mo Avazpour, computer vision and perception engineer in Ingolstadt: edge ANPR rolled out to 74 cameras, camera-based adaptive traffic-signal control, automotive work at CARIAD and diconium, V2X cooperative perception research at AImotion Bavaria.">
+<meta name="description" content="Mo Avazpour, computer vision and perception engineer in the Greater Munich area. Real-time detection, tracking and 3D perception on edge hardware: projects with demo videos and code on GitHub.">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#070b14" media="(prefers-color-scheme: dark)">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#05080f">
 <link rel="canonical" href="https://moavazpour.com/">
 <link rel="alternate" hreflang="en" href="https://moavazpour.com/">
 <link rel="alternate" hreflang="de" href="https://moavazpour.com/?lang=de">
@@ -15,11 +14,11 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://moavazpour.com/">
 <meta property="og:title" content="Mo Avazpour — Computer Vision &amp; Perception Engineer">
-<meta property="og:description" content="Real-time and edge perception: ANPR at 74 cameras, adaptive traffic-signal control, 3D roadside detection.">
+<meta property="og:description" content="Real-time detection, tracking and 3D perception on edge hardware: projects with demo videos and code.">
 <meta property="og:image" content="https://moavazpour.com/assets/anpr.webp">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person","name":"Mohammadali (Mo) Avazpour","jobTitle":"Computer Vision & Perception Engineer","url":"https://moavazpour.com/","email":"mailto:info@moavazpour.com","address":{"@type":"PostalAddress","addressLocality":"Ingolstadt","addressCountry":"DE"},"alumniOf":"Technische Hochschule Ingolstadt","sameAs":["https://github.com/moavazpour","https://linkedin.com/in/moavazpour"]}
+{"@context":"https://schema.org","@type":"Person","name":"Mohammadali (Mo) Avazpour","jobTitle":"Computer Vision & Perception Engineer","url":"https://moavazpour.com/","email":"mailto:info@moavazpour.com","address":{"@type":"PostalAddress","addressRegion":"Greater Munich Metropolitan Area","addressCountry":"DE"},"sameAs":["https://github.com/moavazpour","https://linkedin.com/in/moavazpour"]}
 </script>
 <script>
   // Apply saved theme/lang before paint to avoid a flash.
@@ -34,218 +33,156 @@
 </script>
 <style>
   :root {
-    --bg: #ffffff; --bg-2: #f4f6fa; --surface: #ffffff; --fg: #0b1220; --muted: #5b6675;
-    --line: #e2e6ee; --accent: #1e3a6e; --accent-2: #2f5bb0; --on-accent: #ffffff;
-    --det: #0e9f6e; --det-soft: rgba(14, 159, 110, .12); --warn: #c2410c;
-    --grid: rgba(30, 58, 110, .06); --shadow: 0 1px 2px rgba(11,18,32,.04), 0 8px 24px rgba(11,18,32,.06);
+    --bg: #ffffff; --bg-2: #f5f7fa; --surface: #ffffff; --fg: #0b1220; --muted: #5b6675;
+    --line: #e3e7ee; --accent: #1e3a6e; --on-accent: #ffffff; --det: #0e9f6e; --det-soft: rgba(14,159,110,.1);
+    --shadow: 0 1px 2px rgba(11,18,32,.04), 0 10px 30px rgba(11,18,32,.07);
     --mono: ui-monospace, "SF Mono", "Cascadia Mono", "Segoe UI Mono", Menlo, Consolas, monospace;
     --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     --radius: 14px;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --bg: #070b14; --bg-2: #0b1120; --surface: #0e1524; --fg: #e7ecf5; --muted: #92a0b5;
-      --line: #1c2740; --accent: #6f9ceb; --accent-2: #a9c4f5; --on-accent: #071022;
-      --det: #34d399; --det-soft: rgba(52, 211, 153, .14); --warn: #fb923c;
-      --grid: rgba(111, 156, 235, .07); --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 32px rgba(0,0,0,.35);
+      --bg: #070b14; --bg-2: #0a1020; --surface: #0d1423; --fg: #e7ecf5; --muted: #95a3b8;
+      --line: #1b2640; --accent: #7aa5f0; --on-accent: #071022; --det: #34d399; --det-soft: rgba(52,211,153,.12);
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 32px rgba(0,0,0,.35);
     }
   }
   :root[data-theme="dark"] {
-    --bg: #070b14; --bg-2: #0b1120; --surface: #0e1524; --fg: #e7ecf5; --muted: #92a0b5;
-    --line: #1c2740; --accent: #6f9ceb; --accent-2: #a9c4f5; --on-accent: #071022;
-    --det: #34d399; --det-soft: rgba(52, 211, 153, .14); --warn: #fb923c;
-    --grid: rgba(111, 156, 235, .07); --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 32px rgba(0,0,0,.35);
+    --bg: #070b14; --bg-2: #0a1020; --surface: #0d1423; --fg: #e7ecf5; --muted: #95a3b8;
+    --line: #1b2640; --accent: #7aa5f0; --on-accent: #071022; --det: #34d399; --det-soft: rgba(52,211,153,.12);
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 32px rgba(0,0,0,.35);
   }
 
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; } }
-  body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.6 var(--sans); }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.65 var(--sans); }
   a { color: var(--accent); text-decoration: none; }
   a:hover { text-decoration: underline; }
   :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
   img, video { display: block; max-width: 100%; }
-  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
-  .mono { font-family: var(--mono); }
+  .wrap { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
   .skip { position: absolute; left: -999px; top: 8px; background: var(--accent); color: var(--on-accent); padding: 8px 12px; border-radius: 8px; z-index: 100; }
   .skip:focus { left: 8px; }
-  [hidden] { display: none !important; }
 
-  /* ---------- nav ---------- */
-  header.nav { position: sticky; top: 0; z-index: 50; backdrop-filter: saturate(1.4) blur(12px); -webkit-backdrop-filter: saturate(1.4) blur(12px);
-    background: color-mix(in srgb, var(--bg) 78%, transparent); border-bottom: 1px solid transparent; transition: border-color .2s; }
-  header.nav.scrolled { border-bottom-color: var(--line); }
-  .nav-in { display: flex; align-items: center; gap: 20px; height: 64px; }
-  .brand { display: inline-flex; align-items: center; gap: 10px; color: var(--fg); font-weight: 700; letter-spacing: -.01em; }
+  /* ---------- nav (sits on the dark hero, turns solid on scroll) ---------- */
+  header.nav { position: fixed; inset: 0 0 auto 0; z-index: 50; transition: background .25s, border-color .25s; border-bottom: 1px solid transparent; }
+  header.nav.scrolled { background: color-mix(in srgb, var(--bg) 82%, transparent); backdrop-filter: saturate(1.4) blur(12px); -webkit-backdrop-filter: saturate(1.4) blur(12px); border-bottom-color: var(--line); }
+  .nav-in { display: flex; align-items: center; gap: 22px; height: 64px; }
+  .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: -.01em; color: #e7ecf5; }
+  .scrolled .brand { color: var(--fg); }
   .brand:hover { text-decoration: none; }
-  .brand-mark { position: relative; width: 30px; height: 30px; display: grid; place-items: center; font: 700 12px var(--mono); color: var(--det); }
-  .brand-mark::before { content: ""; position: absolute; inset: 0; border: 2px solid var(--det);
-    clip-path: polygon(0 0, 35% 0, 35% 2px, 2px 2px, 2px 35%, 0 35%, 0 65%, 2px 65%, 2px calc(100% - 2px), 35% calc(100% - 2px), 35% 100%, 65% 100%, 65% calc(100% - 2px), calc(100% - 2px) calc(100% - 2px), calc(100% - 2px) 65%, 100% 65%, 100% 35%, calc(100% - 2px) 35%, calc(100% - 2px) 2px, 65% 2px, 65% 0, 100% 0, 100% 100%, 0 100%); }
-  .nav-links { display: flex; gap: 22px; margin-left: auto; }
-  .nav-links a { color: var(--muted); font-size: .95rem; }
-  .nav-links a:hover { color: var(--fg); text-decoration: none; }
+  .brand svg { width: 28px; height: 28px; }
+  .nav-links { display: flex; gap: 24px; margin-left: auto; }
+  .nav-links a { color: rgba(231,236,245,.72); font-size: .95rem; }
+  .scrolled .nav-links a { color: var(--muted); }
+  .nav-links a:hover { color: #fff; text-decoration: none; }
+  .scrolled .nav-links a:hover { color: var(--fg); }
   .tools { display: flex; gap: 6px; }
-  .tbtn { height: 34px; min-width: 34px; padding: 0 10px; display: inline-flex; align-items: center; justify-content: center; gap: 6px;
-    border: 1px solid var(--line); border-radius: 9px; background: var(--surface); color: var(--fg); font: 600 12px var(--mono); cursor: pointer; }
-  .tbtn:hover { border-color: var(--accent); }
+  .tbtn { height: 34px; min-width: 34px; padding: 0 10px; display: inline-flex; align-items: center; justify-content: center; gap: 5px;
+    border: 1px solid rgba(231,236,245,.22); border-radius: 9px; background: rgba(255,255,255,.04); color: #e7ecf5; font: 600 12px var(--mono); cursor: pointer; }
+  .scrolled .tbtn { border-color: var(--line); background: var(--surface); color: var(--fg); }
+  .tbtn:hover { border-color: #7aa5f0; }
   .tbtn svg { width: 16px; height: 16px; }
-  .lang b { color: var(--muted); font-weight: 600; }
-  .lang b.on { color: var(--fg); }
+  .lang b { font-weight: 600; opacity: .55; } .lang b.on { opacity: 1; }
   .icon-sun, :root[data-theme="dark"] .icon-moon { display: none; }
   :root[data-theme="dark"] .icon-sun { display: block; }
   @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .icon-moon { display: none; } :root:not([data-theme="light"]) .icon-sun { display: block; } }
   @media (max-width: 760px) { .nav-links { display: none; } .tools { margin-left: auto; } }
 
-  /* ---------- hero ---------- */
-  .hero { position: relative; overflow: hidden; padding: 64px 0 56px;
-    background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-    background-size: 40px 40px; background-position: -1px -1px; }
-  .hero + section { padding-top: 40px; }
-  .hero::after { content: ""; position: absolute; inset: auto 0 0 0; height: 120px; background: linear-gradient(transparent, var(--bg)); pointer-events: none; }
-  .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: center; }
-  .kicker { display: inline-flex; align-items: center; gap: 8px; font: 600 12.5px var(--mono); letter-spacing: .04em; text-transform: uppercase; color: var(--det);
-    background: var(--det-soft); padding: 6px 10px; border-radius: 999px; }
-  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--det); box-shadow: 0 0 0 0 var(--det); animation: pulse 2s infinite; }
-  @keyframes pulse { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--det) 60%, transparent); } 70% { box-shadow: 0 0 0 8px transparent; } 100% { box-shadow: 0 0 0 0 transparent; } }
-  h1 { font-size: clamp(2.4rem, 5.4vw, 3.9rem); line-height: 1.04; letter-spacing: -.035em; margin: 18px 0 14px; }
-  .tagline { font-size: clamp(1.15rem, 2vw, 1.4rem); line-height: 1.4; color: var(--fg); margin: 0 0 16px; max-width: 34ch; letter-spacing: -.01em; }
-  .tagline em { font-style: normal; color: var(--accent); }
-  .lede { color: var(--muted); margin: 0 0 24px; max-width: 58ch; }
-  .facts { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 28px; padding: 0; list-style: none; }
-  .facts li { display: inline-flex; align-items: center; gap: 7px; font-size: .88rem; padding: 6px 11px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); }
-  .facts svg { width: 15px; height: 15px; color: var(--det); flex: none; }
+  /* ---------- hero: always dark, LiDAR point cloud behind the text ---------- */
+  .hero { position: relative; min-height: min(92vh, 860px); display: flex; align-items: center; overflow: hidden; background: #05080f; color: #e7ecf5; }
+  .hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .hero::before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    background: linear-gradient(90deg, rgba(5,8,15,.97) 0%, rgba(5,8,15,.9) 36%, rgba(5,8,15,.25) 60%, rgba(5,8,15,0) 100%); }
+  .hero::after { content: ""; position: absolute; inset: auto 0 0 0; height: 140px; z-index: 1; pointer-events: none; background: linear-gradient(transparent, #05080f); }
+  .hero-in { position: relative; z-index: 2; width: 100%; padding-top: 96px; padding-bottom: 72px; }
+  .hero-text { max-width: 560px; }
+  .kicker { display: inline-flex; align-items: center; gap: 8px; font: 600 12.5px var(--mono); letter-spacing: .05em; text-transform: uppercase; color: #34d399; }
+  .kicker::before { content: ""; width: 18px; height: 2px; background: #34d399; }
+  h1 { font-size: clamp(2.6rem, 6vw, 4.4rem); line-height: 1.02; letter-spacing: -.04em; margin: 16px 0 14px; color: #fff; }
+  .tagline { font-size: clamp(1.15rem, 2.1vw, 1.45rem); line-height: 1.4; letter-spacing: -.01em; margin: 0 0 18px; color: #dbe4f3; }
+  .lede { color: #a7b4c8; margin: 0 0 22px; }
+  .loc { display: inline-flex; align-items: center; gap: 8px; font-size: .92rem; color: #c9d4e6; margin: 0 0 30px; }
+  .loc svg { width: 16px; height: 16px; color: #34d399; }
   .ctas { display: flex; flex-wrap: wrap; gap: 10px; }
-  .btn { display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 18px; border-radius: 11px; font-weight: 600; font-size: .95rem; border: 1px solid var(--line); color: var(--fg); background: var(--surface); }
-  .btn:hover { text-decoration: none; border-color: var(--accent); }
-  .btn.primary { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+  .btn { display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 18px; border-radius: 11px; font-weight: 600; font-size: .95rem;
+    border: 1px solid rgba(231,236,245,.22); color: #e7ecf5; background: rgba(255,255,255,.04); }
+  .btn:hover { text-decoration: none; border-color: #7aa5f0; }
+  .btn.primary { background: #7aa5f0; border-color: #7aa5f0; color: #071022; }
   .btn.primary:hover { filter: brightness(1.08); }
   .btn svg { width: 18px; height: 18px; }
-
-  .viewfinder { position: relative; aspect-ratio: 4 / 3; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); background: #05080f; box-shadow: var(--shadow); }
-  .viewfinder canvas { width: 100%; height: 100%; display: block; }
-  .vf-hud { position: absolute; inset: 0; pointer-events: none; font: 600 11px var(--mono); color: #b8c6dd; }
-  .vf-hud .tl, .vf-hud .tr, .vf-hud .bl, .vf-hud .br { position: absolute; padding: 10px 12px; }
-  .vf-hud .tl { top: 0; left: 0; } .vf-hud .tr { top: 0; right: 0; text-align: right; } .vf-hud .bl { bottom: 0; left: 0; } .vf-hud .br { bottom: 0; right: 0; }
-  .rec { color: #f87171; } .rec::before { content: "● "; animation: blink 1.4s steps(2) infinite; }
-  @keyframes blink { 50% { opacity: .2; } }
-  @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; gap: 36px; } .hero { padding-top: 40px; } }
-
-  /* ---------- stats ---------- */
-  .stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; margin-top: 8px; }
-  .stat { background: var(--surface); padding: 20px 18px; }
-  .stat .v { font: 700 clamp(1.5rem, 2.6vw, 2rem)/1.1 var(--mono); letter-spacing: -.03em; color: var(--fg); }
-  .stat .v small { font-size: .55em; color: var(--muted); font-weight: 600; margin-left: 2px; }
-  .stat .k { color: var(--muted); font-size: .86rem; margin-top: 6px; line-height: 1.4; }
-  @media (max-width: 900px) { .stats { grid-template-columns: repeat(2, 1fr); } .stat:last-child { grid-column: span 2; } }
+  .hud { position: absolute; z-index: 2; right: 20px; bottom: 22px; font: 600 11px/1.7 var(--mono); color: rgba(184,198,221,.7); text-align: right; pointer-events: none; }
+  .hud b { color: #34d399; font-weight: 600; }
+  @media (max-width: 900px) {
+    .hero::before { background: linear-gradient(180deg, rgba(5,8,15,.55) 0%, rgba(5,8,15,.82) 55%, rgba(5,8,15,.95) 100%); }
+    .hud { display: none; }
+  }
 
   /* ---------- sections ---------- */
-  section { padding: 88px 0 0; scroll-margin-top: 64px; }
-  .sec-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 28px; }
+  section { padding: 96px 0 0; scroll-margin-top: 64px; }
+  .sec-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 12px; }
   .sec-head .idx { font: 600 13px var(--mono); color: var(--det); }
-  h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); letter-spacing: -.025em; margin: 0; line-height: 1.15; }
-  .sec-sub { color: var(--muted); margin: -14px 0 28px; max-width: 64ch; }
+  h2 { font-size: clamp(1.7rem, 3vw, 2.2rem); letter-spacing: -.025em; margin: 0; line-height: 1.15; }
+  .sec-sub { color: var(--muted); margin: 0 0 40px; max-width: 62ch; }
 
-  /* ---------- project cards (detection box) ---------- */
-  .projects { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
-  .card { --c: var(--det); position: relative; grid-column: span 3; display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line);
-    border-radius: var(--radius); box-shadow: var(--shadow); transition: transform .25s ease, border-color .25s; }
-  .card.wide { grid-column: span 6; flex-direction: row; }
-  .card.third { grid-column: span 2; }
-  .card:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--c) 45%, var(--line)); }
-  .card .media { position: relative; aspect-ratio: 16 / 9; background: #05080f; border-radius: var(--radius) var(--radius) 0 0; overflow: hidden; }
-  .card.wide .media { flex: 0 0 56%; aspect-ratio: auto; min-height: 340px; border-radius: var(--radius) 0 0 var(--radius); }
-  .card .media img, .card .media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
-  .card .media video { opacity: 0; transition: opacity .4s; }
-  .card .media video.ready { opacity: 1; }
-  /* corner brackets that snap in on hover, like a detector locking on */
-  .card::before, .card::after { content: ""; position: absolute; width: 22px; height: 22px; border: 2.5px solid var(--c); pointer-events: none; opacity: 0;
-    transition: opacity .2s, transform .3s cubic-bezier(.2, .9, .3, 1.3); z-index: 3; }
-  .card::before { top: -7px; left: -7px; border-right: 0; border-bottom: 0; border-radius: 6px 0 0 0; transform: translate(-8px, -8px); }
-  .card::after { bottom: -7px; right: -7px; border-left: 0; border-top: 0; border-radius: 0 0 6px 0; transform: translate(8px, 8px); }
-  .card .br-tr, .card .br-bl { position: absolute; width: 22px; height: 22px; border: 2.5px solid var(--c); pointer-events: none; opacity: 0; z-index: 3;
-    transition: opacity .2s, transform .3s cubic-bezier(.2, .9, .3, 1.3); }
-  .card .br-tr { top: -7px; right: -7px; border-left: 0; border-bottom: 0; border-radius: 0 6px 0 0; transform: translate(8px, -8px); }
-  .card .br-bl { bottom: -7px; left: -7px; border-right: 0; border-top: 0; border-radius: 0 0 0 6px; transform: translate(-8px, 8px); }
-  .card:hover::before, .card:hover::after, .card:hover .br-tr, .card:hover .br-bl,
-  .card:focus-within::before, .card:focus-within::after, .card:focus-within .br-tr, .card:focus-within .br-bl { opacity: 1; transform: none; }
-  .tag { position: absolute; top: 12px; left: 12px; z-index: 2; font: 700 11px/1 var(--mono); color: #04120c; background: var(--c); padding: 5px 7px; border-radius: 5px; letter-spacing: .02em; }
-  .tag span { opacity: .7; font-weight: 600; }
-  .card .body { padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
-  .card.wide .body { padding: 28px 30px; justify-content: center; }
-  .card .ctx { font: 600 12px var(--mono); color: var(--muted); letter-spacing: .02em; }
-  .card h3 { margin: 0; font-size: 1.2rem; line-height: 1.3; letter-spacing: -.015em; }
-  .card.wide h3 { font-size: 1.5rem; }
-  .card p { margin: 0; color: var(--muted); font-size: .95rem; }
-  .metrics { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 2px; padding: 0; list-style: none; }
-  .metrics li { font: 600 12.5px var(--mono); padding: 5px 9px; border-radius: 7px; background: var(--det-soft); color: var(--fg); }
-  .metrics li b { color: var(--det); font-weight: 700; }
-  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
-  .chips li { font-size: .78rem; padding: 3px 8px; border-radius: 6px; border: 1px solid var(--line); color: var(--muted); }
-  .card .more { margin-top: auto; padding-top: 8px; font-weight: 600; font-size: .92rem; display: inline-flex; align-items: center; gap: 6px; }
-  .card .more::after { content: ""; position: absolute; inset: 0; z-index: 1; border-radius: var(--radius); }
-  .card .more svg { width: 15px; height: 15px; transition: transform .2s; }
-  .card:hover .more svg { transform: translateX(3px); }
-  @media (max-width: 900px) { .card, .card.third { grid-column: span 6; } .card.wide { flex-direction: column; } .card.wide .media { min-height: 0; aspect-ratio: 16 / 9; border-radius: var(--radius) var(--radius) 0 0; } .card.wide .body { padding: 20px 22px 22px; } .card.wide h3 { font-size: 1.2rem; } }
+  /* ---------- technical focus ---------- */
+  .focus { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .f { border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 20px; background: var(--surface); }
+  .f .ic { width: 38px; height: 38px; border-radius: 10px; display: grid; place-items: center; background: var(--det-soft); color: var(--det); margin-bottom: 14px; }
+  .f .ic svg { width: 20px; height: 20px; }
+  .f h3 { margin: 0 0 6px; font-size: 1.02rem; letter-spacing: -.01em; }
+  .f p { margin: 0; color: var(--muted); font-size: .92rem; line-height: 1.55; }
+  @media (max-width: 1000px) { .focus { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .focus { grid-template-columns: 1fr; } }
 
-  /* ---------- experience ---------- */
-  .timeline { list-style: none; margin: 0; padding: 0; position: relative; }
-  .timeline::before { content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: var(--line); }
-  .job { position: relative; padding: 0 0 34px 40px; display: grid; grid-template-columns: 200px 1fr; gap: 6px 28px; }
-  .job::before { content: ""; position: absolute; left: 0; top: 6px; width: 16px; height: 16px; border-radius: 4px; border: 2px solid var(--accent); background: var(--bg); }
-  .job.now::before { border-color: var(--det); background: var(--det); box-shadow: 0 0 0 4px var(--det-soft); }
-  .job .when { font: 600 13px/1.5 var(--mono); color: var(--muted); padding-top: 2px; }
-  .job .when .now-pill { display: inline-block; margin-top: 6px; font-size: 11px; color: var(--det); background: var(--det-soft); padding: 2px 7px; border-radius: 999px; }
-  .job h3 { margin: 0; font-size: 1.08rem; letter-spacing: -.01em; }
-  .job .org { color: var(--accent); font-weight: 600; font-size: .95rem; margin: 2px 0 8px; }
-  .job ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: .95rem; }
-  .job ul li { margin: 3px 0; }
-  .job ul li::marker { color: var(--line); }
-  .job .chips { margin-top: 10px; }
-  .gap-note { font-size: .9rem; color: var(--muted); font-style: italic; }
-  @media (max-width: 760px) { .job { grid-template-columns: 1fr; padding-left: 34px; } }
+  /* ---------- projects ---------- */
+  .projects { display: grid; gap: 88px; }
+  .project { display: grid; grid-template-columns: 1.12fr 1fr; gap: 48px; align-items: start; }
+  .project .media { position: sticky; top: 96px; }
+  .project:nth-child(even) .media { order: 2; }
+  .media { position: relative; aspect-ratio: 16 / 9; border-radius: var(--radius); background: #05080f; border: 1px solid var(--line); box-shadow: var(--shadow); }
+  .media .frame { position: absolute; inset: 0; border-radius: inherit; overflow: hidden; }
+  .media img, .media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+  .media video { opacity: 0; transition: opacity .4s; }
+  .media video.ready { opacity: 1; }
+  /* corner brackets that lock on when hovered, like a detector */
+  .media i { position: absolute; width: 20px; height: 20px; border: 2.5px solid var(--det); opacity: 0; pointer-events: none;
+    transition: opacity .2s, transform .3s cubic-bezier(.2,.9,.3,1.3); }
+  .media i:nth-of-type(1) { top: -8px; left: -8px; border-right: 0; border-bottom: 0; border-radius: 6px 0 0 0; transform: translate(-6px,-6px); }
+  .media i:nth-of-type(2) { top: -8px; right: -8px; border-left: 0; border-bottom: 0; border-radius: 0 6px 0 0; transform: translate(6px,-6px); }
+  .media i:nth-of-type(3) { bottom: -8px; left: -8px; border-right: 0; border-top: 0; border-radius: 0 0 0 6px; transform: translate(-6px,6px); }
+  .media i:nth-of-type(4) { bottom: -8px; right: -8px; border-left: 0; border-top: 0; border-radius: 0 0 6px 0; transform: translate(6px,6px); }
+  .project:hover .media i { opacity: 1; transform: none; }
+  .ctx { font: 600 12px var(--mono); color: var(--muted); letter-spacing: .03em; text-transform: uppercase; }
+  .project h3 { margin: 8px 0 12px; font-size: clamp(1.35rem, 2.2vw, 1.7rem); line-height: 1.2; letter-spacing: -.02em; }
+  .project .desc { margin: 0 0 14px; color: var(--muted); }
+  .project ul.how { margin: 0 0 16px; padding: 0; list-style: none; display: grid; gap: 8px; }
+  .project ul.how li { position: relative; padding-left: 20px; font-size: .95rem; line-height: 1.55; }
+  .project ul.how li::before { content: ""; position: absolute; left: 2px; top: .62em; width: 8px; height: 8px; border: 2px solid var(--det); border-radius: 2px; }
+  .result { display: flex; gap: 10px; align-items: baseline; margin: 0 0 16px; padding: 10px 12px; border-radius: 10px; background: var(--det-soft); font-size: .92rem; line-height: 1.5; }
+  .result b { font: 700 11px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--det); flex: none; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 18px; padding: 0; list-style: none; }
+  .chips li { font: 500 12px var(--mono); padding: 3px 8px; border-radius: 6px; border: 1px solid var(--line); color: var(--muted); }
+  .gh { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: .95rem; color: var(--fg); border: 1px solid var(--line); border-radius: 10px; padding: 8px 14px; background: var(--surface); }
+  .gh:hover { text-decoration: none; border-color: var(--accent); }
+  .gh svg { width: 17px; height: 17px; }
+  .note { font-size: .82rem; color: var(--muted); margin-left: 10px; }
+  @media (max-width: 900px) {
+    .projects { gap: 64px; }
+    .project { grid-template-columns: 1fr; gap: 22px; }
+    .project:nth-child(even) .media { order: 0; }
+    .project .media { position: relative; top: 0; }
+  }
 
-  /* ---------- skills ---------- */
-  .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .skill-col { border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; background: var(--surface); }
-  .skill-col h3 { margin: 0 0 4px; font-size: 1rem; display: flex; align-items: center; gap: 8px; }
-  .skill-col h3 i { width: 10px; height: 10px; border-radius: 3px; background: var(--c, var(--det)); }
-  .skill-col .hint { color: var(--muted); font-size: .85rem; margin: 0 0 14px; }
-  .skill-col dl { margin: 0; }
-  .skill-col dt { font: 600 11.5px var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 14px 0 6px; }
-  .skill-col dt:first-child { margin-top: 0; }
-  .skill-col dd { margin: 0; }
-  @media (max-width: 900px) { .skills { grid-template-columns: 1fr; } }
+  footer { margin-top: 110px; border-top: 1px solid var(--line); padding: 36px 0 44px; color: var(--muted); font-size: .92rem; }
+  footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+  footer .links { display: flex; gap: 20px; flex-wrap: wrap; }
+  footer .links a { color: var(--fg); font-weight: 600; }
 
-  /* ---------- education ---------- */
-  .edu { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-  .edu-item { border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; background: var(--surface); }
-  .edu-item .when { font: 600 13px var(--mono); color: var(--muted); }
-  .edu-item h3 { margin: 6px 0 2px; font-size: 1.08rem; }
-  .edu-item .org { color: var(--accent); font-weight: 600; font-size: .95rem; }
-  .edu-item p { margin: 10px 0 0; color: var(--muted); font-size: .93rem; }
-  .langs { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
-  .lang-pill { display: flex; align-items: center; gap: 10px; border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px; background: var(--surface); }
-  .lang-pill b { font-size: .95rem; }
-  .lang-pill span { font: 600 12px var(--mono); color: var(--det); background: var(--det-soft); padding: 2px 7px; border-radius: 6px; }
-  .lang-pill small { color: var(--muted); }
-  @media (max-width: 760px) { .edu { grid-template-columns: 1fr; } }
-
-  /* ---------- contact ---------- */
-  .contact { margin: 88px 0 0; padding: 44px; border-radius: 20px; border: 1px solid var(--line); position: relative; overflow: hidden;
-    background: radial-gradient(1200px 300px at 0% 0%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 60%), var(--surface); }
-  .contact h2 { margin-bottom: 10px; }
-  .contact p { color: var(--muted); max-width: 60ch; margin: 0 0 24px; }
-  .contact .ctas { gap: 10px; }
-  @media (max-width: 600px) { .contact { padding: 28px 22px; } }
-
-  footer { padding: 40px 0 48px; color: var(--muted); font-size: .88rem; }
-  footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-
-  /* reveal on scroll */
   .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
-  .reveal.in { opacity: 1; transform: none; }
+  .reveal.in, .no-js .reveal { opacity: 1; transform: none; }
   @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
-  .no-js .reveal { opacity: 1; transform: none; }
 </style>
 </head>
 <body>
@@ -253,12 +190,13 @@
 
 <header class="nav" id="nav">
   <div class="wrap nav-in">
-    <a class="brand" href="#top" aria-label="Mo Avazpour — home"><span class="brand-mark">MA</span><span>Mo Avazpour</span></a>
+    <a class="brand" href="#top" aria-label="Mo Avazpour — home">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M10 22V10h12M42 10h12v12M54 42v12H42M22 54H10V42" fill="none" stroke="#34d399" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="32" cy="32" r="5" fill="currentColor"/></svg>
+      <span>Mo Avazpour</span></a>
     <nav class="nav-links" aria-label="Sections">
+      <a href="#focus" data-i18n="nav.focus">Focus</a>
       <a href="#projects" data-i18n="nav.projects">Projects</a>
-      <a href="#experience" data-i18n="nav.experience">Experience</a>
-      <a href="#skills" data-i18n="nav.skills">Skills</a>
-      <a href="#contact" data-i18n="nav.contact">Contact</a>
+      <a href="https://github.com/moavazpour" rel="me">GitHub</a>
     </nav>
     <div class="tools">
       <button class="tbtn lang" id="langBtn" type="button" aria-label="Sprache wechseln / switch language"><b data-l="en">EN</b><span aria-hidden="true">/</span><b data-l="de">DE</b></button>
@@ -272,17 +210,14 @@
 
 <main id="main">
   <div class="hero" id="top">
-    <div class="wrap hero-grid">
-      <div>
-        <span class="kicker"><span class="dot"></span><span data-i18n="hero.kicker">Computer Vision &amp; Perception Engineer</span></span>
+    <canvas id="cloud" aria-hidden="true"></canvas>
+    <div class="wrap hero-in">
+      <div class="hero-text">
+        <span class="kicker">Computer Vision &amp; Perception Engineer</span>
         <h1>Mo Avazpour</h1>
-        <p class="tagline" data-i18n-html="hero.tagline">I make perception work <em>on weak hardware, in the real world</em>.</p>
-        <p class="lede" data-i18n="hero.lede">Real-time and edge perception for transportation and automotive. I built the detection and OCR pipeline of an edge ANPR engine that grew from an 8-camera pilot to 74 cameras, and the vehicle detection for an adaptive traffic-signal pilot. Now in Ingolstadt: LLM-based test tooling at diconium, V2X cooperative perception research at AImotion Bavaria, and an M.Eng. in Automated Driving at THI.</p>
-        <ul class="facts">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span data-i18n="hero.loc">Ingolstadt, Germany</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="hero.permit">Work authorization in Germany, no sponsorship needed</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h7M7.5 3v2M5 9c1.5 3 4 5 7 6M10 5c-1 4-3.5 7-6 9"/><path d="m13 21 4-10 4 10M14.5 17.5h5"/></svg><span data-i18n="hero.langs">English C1 · German B2</span></li>
-        </ul>
+        <p class="tagline" data-i18n="hero.tagline">Real-time perception that runs on the edge.</p>
+        <p class="lede" data-i18n="hero.lede">I build perception systems that run in real time on edge hardware: object detection and tracking, OCR, and 3D perception from LiDAR and cameras, for traffic and automated driving. Below are my projects, each with a demo video and the code or write-up on GitHub.</p>
+        <p class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span data-i18n="hero.loc">Greater Munich Metropolitan Area</span></p>
         <div class="ctas">
           <a class="btn primary" href="#projects"><span data-i18n="hero.cta">See the projects</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg></a>
@@ -290,282 +225,142 @@
           <a class="btn" href="https://linkedin.com/in/moavazpour" rel="me"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6h.1c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.5H3.5V9h3.6v11.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg>LinkedIn</a>
         </div>
       </div>
-      <div class="viewfinder" aria-hidden="true">
-        <canvas id="scene"></canvas>
-        <div class="vf-hud">
-          <div class="tl"><span class="rec">CAM 03</span> · RTSP</div>
-          <div class="tr" id="hudFps">yolo · 25.0 fps</div>
-          <div class="bl" id="hudCount">tracks 0 · plates 0</div>
-          <div class="br">jetson · fp16</div>
+    </div>
+    <div class="hud" aria-hidden="true">lidar · 32 beams · <span id="hudPts">0</span> pts<br><b id="hudObj">0 objects</b> · 3d boxes</div>
+  </div>
+
+  <section id="focus">
+    <div class="wrap">
+      <div class="sec-head"><span class="idx">01</span><h2 data-i18n="sec.focus">Technical focus</h2></div>
+      <p class="sec-sub" data-i18n="sec.focus.sub">What the projects below have in common: perception that has to work in the field, on limited hardware, with real data.</p>
+      <div class="focus">
+        <div class="f reveal">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8V4h4M17 4h4v4M21 16v4h-4M7 20H3v-4"/><rect x="8" y="8" width="8" height="8" rx="1"/></svg></div>
+          <h3 data-i18n="f1.t">Real-time detection &amp; tracking</h3>
+          <p data-i18n="f1.d">Training and deploying YOLO models, multi-object tracking, OCR post-processing and best-frame selection.</p>
+        </div>
+        <div class="f reveal">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg></div>
+          <h3 data-i18n="f2.t">Edge deployment</h3>
+          <p data-i18n="f2.d">TensorRT FP16 on NVIDIA Jetson, CUDA OpenCV DNN, and multithreaded C++ pipelines for CPU-only industrial PCs.</p>
+        </div>
+        <div class="f reveal">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 3 8l9 5 9-5-9-5z"/><path d="M3 8v8l9 5 9-5V8M12 13v8"/></svg></div>
+          <h3 data-i18n="f3.t">3D perception</h3>
+          <p data-i18n="f3.d">LiDAR point clouds, CenterPoint and keypoint-based 3D boxes, camera–LiDAR calibration and SUMO–CARLA co-simulation.</p>
+        </div>
+        <div class="f reveal">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></div>
+          <h3 data-i18n="f4.t">Data &amp; foundation models</h3>
+          <p data-i18n="f4.d">Merging and validating large multi-source datasets, and FastSAM and DINOv2 for pipelines that need no labels.</p>
         </div>
       </div>
     </div>
-    <div class="wrap">
-      <div class="stats reveal">
-        <div class="stat"><div class="v">74<small> cams</small></div><div class="k" data-i18n="stat.cams">ANPR rollout, up from an 8-camera pilot</div></div>
-        <div class="stat"><div class="v">99.4<small>%</small></div><div class="k" data-i18n="stat.plates">exact plate reads, 1,200-vehicle 24 h field test, 0 missed</div></div>
-        <div class="stat"><div class="v">~25<small> fps</small></div><div class="k" data-i18n="stat.fps">YOLOv4-tiny on Jetson Nano with TensorRT FP16</div></div>
-        <div class="stat"><div class="v">1.7M<small>+</small></div><div class="k" data-i18n="stat.objects">labeled objects unified from 7 roadside datasets</div></div>
-        <div class="stat"><div class="v">500<small>+</small></div><div class="k" data-i18n="stat.users">users of my log-analysis tool across VW Group brands</div></div>
-      </div>
-    </div>
-  </div>
+  </section>
 
   <section id="projects">
     <div class="wrap">
-      <div class="sec-head"><span class="idx">01</span><h2 data-i18n="sec.projects">Selected work</h2></div>
-      <p class="sec-sub" data-i18n="sec.projects.sub">Two production systems from industry and three projects from my M.Eng. and my own time. Each one has a showcase repository with more detail.</p>
+      <div class="sec-head"><span class="idx">02</span><h2 data-i18n="sec.projects">Projects</h2></div>
+      <p class="sec-sub" data-i18n="sec.projects.sub">Each project has a demo video and a GitHub repository with the details.</p>
 
       <div class="projects">
-        <article class="card wide reveal" style="--c: var(--det)">
-          <i class="br-tr"></i><i class="br-bl"></i>
-          <div class="media" data-media="anpr">
-            <span class="tag">plate <span>0.99</span></span>
-            <img src="assets/anpr.webp" alt="ANPR demo: plates detected and read on vehicles at a gate" loading="lazy" width="960" height="540">
-          </div>
-          <div class="body">
-            <div class="ctx" data-i18n="p.anpr.ctx">Production · Anamis Electronic Vira · 2022–2025</div>
+        <article class="project reveal">
+          <div class="media" data-media="anpr"><div class="frame"><img src="assets/anpr.webp" alt="ANPR demo: live camera feed next to the detection result with plates read" loading="lazy"></div><i></i><i></i><i></i><i></i></div>
+          <div>
+            <div class="ctx" data-i18n="p.anpr.ctx">Production system · 2022–2025</div>
             <h3 data-i18n="p.anpr.title">Automatic Number Plate Recognition at the Edge</h3>
-            <p data-i18n="p.anpr.desc">Detection, OCR, multi-object tracking and best-frame selection on Jetson Nano and low-power industrial PCs. I moved the hot path from Python to multithreaded C++ and added motion gating, so even a CPU-only Atom site went from under 30% to ~70% vehicle capture.</p>
-            <ul class="metrics">
-              <li><b>8 → 74</b> <span data-i18n="m.cameras">cameras</span></li>
-              <li><b>99.4%</b> <span data-i18n="m.exact">exact reads</span></li>
-              <li><b>0</b> <span data-i18n="m.missed">missed / 1,200</span></li>
-              <li><b>~25 fps</b> Jetson</li>
+            <p class="desc" data-i18n="p.anpr.desc">An edge ANPR engine for access control and parking, rolled out from an 8-camera pilot to 74 cameras. Frames come in over RTSP or from Basler industrial cameras; detection, OCR, tracking and best-frame selection run on the device, and results go to MySQL and to the server over REST (HTTPS/TLS).</p>
+            <ul class="how">
+              <li data-i18n="p.anpr.1">Moved the hot path from Python to multithreaded C++: RTSP ingestion, YOLO inference, OCR post-processing, storage and camera reconnection.</li>
+              <li data-i18n="p.anpr.2">YOLOv4-tiny with TensorRT FP16 at ~25 FPS on Jetson Nano, serving up to 4 cameras per device.</li>
+              <li data-i18n="p.anpr.3">Motion gating, direction of travel, tracking and best-frame selection per vehicle. On a CPU-only Intel Atom site, a motion-gated ROI buffer raised vehicle capture from under 30% to ~70%.</li>
             </ul>
-            <ul class="chips"><li>C++</li><li>YOLOv4</li><li>TensorRT</li><li>CUDA</li><li>OpenCV</li><li>GStreamer</li><li>Basler Pylon</li></ul>
-            <a class="more" href="https://github.com/moavazpour/anpr-showcase"><span data-i18n="more">View case study</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <p class="result"><b data-i18n="result">Result</b><span data-i18n="p.anpr.r">Field test with 1,200 vehicles over 24 h: none missed, 99.4% of plates read exactly right.</span></p>
+            <ul class="chips"><li>C++17</li><li>Python</li><li>YOLOv4</li><li>TensorRT</li><li>CUDA</li><li>OpenCV</li><li>GStreamer</li><li>Basler Pylon</li></ul>
+            <a class="gh" href="https://github.com/moavazpour/anpr-showcase"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2.2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg><span data-i18n="gh.showcase">Showcase on GitHub</span></a><span class="note" data-i18n="note.prop">production code is proprietary</span>
           </div>
         </article>
 
-        <article class="card reveal" style="--c: #f59e0b">
-          <i class="br-tr"></i><i class="br-bl"></i>
-          <div class="media" data-media="intersection">
-            <span class="tag">lane <span>occupied</span></span>
-            <img src="assets/intersection.webp" alt="Lane-level regions of interest reporting vehicle or empty at an intersection" loading="lazy" width="960" height="540">
-          </div>
-          <div class="body">
-            <div class="ctx" data-i18n="p.int.ctx">Production pilot · Bandar Abbas · 2021</div>
-            <h3 data-i18n="p.int.title">Adaptive Intersection Controller</h3>
-            <p data-i18n="p.int.desc">Lane-level ROIs as virtual inductive loops on Raspberry-Pi-class hardware, with no GPU and no neural network, feeding an adaptive signal controller over RS-485. My part was the detection module; the results below are the team's.</p>
-            <ul class="metrics"><li><b>−12%</b> <span data-i18n="m.cycle">cycle time</span></li><li><b>92.5%</b> <span data-i18n="m.avail">availability at 45 °C</span></li></ul>
-            <ul class="chips"><li>Python</li><li>OpenCV</li><li data-i18n="c.bgsub">Background subtraction</li><li>RS-485</li></ul>
-            <a class="more" href="https://github.com/moavazpour/adaptive-intersection-showcase"><span data-i18n="more">View case study</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          </div>
-        </article>
-
-        <article class="card reveal" style="--c: #8b5cf6">
-          <i class="br-tr"></i><i class="br-bl"></i>
-          <div class="media" data-media="roadside3d">
-            <span class="tag">3d-box <span>0.86</span></span>
-            <img src="assets/roadside3d.webp" alt="3D bounding boxes on road users seen from a roadside camera" loading="lazy" width="960" height="540">
-          </div>
-          <div class="body">
-            <div class="ctx" data-i18n="p.r3d.ctx">Team project, coordinator · THI · 2026 · grade 1.0</div>
+        <article class="project reveal">
+          <div class="media" data-media="roadside3d"><div class="frame"><img src="assets/roadside3d.webp" alt="3D bounding boxes on road users seen from a roadside camera on a highway" loading="lazy"></div><i></i><i></i><i></i><i></i></div>
+          <div>
+            <div class="ctx" data-i18n="p.r3d.ctx">University team project · 2026</div>
             <h3 data-i18n="p.r3d.title">Universal Roadside 3D Object Detector</h3>
-            <p data-i18n="p.r3d.desc">One label schema across 7 roadside and vehicle-side datasets. My validation tooling found that about 20% of labels were corrupted, which was the main cause of the model's low confidence. Planned for the HD Testfeld intersections in Ingolstadt.</p>
-            <ul class="metrics"><li><b>1.7M+</b> <span data-i18n="m.objects">objects</span></li><li><b>0.44 → 0.86</b> pose mAP50</li></ul>
-            <ul class="chips"><li>PyTorch</li><li>MMDetection</li><li>CenterPoint</li><li>LiDAR</li><li>Open3D</li></ul>
-            <a class="more" href="https://github.com/moavazpour/roadside-3d-detector-showcase"><span data-i18n="more">View case study</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <p class="desc" data-i18n="p.r3d.desc">One roadside 3D detection model trained on seven merged roadside and vehicle-side datasets, planned for integration at the HD Testfeld intersections in Ingolstadt. I coordinated the project and led the data pipeline.</p>
+            <ul class="how">
+              <li data-i18n="p.r3d.1">Unified label schema, keypoint ordering, class taxonomy and splits across LUMPI, RoScenes, TUMTraf, V2X-Radar, V2X-Seq, ZOD and DAIR-V2X: 1.7M+ labeled objects.</li>
+              <li data-i18n="p.r3d.2">Validation tooling found that about 20% of the labels were corrupted, which was the main reason for the model's low confidence.</li>
+              <li data-i18n="p.r3d.3">Sampling and augmentation tuned for class imbalance and small objects; inference on images, video and live camera streams.</li>
+            </ul>
+            <p class="result"><b data-i18n="result">Result</b><span data-i18n="p.r3d.r">Pose mAP50 up from 0.44 to 0.86.</span></p>
+            <ul class="chips"><li>PyTorch</li><li>MMDetection</li><li>YOLO Pose</li><li>CenterPoint</li><li>LiDAR</li><li>Open3D</li><li>PCL</li><li>CUDA</li></ul>
+            <a class="gh" href="https://github.com/moavazpour/roadside-3d-detector-showcase"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2.2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg><span data-i18n="gh.showcase">Showcase on GitHub</span></a>
           </div>
         </article>
 
-        <article class="card reveal" style="--c: #ef4444">
-          <i class="br-tr"></i><i class="br-bl"></i>
-          <div class="media" data-media="tsr">
-            <span class="tag">sign <span>0.97</span></span>
-            <img src="assets/tsr.webp" alt="Traffic signs detected and classified in a driving video" loading="lazy" width="960" height="540">
+        <article class="project reveal">
+          <div class="media" data-media="intersection"><div class="frame"><img src="assets/intersection.webp" alt="Lane-level regions of interest marking lanes as occupied or empty at an intersection" loading="lazy"></div><i></i><i></i><i></i><i></i></div>
+          <div>
+            <div class="ctx" data-i18n="p.int.ctx">Production pilot · 2021</div>
+            <h3 data-i18n="p.int.title">Adaptive Intersection Controller</h3>
+            <p class="desc" data-i18n="p.int.desc">Camera-based vehicle-presence detection for an adaptive traffic-signal pilot at 3 intersections with 12 cameras. Each lane becomes a virtual inductive loop that sends a 0/1 presence signal over RS-485 to the controller, which sizes each green phase from it. My part was the detection module.</p>
+            <ul class="how">
+              <li data-i18n="p.int.1">Classical computer vision on Raspberry-Pi-class hardware, with no GPU and no neural network: adaptive background subtraction, Canny edges and lane-level ROIs.</li>
+              <li data-i18n="p.int.2">Wet asphalt caused false positives with raw edge counting; adaptive background subtraction removed them.</li>
+              <li data-i18n="p.int.3">Recovered and analysed 371,000 signal phases from a controller log corrupted by SPI noise.</li>
+            </ul>
+            <p class="result"><b data-i18n="result">Result</b><span data-i18n="p.int.r">Team result: average cycle 12% shorter than the fixed-time plan, 92.5% adaptive-mode availability in heat up to 45 °C.</span></p>
+            <ul class="chips"><li>Python</li><li>OpenCV</li><li data-i18n="c.bgsub">Background subtraction</li><li>Canny</li><li>RS-485</li><li>pandas</li></ul>
+            <a class="gh" href="https://github.com/moavazpour/adaptive-intersection-showcase"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2.2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg><span data-i18n="gh.showcase">Showcase on GitHub</span></a><span class="note" data-i18n="note.prop">production code is proprietary</span>
           </div>
-          <div class="body">
-            <div class="ctx" data-i18n="p.tsr.ctx">Seminar · THI · 2026 · grade 1.0</div>
+        </article>
+
+        <article class="project reveal">
+          <div class="media" data-media="tsr"><div class="frame"><img src="assets/tsr.webp" alt="Traffic signs detected and classified in a rainy driving video" loading="lazy"></div><i></i><i></i><i></i><i></i></div>
+          <div>
+            <div class="ctx" data-i18n="p.tsr.ctx">Seminar project · 2026</div>
             <h3 data-i18n="p.tsr.title">Traffic Sign Recognition &amp; EU ISA</h3>
-            <p data-i18n="p.tsr.desc">A two-stage YOLO pipeline stress-tested in rain, glare, night and fog, then analysed against the EU Intelligent Speed Assistance requirements.</p>
-            <ul class="metrics"><li><b>0.970</b> / <b>0.950</b> mAP50</li><li><b>5.7 ms</b> A100</li></ul>
-            <ul class="chips"><li>YOLO</li><li>GTSDB</li><li>GTSRB</li><li>CUDA</li></ul>
-            <a class="more" href="https://github.com/moavazpour/TSR-ISA-EU-Regulation"><span data-i18n="more.code">View code</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <p class="desc" data-i18n="p.tsr.desc">A real-time, two-stage traffic sign pipeline, analysed against the EU requirements for Intelligent Speed Assistance (ISA).</p>
+            <ul class="how">
+              <li data-i18n="p.tsr.1">Stage 1: a YOLO detector trained on GTSDB finds signs in the full frame. Stage 2: a second YOLO detector trained on GTSRB classifies the crops into 43 sign types.</li>
+              <li data-i18n="p.tsr.2">Stress-tested in rain, glare, night and fog; documented false positives and cross-lane attribution.</li>
+              <li data-i18n="p.tsr.3">Demo with two-frame temporal confirmation, a fixed ROI band with a size filter, and a speed-limit HUD.</li>
+            </ul>
+            <p class="result"><b data-i18n="result">Result</b><span data-i18n="p.tsr.r">mAP50 0.970 for localisation and 0.950 across 43 classes, 5.7 ms inference on an NVIDIA A100.</span></p>
+            <ul class="chips"><li>Python</li><li>YOLO26</li><li>PyTorch</li><li>OpenCV</li><li>CUDA</li></ul>
+            <a class="gh" href="https://github.com/moavazpour/TSR-ISA-EU-Regulation"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2.2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg><span data-i18n="gh.code">Code on GitHub</span></a>
           </div>
         </article>
 
-        <article class="card reveal" style="--c: #06b6d4">
-          <i class="br-tr"></i><i class="br-bl"></i>
-          <div class="media" data-media="conveyor">
-            <span class="tag">track <span>#12</span></span>
-            <img src="assets/conveyor.webp" alt="Baked goods segmented, tracked and counted on a moving conveyor" loading="lazy" width="960" height="540">
-          </div>
-          <div class="body">
+        <article class="project reveal">
+          <div class="media" data-media="conveyor"><div class="frame"><img src="assets/conveyor.webp" alt="Baked goods segmented, tracked and counted on a moving conveyor belt" loading="lazy"></div><i></i><i></i><i></i><i></i></div>
+          <div>
             <div class="ctx" data-i18n="p.conv.ctx">Independent project · 2026</div>
             <h3 data-i18n="p.conv.title">Detection, Tracking &amp; Classification on a Conveyor</h3>
-            <p data-i18n="p.conv.desc">Segmentation, tracking, counting and online classification with no labeled training set: FastSAM, Hungarian association and DINOv2 embeddings with incremental clustering.</p>
-            <ul class="metrics"><li><b>0</b> <span data-i18n="m.labels">labels needed</span></li><li><b>1×</b> <span data-i18n="m.once">count per track</span></li></ul>
-            <ul class="chips"><li>FastSAM</li><li>DINOv2</li><li>OpenCV</li><li>Gradio</li></ul>
-            <a class="more" href="https://github.com/moavazpour/bakery-conveyor-cv"><span data-i18n="more.code">View code</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <p class="desc" data-i18n="p.conv.desc">Segments, tracks, counts and classifies baked goods on a moving conveyor belt without a single labeled training image.</p>
+            <ul class="how">
+              <li data-i18n="p.conv.1">FastSAM masks with ROI-relative area filtering to separate touching and overlapping objects.</li>
+              <li data-i18n="p.conv.2">Hungarian data association with velocity-based prediction bridges short dropouts; a four-stage line-crossing state machine with hysteresis counts each track once.</li>
+              <li data-i18n="p.conv.3">Online classification with DINOv2 embeddings and incremental clustering; noise goes to an "unclear" class.</li>
+            </ul>
+            <p class="result"><b data-i18n="result">Result</b><span data-i18n="p.conv.r">An annotated video, JSON/CSV export and a sorted image archive, from the CLI or a Gradio web demo.</span></p>
+            <ul class="chips"><li>Python</li><li>FastSAM</li><li>DINOv2</li><li>OpenCV</li><li data-i18n="c.hung">Hungarian algorithm</li><li>Gradio</li></ul>
+            <a class="gh" href="https://github.com/moavazpour/bakery-conveyor-cv"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2.2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg><span data-i18n="gh.code">Code on GitHub</span></a>
           </div>
         </article>
       </div>
     </div>
   </section>
-
-  <section id="experience">
-    <div class="wrap">
-      <div class="sec-head"><span class="idx">02</span><h2 data-i18n="sec.exp">Experience</h2></div>
-      <ol class="timeline">
-        <li class="job now reveal">
-          <div class="when">10/2026 – <span data-i18n="present">present</span><br><span class="now-pill" data-i18n="parttime">part-time</span></div>
-          <div>
-            <h3 data-i18n="j.dic.role">Working Student, AI Testing Platform</h3>
-            <div class="org">diconium · Ingolstadt</div>
-            <ul>
-              <li data-i18n="j.dic.1">Python components of an LLM-based tool that generates test cases, including penetration-test scenarios, for automotive software.</li>
-              <li data-i18n="j.dic.2">LLM API and REST integration, with unit and integration tests.</li>
-            </ul>
-          </div>
-        </li>
-        <li class="job now reveal">
-          <div class="when">08/2026 – <span data-i18n="present">present</span><br><span class="now-pill" data-i18n="parttime">part-time</span></div>
-          <div>
-            <h3 data-i18n="j.aim.role">Student Research Assistant, Cooperative Perception</h3>
-            <div class="org">AImotion Bavaria · Ingolstadt</div>
-            <ul>
-              <li data-i18n="j.aim.1">SUMO–CARLA co-simulation scenarios that generate evaluation data for perception models.</li>
-              <li data-i18n="j.aim.2">Literature reviews on V2X cooperative perception and uncertainty estimation; early Sim2Real benchmarking.</li>
-            </ul>
-          </div>
-        </li>
-        <li class="job reveal">
-          <div class="when">03/2026 – 08/2026</div>
-          <div>
-            <h3 data-i18n="j.car.role">Working Student, Function &amp; System Development</h3>
-            <div class="org">CARIAD SE · Ingolstadt · Central ECU / OTA</div>
-            <ul>
-              <li data-i18n="j.car.1">Turned an undocumented log-analysis repository into a documented internal tool for Android-based central ECUs (HCP3, HCP5, ConMod), now used across VW Group brands by 500+ people.</li>
-              <li data-i18n="j.car.2">Made the scripts faster on large logs, integrated them with iDEX, EsoTrace and DLT Viewer, and drafted a roadmap for AI-based log analysis.</li>
-            </ul>
-            <ul class="chips"><li>Python</li><li>C#</li><li>DLT Viewer</li><li>Wireshark</li></ul>
-          </div>
-        </li>
-        <li class="job reveal">
-          <div class="when">03/2025 – 02/2026</div>
-          <div>
-            <h3 data-i18n="j.move.role">Relocation to Germany</h3>
-            <p class="gap-note" data-i18n="j.move.1">First year of the M.Eng. full-time; German to B2.</p>
-          </div>
-        </li>
-        <li class="job reveal">
-          <div class="when">10/2022 – 02/2025</div>
-          <div>
-            <h3 data-i18n="j.ana.role">Computer Vision Engineer</h3>
-            <div class="org">Anamis Electronic Vira (GambroTech) · Bandar Abbas</div>
-            <ul>
-              <li data-i18n="j.ana.1">Built the detection and OCR pipeline of the company's edge ANPR engine and took it from an 8-camera pilot to 74 cameras.</li>
-              <li data-i18n="j.ana.2">Optimized for weak hardware: TensorRT FP16 on Jetson Nano, CUDA OpenCV DNN, and lower RAM and CPU use on low-power x86.</li>
-              <li data-i18n="j.ana.3">Integrated Basler cameras via the Pylon SDK, built REST APIs over HTTPS/TLS, and shipped a native C++ DLL used by the C# UI team.</li>
-            </ul>
-            <ul class="chips"><li>C++17</li><li>Python</li><li>YOLOv4</li><li>TensorRT</li><li>Jetson</li><li>MySQL</li></ul>
-          </div>
-        </li>
-        <li class="job reveal">
-          <div class="when">09/2020 – 09/2022</div>
-          <div>
-            <h3 data-i18n="j.ana0.role">Working Student, Computer Vision &amp; Embedded Vision</h3>
-            <div class="org">Anamis Electronic Vira (GambroTech) · <span data-i18n="remote">remote</span></div>
-            <ul>
-              <li data-i18n="j.ana0.1">Vehicle-presence detection for an adaptive traffic-signal pilot; fixed false positives on wet asphalt with adaptive background subtraction.</li>
-              <li data-i18n="j.ana0.2">Recovered and analysed 371,000 signal phases from a corrupted controller log, and curated the 7,000+ image dataset for the ANPR model.</li>
-            </ul>
-          </div>
-        </li>
-        <li class="job reveal">
-          <div class="when">02/2017 – 06/2019</div>
-          <div>
-            <h3 data-i18n="j.rob.role">Junior Embedded Developer (Trainee)</h3>
-            <div class="org">RobatSazan Sanat Kavir</div>
-            <ul>
-              <li data-i18n="j.rob.1">Firmware for an inductive-loop vehicle counter, PCB design for Doppler radar modules on AVR microcontrollers, and field tests comparing loops with radar.</li>
-            </ul>
-          </div>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <section id="skills">
-    <div class="wrap">
-      <div class="sec-head"><span class="idx">03</span><h2 data-i18n="sec.skills">Skills</h2></div>
-      <div class="skills">
-        <div class="skill-col reveal" style="--c: var(--det)">
-          <h3><i></i><span data-i18n="sk.prod">Production</span></h3>
-          <p class="hint" data-i18n="sk.prod.hint">Used in paid work</p>
-          <dl>
-            <dt data-i18n="sk.cv">Computer vision</dt><dd><ul class="chips"><li>OpenCV</li><li>YOLO</li><li>OCR</li><li data-i18n="sk.mot">Multi-object tracking</li><li data-i18n="sk.classic">Classical CV</li><li data-i18n="sk.data">Dataset curation</li></ul></dd>
-            <dt data-i18n="sk.edge">Edge deployment</dt><dd><ul class="chips"><li>Jetson Nano</li><li>TensorRT FP16</li><li>CUDA</li><li>Embedded Linux</li></ul></dd>
-            <dt data-i18n="sk.stream">Cameras &amp; streaming</dt><dd><ul class="chips"><li>RTSP</li><li>GStreamer</li><li>libVLC</li><li>Basler Pylon</li><li>ONVIF</li></ul></dd>
-            <dt data-i18n="sk.code">Programming</dt><dd><ul class="chips"><li>C++17/23</li><li>Python</li><li>C#</li><li>MySQL</li><li>REST / TLS</li><li data-i18n="sk.llm">LLM APIs</li></ul></dd>
-          </dl>
-        </div>
-        <div class="skill-col reveal" style="--c: var(--accent)">
-          <h3><i></i><span data-i18n="sk.res">Projects &amp; research</span></h3>
-          <p class="hint" data-i18n="sk.res.hint">M.Eng. projects and research role</p>
-          <dl>
-            <dt data-i18n="sk.3d">3D perception</dt><dd><ul class="chips"><li>PyTorch</li><li>MMDetection</li><li>CenterPoint</li><li>YOLO Pose</li><li>PCL / Open3D</li><li data-i18n="sk.calib">Camera–LiDAR calibration</li></ul></dd>
-            <dt data-i18n="sk.sim">Simulation &amp; data</dt><dd><ul class="chips"><li>SUMO</li><li>CARLA</li><li>KITTI</li><li>nuScenes</li><li>Waymo Open</li></ul></dd>
-            <dt data-i18n="sk.found">Foundation models</dt><dd><ul class="chips"><li>FastSAM</li><li>DINOv2</li><li>Gradio</li></ul></dd>
-          </dl>
-        </div>
-        <div class="skill-col reveal" style="--c: var(--muted)">
-          <h3><i></i><span data-i18n="sk.fam">Familiar</span></h3>
-          <p class="hint" data-i18n="sk.fam.hint">Coursework, self-study, earlier background</p>
-          <dl>
-            <dt data-i18n="sk.ad">Automated driving</dt><dd><ul class="chips"><li>BEV / BEVFusion</li><li>ROS2</li><li>ISO 26262</li><li>SOTIF</li><li>V2X</li></ul></dd>
-            <dt data-i18n="sk.tools">Tooling</dt><dd><ul class="chips"><li>Docker</li><li>CI/CD</li><li>ONNX Runtime</li><li>PostgreSQL</li></ul></dd>
-            <dt data-i18n="sk.emb">Embedded</dt><dd><ul class="chips"><li>STM32</li><li>FreeRTOS</li><li>CAN / SPI / UART</li><li>RS-485</li><li>Altium</li></ul></dd>
-          </dl>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="education">
-    <div class="wrap">
-      <div class="sec-head"><span class="idx">04</span><h2 data-i18n="sec.edu">Education &amp; languages</h2></div>
-      <div class="edu">
-        <div class="edu-item reveal">
-          <div class="when">03/2025 – 01/2028 <span data-i18n="expected">(expected)</span></div>
-          <h3 data-i18n="e.meng">M.Eng. Automated Driving and Vehicle Safety</h3>
-          <div class="org">Technische Hochschule Ingolstadt</div>
-          <p data-i18n="e.meng.1">Final phase: remaining coursework and the Master's thesis, completed part-time alongside work.</p>
-        </div>
-        <div class="edu-item reveal">
-          <div class="when">09/2017 – 09/2022</div>
-          <h3 data-i18n="e.bsc">Bachelor's degree, Electrical Engineering</h3>
-          <div class="org">Imam Ali Technical College · Yazd</div>
-          <p data-i18n="e.bsc.1">Discontinuous Bachelor's following an Associate degree in Electronics. Recognized in Germany as bachelor's equivalent (anabin A5, H+).</p>
-        </div>
-      </div>
-      <div class="langs reveal">
-        <div class="lang-pill"><b data-i18n="l.en">English</b><span>C1</span><small>IELTS Academic 7.0</small></div>
-        <div class="lang-pill"><b data-i18n="l.de">German</b><span>B2</span><small data-i18n="l.de.note">certified, C1 in progress</small></div>
-        <div class="lang-pill"><b data-i18n="l.fa">Persian</b><span data-i18n="l.native">native</span></div>
-      </div>
-    </div>
-  </section>
-
-  <div class="wrap">
-    <div class="contact reveal" id="contact">
-      <h2 data-i18n="c.title">Let's talk perception.</h2>
-      <p data-i18n="c.text">I'm looking for full-time roles in visual, 3D and multi-sensor perception across autonomous driving, ITS, robotics and industrial vision. I'm based in Ingolstadt and can commute to Munich.</p>
-      <div class="ctas">
-        <a class="btn primary" href="mailto:info@moavazpour.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>info@moavazpour.com</a>
-        <a class="btn" href="https://linkedin.com/in/moavazpour" rel="me">LinkedIn</a>
-        <a class="btn" href="https://github.com/moavazpour" rel="me">GitHub</a>
-      </div>
-    </div>
-  </div>
 </main>
 
 <footer>
   <div class="wrap">
     <span>© 2026 Mo Avazpour</span>
-    <span data-i18n="f.note">Hand-written HTML, no trackers, no cookies.</span>
+    <div class="links">
+      <a href="mailto:info@moavazpour.com">info@moavazpour.com</a>
+      <a href="https://github.com/moavazpour" rel="me">GitHub</a>
+      <a href="https://linkedin.com/in/moavazpour" rel="me">LinkedIn</a>
+    </div>
   </div>
 </footer>
 
@@ -573,120 +368,97 @@
 (function () {
   var d = document.documentElement;
   d.classList.remove('no-js');
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------------- i18n ---------------- */
+  /* ---------------- i18n (English lives in the HTML) ---------------- */
   var DE = {
     'skip': 'Zum Inhalt springen',
-    'nav.projects': 'Projekte', 'nav.experience': 'Erfahrung', 'nav.skills': 'Skills', 'nav.contact': 'Kontakt',
-    'hero.kicker': 'Computer Vision &amp; Perception Engineer',
-    'hero.tagline': 'Ich bringe Perception zum Laufen, <em>auf schwacher Hardware und in der realen Welt</em>.',
-    'hero.lede': 'Echtzeit- und Edge-Perception für Verkehr und Automotive. Ich habe die Detektions- und OCR-Pipeline einer Edge-ANPR-Engine entwickelt, die von einem Pilotprojekt mit 8 Kameras auf 74 Kameras gewachsen ist, und die Fahrzeugerkennung für ein Pilotprojekt zur adaptiven Ampelsteuerung. Heute in Ingolstadt: LLM-basierte Test-Tools bei diconium, Forschung zu kooperativer V2X-Perception bei AImotion Bavaria und ein M.Eng. in Automatisiertem Fahren an der THI.',
-    'hero.loc': 'Ingolstadt, Deutschland',
-    'hero.permit': 'Uneingeschränkte Arbeitserlaubnis, kein Visum/Sponsoring nötig',
-    'hero.langs': 'Englisch C1 · Deutsch B2',
+    'nav.focus': 'Schwerpunkte', 'nav.projects': 'Projekte',
+    'hero.tagline': 'Echtzeit-Perception direkt auf Edge-Hardware.',
+    'hero.lede': 'Ich entwickle Perception-Systeme, die in Echtzeit auf Edge-Hardware laufen: Objekterkennung und Tracking, OCR und 3D-Perception aus LiDAR und Kameras, für Verkehr und automatisiertes Fahren. Unten finden Sie meine Projekte, jeweils mit Demo-Video und dem Code oder der Beschreibung auf GitHub.',
+    'hero.loc': 'Metropolregion München',
     'hero.cta': 'Zu den Projekten',
-    'stat.cams': 'ANPR-Rollout, gewachsen aus einem Pilot mit 8 Kameras',
-    'stat.plates': 'exakt gelesene Kennzeichen, 24-h-Feldtest mit 1.200 Fahrzeugen, 0 verpasst',
-    'stat.fps': 'YOLOv4-tiny auf Jetson Nano mit TensorRT FP16',
-    'stat.objects': 'gelabelte Objekte aus 7 Roadside-Datensätzen vereinheitlicht',
-    'stat.users': 'Nutzer meines Log-Analyse-Tools in Marken des VW-Konzerns',
-    'sec.projects': 'Ausgewählte Arbeiten',
-    'sec.projects.sub': 'Zwei Produktivsysteme aus der Industrie und drei Projekte aus meinem M.Eng. und meiner Freizeit. Zu jedem gibt es ein Showcase-Repository mit mehr Details.',
-    'p.anpr.ctx': 'Produktion · Anamis Electronic Vira · 2022–2025',
+    'sec.focus': 'Technische Schwerpunkte',
+    'sec.focus.sub': 'Was die Projekte unten gemeinsam haben: Perception, die im Feld funktionieren muss, auf begrenzter Hardware und mit echten Daten.',
+    'f1.t': 'Echtzeit-Detektion &amp; Tracking',
+    'f1.d': 'Training und Deployment von YOLO-Modellen, Multi-Object-Tracking, OCR-Nachverarbeitung und Best-Frame-Auswahl.',
+    'f2.t': 'Edge-Deployment',
+    'f2.d': 'TensorRT FP16 auf NVIDIA Jetson, CUDA-OpenCV-DNN und Multithreaded-C++-Pipelines für Industrie-PCs ohne GPU.',
+    'f3.t': '3D-Perception',
+    'f3.d': 'LiDAR-Punktwolken, CenterPoint und keypoint-basierte 3D-Boxen, Kamera-LiDAR-Kalibrierung und SUMO–CARLA-Co-Simulation.',
+    'f4.t': 'Daten &amp; Foundation Models',
+    'f4.d': 'Zusammenführen und Validieren großer Datensätze aus vielen Quellen sowie FastSAM und DINOv2 für Pipelines ohne Labels.',
+    'sec.projects': 'Projekte',
+    'sec.projects.sub': 'Zu jedem Projekt gibt es ein Demo-Video und ein GitHub-Repository mit den Details.',
+    'result': 'Ergebnis',
+    'gh.showcase': 'Showcase auf GitHub', 'gh.code': 'Code auf GitHub', 'note.prop': 'Produktionscode ist proprietär',
+    'c.bgsub': 'Hintergrundsubtraktion', 'c.hung': 'Ungarische Methode',
+    'p.anpr.ctx': 'Produktivsystem · 2022–2025',
     'p.anpr.title': 'Automatische Kennzeichenerkennung am Edge',
-    'p.anpr.desc': 'Detektion, OCR, Multi-Object-Tracking und Best-Frame-Auswahl auf Jetson Nano und stromsparenden Industrie-PCs. Ich habe den kritischen Pfad von Python nach Multithreaded-C++ portiert und Motion-Gating ergänzt. So stieg die Erfassungsrate selbst an einem reinen CPU-Standort mit Intel Atom von unter 30 % auf ~70 %.',
-    'p.int.ctx': 'Produktiv-Pilot · Bandar Abbas · 2021',
-    'p.int.title': 'Adaptive Kreuzungssteuerung',
-    'p.int.desc': 'Spurgenaue ROIs als virtuelle Induktionsschleifen auf Hardware der Raspberry-Pi-Klasse, ohne GPU und ohne neuronales Netz, angebunden per RS-485 an ein adaptives Ampelsteuergerät. Mein Teil war das Detektionsmodul; die Ergebnisse unten sind Teamergebnisse.',
-    'p.r3d.ctx': 'Teamprojekt, Koordinator · THI · 2026 · Note 1,0',
+    'p.anpr.desc': 'Eine Edge-ANPR-Engine für Zufahrtskontrolle und Parken, ausgerollt von einem Pilot mit 8 Kameras auf 74 Kameras. Die Bilder kommen per RTSP oder von Basler-Industriekameras; Detektion, OCR, Tracking und Best-Frame-Auswahl laufen auf dem Gerät, die Ergebnisse gehen in MySQL und per REST (HTTPS/TLS) an den Server.',
+    'p.anpr.1': 'Den kritischen Pfad von Python nach Multithreaded-C++ portiert: RTSP-Empfang, YOLO-Inferenz, OCR-Nachverarbeitung, Speicherung und Wiederverbindung der Kameras.',
+    'p.anpr.2': 'YOLOv4-tiny mit TensorRT FP16 bei ~25 FPS auf Jetson Nano, mit bis zu 4 Kameras pro Gerät.',
+    'p.anpr.3': 'Motion-Gating, Fahrtrichtung, Tracking und Best-Frame-Auswahl pro Fahrzeug. An einem Standort mit Intel Atom ohne GPU hob ein bewegungsgesteuerter ROI-Puffer die Erfassungsrate von unter 30 % auf ~70 %.',
+    'p.anpr.r': 'Feldtest mit 1.200 Fahrzeugen über 24 h: keines verpasst, 99,4 % der Kennzeichen exakt gelesen.',
+    'p.r3d.ctx': 'Teamprojekt an der Hochschule · 2026',
     'p.r3d.title': 'Universeller Roadside-3D-Objektdetektor',
-    'p.r3d.desc': 'Ein einheitliches Label-Schema für 7 Roadside- und Fahrzeug-Datensätze. Mein Validierungs-Tooling hat gezeigt, dass etwa 20 % der Labels fehlerhaft waren, die Hauptursache für die geringe Konfidenz des Modells. Geplant für die Kreuzungen des HD-Testfelds in Ingolstadt.',
-    'p.tsr.ctx': 'Seminar · THI · 2026 · Note 1,0',
+    'p.r3d.desc': 'Ein 3D-Detektionsmodell für die Straßeninfrastruktur, trainiert auf sieben zusammengeführten Roadside- und Fahrzeug-Datensätzen und geplant für die Kreuzungen des HD-Testfelds in Ingolstadt. Ich habe das Projekt koordiniert und die Datenpipeline geleitet.',
+    'p.r3d.1': 'Einheitliches Label-Schema, Keypoint-Reihenfolge, Klassentaxonomie und Splits über LUMPI, RoScenes, TUMTraf, V2X-Radar, V2X-Seq, ZOD und DAIR-V2X: über 1,7 Mio. gelabelte Objekte.',
+    'p.r3d.2': 'Das Validierungs-Tooling zeigte, dass etwa 20 % der Labels fehlerhaft waren, die Hauptursache für die geringe Konfidenz des Modells.',
+    'p.r3d.3': 'Sampling und Augmentierung für Klassenungleichgewicht und kleine Objekte optimiert; Inferenz auf Bildern, Videos und Live-Kamerastreams.',
+    'p.r3d.r': 'Pose-mAP50 von 0,44 auf 0,86 gesteigert.',
+    'p.int.ctx': 'Produktiv-Pilot · 2021',
+    'p.int.title': 'Adaptive Kreuzungssteuerung',
+    'p.int.desc': 'Kamerabasierte Fahrzeugerkennung für ein Pilotprojekt zur adaptiven Ampelsteuerung an 3 Kreuzungen mit 12 Kameras. Jede Spur wird zu einer virtuellen Induktionsschleife, die per RS-485 ein 0/1-Belegungssignal an das Steuergerät sendet, das daraus jede Grünphase bemisst. Mein Teil war das Detektionsmodul.',
+    'p.int.1': 'Klassische Bildverarbeitung auf Hardware der Raspberry-Pi-Klasse, ohne GPU und ohne neuronales Netz: adaptive Hintergrundsubtraktion, Canny-Kanten und spurgenaue ROIs.',
+    'p.int.2': 'Nasser Asphalt verursachte bei reiner Kantenzählung Fehldetektionen; adaptive Hintergrundsubtraktion hat sie beseitigt.',
+    'p.int.3': '371.000 Signalphasen aus einem durch SPI-Störungen beschädigten Controller-Log wiederhergestellt und analysiert.',
+    'p.int.r': 'Teamergebnis: mittlere Zykluszeit 12 % kürzer als im Festzeitplan, 92,5 % Verfügbarkeit im adaptiven Betrieb bei bis zu 45 °C.',
+    'p.tsr.ctx': 'Seminarprojekt · 2026',
     'p.tsr.title': 'Verkehrszeichenerkennung &amp; EU-ISA',
-    'p.tsr.desc': 'Eine zweistufige YOLO-Pipeline, getestet bei Regen, Blendung, Nacht und Nebel und anschließend gegen die Anforderungen der EU-Verordnung zum Intelligenten Geschwindigkeitsassistenten (ISA) analysiert.',
+    'p.tsr.desc': 'Eine zweistufige Echtzeit-Pipeline zur Verkehrszeichenerkennung, analysiert gegen die EU-Anforderungen an den Intelligenten Geschwindigkeitsassistenten (ISA).',
+    'p.tsr.1': 'Stufe 1: Ein auf GTSDB trainierter YOLO-Detektor findet die Schilder im Gesamtbild. Stufe 2: Ein zweiter, auf GTSRB trainierter YOLO-Detektor ordnet die Ausschnitte 43 Schildtypen zu.',
+    'p.tsr.2': 'Getestet bei Regen, Blendung, Nacht und Nebel; Fehldetektionen und falsche Spurzuordnung dokumentiert.',
+    'p.tsr.3': 'Demo mit zeitlicher Bestätigung über zwei Frames, festem ROI-Band mit Größenfilter und einem HUD für das Tempolimit.',
+    'p.tsr.r': 'mAP50 von 0,970 für die Lokalisierung und 0,950 über 43 Klassen, 5,7 ms Inferenz auf einer NVIDIA A100.',
     'p.conv.ctx': 'Eigenes Projekt · 2026',
     'p.conv.title': 'Detektion, Tracking &amp; Klassifikation auf einem Förderband',
-    'p.conv.desc': 'Segmentierung, Tracking, Zählung und Online-Klassifikation ohne gelabelten Trainingsdatensatz: FastSAM, Hungarian-Zuordnung und DINOv2-Embeddings mit inkrementellem Clustering.',
-    'm.cameras': 'Kameras', 'm.exact': 'exakt gelesen', 'm.missed': 'verpasst / 1.200', 'm.cycle': 'Zykluszeit', 'm.avail': 'Verfügbarkeit bei 45 °C',
-    'm.objects': 'Objekte', 'm.labels': 'Labels nötig', 'm.once': 'Zählung pro Track',
-    'c.bgsub': 'Hintergrundsubtraktion',
-    'more': 'Zur Fallstudie', 'more.code': 'Zum Code',
-    'sec.exp': 'Erfahrung', 'present': 'heute', 'parttime': 'Teilzeit', 'remote': 'remote',
-    'j.dic.role': 'Werkstudent, AI Testing Platform',
-    'j.dic.1': 'Python-Komponenten eines LLM-basierten Tools, das Testfälle, darunter Penetrationstest-Szenarien, für Automotive-Software erzeugt.',
-    'j.dic.2': 'Integration von LLM-APIs und REST-Services, mit Unit- und Integrationstests.',
-    'j.aim.role': 'Studentische Hilfskraft, Kooperative Perception',
-    'j.aim.1': 'SUMO–CARLA-Co-Simulationsszenarien, die Evaluationsdaten für Perception-Modelle erzeugen.',
-    'j.aim.2': 'Literaturrecherchen zu kooperativer V2X-Perception und Unsicherheitsschätzung; erstes Sim2Real-Benchmarking.',
-    'j.car.role': 'Werkstudent, Funktions- &amp; Systementwicklung',
-    'j.car.1': 'Aus einem undokumentierten Log-Analyse-Repository ein dokumentiertes internes Tool für Android-basierte zentrale Steuergeräte (HCP3, HCP5, ConMod) gemacht, heute von über 500 Personen in Marken des VW-Konzerns genutzt.',
-    'j.car.2': 'Skripte für große Logs beschleunigt, an iDEX, EsoTrace und DLT Viewer angebunden und eine Roadmap für KI-gestützte Log-Analyse entworfen.',
-    'j.move.role': 'Umzug nach Deutschland',
-    'j.move.1': 'Erstes Jahr des M.Eng. in Vollzeit; Deutsch bis B2.',
-    'j.ana.role': 'Computer Vision Engineer',
-    'j.ana.1': 'Detektions- und OCR-Pipeline der Edge-ANPR-Engine des Unternehmens entwickelt und vom Pilot mit 8 Kameras auf 74 Kameras gebracht.',
-    'j.ana.2': 'Optimiert für schwache Hardware: TensorRT FP16 auf Jetson Nano, CUDA-OpenCV-DNN und weniger RAM- und CPU-Last auf stromsparenden x86-Systemen.',
-    'j.ana.3': 'Basler-Kameras über das Pylon SDK integriert, REST-APIs über HTTPS/TLS gebaut und eine native C++-DLL ausgeliefert, die das C#-UI-Team nutzt.',
-    'j.ana0.role': 'Werkstudent, Computer Vision &amp; Embedded Vision',
-    'j.ana0.1': 'Fahrzeugerkennung für ein Pilotprojekt zur adaptiven Ampelsteuerung; Fehldetektionen auf nassem Asphalt mit adaptiver Hintergrundsubtraktion behoben.',
-    'j.ana0.2': '371.000 Signalphasen aus einem beschädigten Controller-Log wiederhergestellt und analysiert sowie den Datensatz mit über 7.000 Bildern für das ANPR-Modell kuratiert.',
-    'j.rob.role': 'Junior Embedded Developer (Trainee)',
-    'j.rob.1': 'Firmware für einen Fahrzeugzähler mit Induktionsschleife, Platinenentwurf für Doppler-Radarmodule an AVR-Mikrocontrollern und Feldtests zum Vergleich von Schleife und Radar.',
-    'sec.skills': 'Skills',
-    'sk.prod': 'Produktion', 'sk.prod.hint': 'Im Berufsalltag eingesetzt',
-    'sk.cv': 'Computer Vision', 'sk.mot': 'Multi-Object-Tracking', 'sk.classic': 'Klassische CV', 'sk.data': 'Datensatz-Kuratierung',
-    'sk.edge': 'Edge-Deployment', 'sk.stream': 'Kameras &amp; Streaming', 'sk.code': 'Programmierung', 'sk.llm': 'LLM-APIs',
-    'sk.res': 'Projekte &amp; Forschung', 'sk.res.hint': 'M.Eng.-Projekte und Forschungstätigkeit',
-    'sk.3d': '3D-Perception', 'sk.calib': 'Kamera-LiDAR-Kalibrierung', 'sk.sim': 'Simulation &amp; Daten', 'sk.found': 'Foundation Models',
-    'sk.fam': 'Grundkenntnisse', 'sk.fam.hint': 'Studium, Selbststudium, frühere Tätigkeiten',
-    'sk.ad': 'Automatisiertes Fahren', 'sk.tools': 'Tooling', 'sk.emb': 'Embedded',
-    'sec.edu': 'Ausbildung &amp; Sprachen', 'expected': '(voraussichtlich)',
-    'e.meng': 'M.Eng. Automatisiertes Fahren und Fahrzeugsicherheit',
-    'e.meng.1': 'Schlussphase: restliche Module und Masterarbeit, berufsbegleitend in Teilzeit.',
-    'e.bsc': 'Bachelor Elektrotechnik',
-    'e.bsc.1': 'Diskontinuierlicher Bachelor nach einem Associate Degree in Elektronik. In Deutschland als Bachelor-Abschluss anerkannt (anabin A5, H+).',
-    'l.en': 'Englisch', 'l.de': 'Deutsch', 'l.de.note': 'zertifiziert, C1 in Arbeit', 'l.fa': 'Persisch', 'l.native': 'Muttersprache',
-    'c.title': 'Lassen Sie uns über Perception sprechen.',
-    'c.text': 'Ich suche eine Vollzeitstelle in visueller, 3D- und Multi-Sensor-Perception, ob im autonomen Fahren, in ITS, Robotik oder industrieller Bildverarbeitung. Ich wohne in Ingolstadt und kann nach München pendeln.',
-    'f.note': 'Handgeschriebenes HTML, ohne Tracker und ohne Cookies.'
+    'p.conv.desc': 'Segmentiert, verfolgt, zählt und klassifiziert Backwaren auf einem laufenden Förderband, ohne ein einziges gelabeltes Trainingsbild.',
+    'p.conv.1': 'FastSAM-Masken mit ROI-relativer Flächenfilterung, um sich berührende und überlappende Objekte zu trennen.',
+    'p.conv.2': 'Zuordnung mit der Ungarischen Methode und geschwindigkeitsbasierter Prädiktion überbrückt kurze Aussetzer; eine vierstufige Linienübertritts-Zustandsmaschine mit Hysterese zählt jeden Track genau einmal.',
+    'p.conv.3': 'Online-Klassifikation mit DINOv2-Embeddings und inkrementellem Clustering; Rauschen landet in der Klasse „unklar“.',
+    'p.conv.r': 'Ein annotiertes Video, JSON/CSV-Export und ein sortiertes Bildarchiv, über die CLI oder eine Gradio-Web-Demo.'
   };
-  var nodes = document.querySelectorAll('[data-i18n], [data-i18n-html]');
-  var EN = {};
-  nodes.forEach(function (n) { var k = n.dataset.i18n || n.dataset.i18nHtml; if (!(k in EN)) EN[k] = n.innerHTML; });
-  var META = {
-    en: { title: document.title, desc: document.querySelector('meta[name=description]').content },
-    de: { title: 'Mo Avazpour — Computer Vision & Perception Engineer', desc: 'Mo Avazpour, Computer Vision & Perception Engineer in Ingolstadt: Edge-ANPR auf 74 Kameras, kamerabasierte adaptive Ampelsteuerung, Automotive-Erfahrung bei CARIAD und diconium, Forschung zu kooperativer V2X-Perception bei AImotion Bavaria.' }
-  };
+  var nodes = document.querySelectorAll('[data-i18n]'), EN = {};
+  nodes.forEach(function (n) { var k = n.dataset.i18n; if (!(k in EN)) EN[k] = n.innerHTML; });
+  var metaDesc = document.querySelector('meta[name=description]');
+  var META = { en: metaDesc.content, de: 'Mo Avazpour, Computer Vision & Perception Engineer in der Metropolregion München. Echtzeit-Detektion, Tracking und 3D-Perception auf Edge-Hardware: Projekte mit Demo-Videos und Code auf GitHub.' };
   function setLang(l) {
     var dict = l === 'de' ? DE : EN;
-    nodes.forEach(function (n) { var k = n.dataset.i18n || n.dataset.i18nHtml; if (dict[k] != null) n.innerHTML = dict[k]; });
-    d.lang = l;
-    document.title = META[l].title;
-    document.querySelector('meta[name=description]').content = META[l].desc;
+    nodes.forEach(function (n) { var k = n.dataset.i18n; if (dict[k] != null) n.innerHTML = dict[k]; });
+    d.lang = l; metaDesc.content = META[l];
     document.querySelectorAll('#langBtn b').forEach(function (b) { b.classList.toggle('on', b.dataset.l === l); });
   }
   setLang(d.lang === 'de' ? 'de' : 'en');
   document.getElementById('langBtn').addEventListener('click', function () {
-    var l = d.lang === 'de' ? 'en' : 'de';
-    setLang(l);
+    var l = d.lang === 'de' ? 'en' : 'de'; setLang(l);
     try { localStorage.setItem('lang', l); } catch (e) {}
   });
 
   /* ---------------- theme ---------------- */
-  var mq = window.matchMedia('(prefers-color-scheme: dark)');
-  function isDark() { return d.dataset.theme ? d.dataset.theme === 'dark' : mq.matches; }
+  var mq = matchMedia('(prefers-color-scheme: dark)');
   document.getElementById('themeBtn').addEventListener('click', function () {
-    var t = isDark() ? 'light' : 'dark';
-    d.dataset.theme = t;
-    try { localStorage.setItem('theme', t); } catch (e) {}
+    var dark = d.dataset.theme ? d.dataset.theme === 'dark' : mq.matches;
+    d.dataset.theme = dark ? 'light' : 'dark';
+    try { localStorage.setItem('theme', d.dataset.theme); } catch (e) {}
   });
 
-  /* ---------------- nav border on scroll ---------------- */
-  var nav = document.getElementById('nav');
-  addEventListener('scroll', function () { nav.classList.toggle('scrolled', scrollY > 8); }, { passive: true });
+  /* ---------------- nav turns solid past the hero ---------------- */
+  var nav = document.getElementById('nav'), hero = document.getElementById('top');
+  function onScroll() { nav.classList.toggle('scrolled', scrollY > hero.offsetHeight - 80); }
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
 
-  /* ---------------- reveal ---------------- */
-  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* ---------------- reveal on scroll ---------------- */
   if ('IntersectionObserver' in window) {
     var ro = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); } }); }, { rootMargin: '0px 0px -8% 0px' });
     document.querySelectorAll('.reveal').forEach(function (el) { ro.observe(el); });
@@ -697,14 +469,14 @@
   if (canWebm && !reduce && 'IntersectionObserver' in window) {
     var vo = new IntersectionObserver(function (es) {
       es.forEach(function (e) {
-        var box = e.target, v = box.querySelector('video');
+        var frame = e.target.querySelector('.frame'), v = frame.querySelector('video');
         if (e.isIntersecting) {
           if (!v) {
             v = document.createElement('video');
             v.muted = true; v.loop = true; v.playsInline = true; v.setAttribute('playsinline', ''); v.setAttribute('aria-hidden', 'true');
-            v.preload = 'auto'; v.src = 'assets/' + box.dataset.media + '.webm';
+            v.preload = 'auto'; v.src = 'assets/' + e.target.dataset.media + '.webm';
             v.addEventListener('playing', function () { v.classList.add('ready'); });
-            box.appendChild(v);
+            frame.appendChild(v);
           }
           var p = v.play(); if (p && p.catch) p.catch(function () {});
         } else if (v) { v.pause(); }
@@ -713,116 +485,143 @@
     document.querySelectorAll('[data-media]').forEach(function (m) { vo.observe(m); });
   }
 
-  /* ---------------- hero scene: a tiny synthetic detector ---------------- */
-  var cv = document.getElementById('scene'), ctx = cv.getContext('2d');
-  var W = 0, H = 0, DPR = Math.min(devicePixelRatio || 1, 2);
-  function resize() { var r = cv.getBoundingClientRect(); W = r.width; H = r.height; cv.width = W * DPR; cv.height = H * DPR; ctx.setTransform(DPR, 0, 0, DPR, 0, 0); }
-  resize(); addEventListener('resize', resize);
+  /* ---------------- hero: simulated LiDAR scan of a street ----------------
+     A 32-beam spinning LiDAR at the origin (z up, 1.8 m above the road) is ray-cast
+     once against a box-world street; the camera then orbits the cloud while a sweep
+     highlights the points the beam just passed, and 3D boxes mark the road users. */
+  var cv = document.getElementById('cloud'), ctx = cv.getContext('2d');
+  var GROUND = -1.8, MAXR = 55;
+  var boxes = [], objects = [];
+  function box(x, y, l, w, h, z0, kind) { var b = { x0: x - l / 2, x1: x + l / 2, y0: y - w / 2, y1: y + w / 2, z0: z0 == null ? GROUND : z0, kind: kind }; b.z1 = b.z0 + h; boxes.push(b); return b; }
+  // buildings on both sides of the street, with gaps
+  [[-52, -34, 12], [-30, -12, 9], [-8, 10, 14], [14, 30, 8], [34, 54, 11]].forEach(function (s) { box((s[0] + s[1]) / 2, 15.5, s[1] - s[0], 7, s[2], null, 'bld'); });
+  [[-50, -28, 10], [-24, -6, 13], [-2, 20, 9], [24, 50, 12]].forEach(function (s) { box((s[0] + s[1]) / 2, -15.5, s[1] - s[0], 7, s[2], null, 'bld'); });
+  // trees and poles along the sidewalks
+  [-36, -20, -4, 12, 28, 44].forEach(function (x, i) { var y = i % 2 ? 9.6 : -9.6; box(x, y, .35, .35, 3, null, 'pole'); box(x, y, 3, 3, 2.4, GROUND + 2.6, 'tree'); });
+  [-12, 20, 36].forEach(function (x) { box(x, -9.4, .2, .2, 5.5, null, 'pole'); });
+  // road users (these get 3D boxes)
+  [[9, -3.4, 4.5, 1.9, 1.5, 'car'], [17.5, 3.3, 4.4, 1.85, 1.45, 'car'], [-9, 3.5, 4.6, 1.9, 1.55, 'car'], [-17, -3.5, 4.3, 1.8, 1.5, 'car'],
+   [27, -3.6, 4.6, 1.9, 1.6, 'car'], [-29, 3.4, 9.5, 2.5, 3.2, 'truck'], [5.5, 8.6, .7, .7, 1.8, 'ped'], [-4.5, -8.4, .7, .7, 1.75, 'ped'], [13, -6.6, 1.8, .7, 1.7, 'cyclist']]
+    .forEach(function (o) { objects.push(box(o[0], o[1], o[2], o[3], o[4], null, o[5])); });
 
-  var COLORS = { car: '#34d399', truck: '#f59e0b', moto: '#a78bfa', plate: '#f87171' };
-  var lanes = [0.30, 0.47, 0.64, 0.81];  // y (fraction) of lane centres in perspective space
-  var cars = [], nextId = 1, plates = 0, tracks = 0, t0 = performance.now(), last = t0, spawnT = 0;
-  function rand(a, b) { return a + Math.random() * (b - a); }
-  function plateText() { var L = 'ABCDEFGHKLMNPRSTVXYZ'; return L[(Math.random() * L.length) | 0] + L[(Math.random() * L.length) | 0] + ' ' + ((Math.random() * 900 + 100) | 0); }
-  var laneSpeed = [0.11, 0.08, 0.09, 0.12];  // one speed per lane, so cars never overtake each other
-  function laneFree(lane, dir) {
-    // the newest car in this lane must have cleared the entry edge by a gap
-    for (var i = cars.length - 1; i >= 0; i--) {
-      var o = cars[i]; if (o.lane !== lane) continue;
-      var tail = dir > 0 ? o.x - o.len / 2 : 1 - (o.x + o.len / 2);
-      return tail > 0.08;
+  function hitBox(dx, dy, dz, b) { // slab test from the origin
+    var t0 = 0, t1 = 1e9, ta, tb, tmp;
+    if (Math.abs(dx) < 1e-9) { if (0 < b.x0 || 0 > b.x1) return -1; } else { ta = b.x0 / dx; tb = b.x1 / dx; if (ta > tb) { tmp = ta; ta = tb; tb = tmp; } t0 = Math.max(t0, ta); t1 = Math.min(t1, tb); }
+    if (Math.abs(dy) < 1e-9) { if (0 < b.y0 || 0 > b.y1) return -1; } else { ta = b.y0 / dy; tb = b.y1 / dy; if (ta > tb) { tmp = ta; ta = tb; tb = tmp; } t0 = Math.max(t0, ta); t1 = Math.min(t1, tb); }
+    ta = b.z0 / dz; tb = b.z1 / dz; if (ta > tb) { tmp = ta; ta = tb; tb = tmp; } t0 = Math.max(t0, ta); t1 = Math.min(t1, tb);
+    return t1 >= t0 && t0 > 0 ? t0 : -1;
+  }
+  var BEAMS = 32, AZ = 520, P = [];
+  for (var bi = 0; bi < BEAMS; bi++) {
+    var f = bi / (BEAMS - 1), el = (-25 + 30 * Math.pow(f, 1.6)) * Math.PI / 180; // denser near the horizon
+    for (var ai = 0; ai < AZ; ai++) {
+      var az = (ai / AZ) * Math.PI * 2 + bi * 0.0021, dx = Math.cos(el) * Math.cos(az), dy = Math.cos(el) * Math.sin(az), dz = Math.sin(el);
+      var t = dz < 0 ? GROUND / dz : 1e9, kind = 'ground';
+      for (var k = 0; k < boxes.length; k++) { var h = hitBox(dx, dy, dz, boxes[k]); if (h > 0 && h < t) { t = h; kind = boxes[k].kind; } }
+      if (t > MAXR || t < 1.2) continue;
+      t += (Math.random() - .5) * 0.06;
+      P.push({ x: dx * t, y: dy * t, z: dz * t, az: az, r: t, kind: kind });
     }
-    return true;
   }
-  function spawn() {
-    var lane = (Math.random() * lanes.length) | 0, dir = lane < 2 ? 1 : -1;
-    if (!laneFree(lane, dir)) return;
-    var kind = Math.random() < 0.72 ? 'car' : (Math.random() < 0.6 ? 'truck' : 'moto');
-    var len = kind === 'truck' ? rand(0.2, 0.26) : kind === 'moto' ? 0.07 : rand(0.12, 0.15);
-    cars.push({ id: nextId++, lane: lane, dir: dir, kind: kind, x: dir > 0 ? -len / 2 : 1 + len / 2, len: len, v: laneSpeed[lane] * dir,
-      conf: rand(0.86, 0.99), plate: plateText(), read: false, hue: rand(200, 230) });
-    tracks++;
-  }
-  function draw(now) {
-    var dt = Math.min(0.05, (now - last) / 1000); last = now;
-    if (!reduce) { spawnT -= dt; if (spawnT <= 0 && cars.length < 9) { spawn(); spawnT = rand(0.5, 1.3); } }
-    ctx.clearRect(0, 0, W, H);
-    // road
-    var g = ctx.createLinearGradient(0, 0, 0, H); g.addColorStop(0, '#0a1020'); g.addColorStop(1, '#0d1628');
-    ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
-    var top = H * 0.2, bot = H * 0.92;
-    ctx.fillStyle = '#121b2e'; ctx.fillRect(0, top, W, bot - top);
-    ctx.strokeStyle = 'rgba(184,198,221,.35)'; ctx.lineWidth = 2; ctx.setLineDash([18, 16]);
-    ctx.lineDashOffset = reduce ? 0 : -(now / 25) % 34;
-    [0.385, 0.725].forEach(function (f) { ctx.beginPath(); ctx.moveTo(0, H * f); ctx.lineTo(W, H * f); ctx.stroke(); });
-    ctx.setLineDash([]); ctx.strokeStyle = 'rgba(248,250,252,.55)'; ctx.lineWidth = 3;
-    ctx.beginPath(); ctx.moveTo(0, H * 0.555); ctx.lineTo(W, H * 0.555); ctx.stroke();
-    ctx.strokeStyle = 'rgba(184,198,221,.5)'; ctx.lineWidth = 2;
-    [top, bot].forEach(function (y) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); });
-    // trigger line (virtual loop)
-    var gx = W * 0.62;
-    ctx.strokeStyle = 'rgba(52,211,153,.55)'; ctx.setLineDash([4, 6]); ctx.beginPath(); ctx.moveTo(gx, top); ctx.lineTo(gx, bot); ctx.stroke(); ctx.setLineDash([]);
-    ctx.font = '600 10px ui-monospace, Consolas, monospace'; ctx.fillStyle = 'rgba(52,211,153,.8)'; ctx.fillText('ROI', gx + 5, top + 13);
+  // colour by height (ground teal → walls blue → tops amber), road users in their class colour
+  var CLS = { car: '#34d399', truck: '#fbbf24', ped: '#f472b6', cyclist: '#60a5fa' };
+  var RAMP = ['#0f3b4c', '#14566a', '#177487', '#2a8fb0', '#4a9fd8', '#6f9ceb', '#8fa8f0', '#b7b4ee', '#e3b6c6', '#f6c38a'];
+  var bins = {};
+  P.forEach(function (p, i) {
+    var c = CLS[p.kind];
+    if (!c) { var hz = Math.max(0, Math.min(.999, (p.z - GROUND) / 13)); c = RAMP[Math.floor(hz * RAMP.length)]; }
+    (bins[c] = bins[c] || []).push(i);
+  });
+  var binKeys = Object.keys(bins);
+  document.getElementById('hudPts').textContent = (P.length / 1000).toFixed(1) + 'k';
+  document.getElementById('hudObj').textContent = objects.length + ' objects';
 
-    for (var i = cars.length - 1; i >= 0; i--) {
-      var c = cars[i];
-      if (!reduce) c.x += c.v * dt;
-      if (c.x < -0.4 || c.x > 1.4) { cars.splice(i, 1); continue; }
-      var cy = H * lanes[c.lane], cw = c.len * W, ch = (c.kind === 'truck' ? 0.11 : c.kind === 'moto' ? 0.05 : 0.085) * H;
-      var x = c.x * W - cw / 2, y = cy - ch / 2;
-      // body
-      ctx.fillStyle = c.kind === 'truck' ? '#3b4a63' : 'hsl(' + c.hue + ',22%,' + (c.kind === 'moto' ? 55 : 38) + '%)';
-      roundRect(x, y, cw, ch, 5); ctx.fill();
-      ctx.fillStyle = 'rgba(160,190,230,.35)';
-      var wx = c.dir > 0 ? x + cw * 0.62 : x + cw * 0.12; roundRect(wx, y + ch * 0.15, cw * 0.24, ch * 0.7, 3); ctx.fill();
-      // detection box
-      var col = COLORS[c.kind], pad = 5;
-      ctx.strokeStyle = col; ctx.lineWidth = 1.6; ctx.strokeRect(x - pad, y - pad, cw + pad * 2, ch + pad * 2);
-      corners(x - pad, y - pad, cw + pad * 2, ch + pad * 2, col);
-      var label = c.kind + ' ' + c.conf.toFixed(2) + '  #' + c.id;
-      ctx.font = '700 10px ui-monospace, Consolas, monospace';
-      var tw = ctx.measureText(label).width + 8;
-      ctx.fillStyle = col; ctx.fillRect(x - pad, y - pad - 15, tw, 15);
-      ctx.fillStyle = '#04120c'; ctx.fillText(label, x - pad + 4, y - pad - 4);
-      // plate read when crossing the ROI line
-      var front = c.dir > 0 ? x + cw : x;
-      if (!c.read && c.kind !== 'moto' && ((c.dir > 0 && front >= gx) || (c.dir < 0 && front <= gx))) { c.read = true; plates++; }
-      if (c.kind !== 'moto') {
-        var px = c.dir > 0 ? x + cw - 6 : x + 2, pw = 4, ph = ch * 0.42;
-        ctx.fillStyle = '#e5e7eb'; ctx.fillRect(px, cy - ph / 2, pw, ph);
-        if (c.read) {
-          ctx.strokeStyle = COLORS.plate; ctx.lineWidth = 1.4; ctx.strokeRect(px - 3, cy - ph / 2 - 3, pw + 6, ph + 6);
-          var ptxt = c.plate; var ptw = ctx.measureText(ptxt).width + 10;
-          var bx = Math.max(4, Math.min(W - ptw - 4, x + cw / 2 - ptw / 2)), by = y + ch + pad + 4;
-          ctx.fillStyle = 'rgba(5,8,15,.85)'; ctx.fillRect(bx, by, ptw, 16);
-          ctx.strokeStyle = COLORS.plate; ctx.strokeRect(bx, by, ptw, 16);
-          ctx.fillStyle = '#fecaca'; ctx.fillText(ptxt, bx + 5, by + 11.5);
-        }
+  var SX = new Float32Array(P.length), SY = new Float32Array(P.length), SZ = new Float32Array(P.length);
+  var W = 0, H = 0, DPR = Math.min(devicePixelRatio || 1, 2);
+  function resize() { var r = cv.getBoundingClientRect(); W = r.width; H = r.height; cv.width = Math.round(W * DPR); cv.height = Math.round(H * DPR); ctx.setTransform(DPR, 0, 0, DPR, 0, 0); }
+  resize(); addEventListener('resize', function () { resize(); if (reduce) render(0); });
+
+  var cam = {};
+  function setCam(time) {
+    var th = -2.35 + time * 0.045, elv = 0.62, dist = 50, tx = 2, ty = 0, tz = -1;
+    var px = tx + dist * Math.cos(elv) * Math.cos(th), py = ty + dist * Math.cos(elv) * Math.sin(th), pz = tz + dist * Math.sin(elv);
+    var fx = tx - px, fy = ty - py, fz = tz - pz, fl = Math.hypot(fx, fy, fz); fx /= fl; fy /= fl; fz /= fl;
+    var rx = fy, ry = -fx, rz = 0, rl = Math.hypot(rx, ry); rx /= rl; ry /= rl;          // right = f × up
+    var ux = ry * fz - rz * fy, uy = rz * fx - rx * fz, uz = rx * fy - ry * fx;            // up = r × f
+    var wide = W > 900;
+    cam = { px: px, py: py, pz: pz, fx: fx, fy: fy, fz: fz, rx: rx, ry: ry, rz: rz, ux: ux, uy: uy, uz: uz,
+      cx: wide ? W * 0.68 : W * 0.5, cy: wide ? H * 0.5 : H * 0.42, foc: Math.min(W, H * 1.5) * (wide ? 0.95 : 1.15) };
+  }
+  function proj(x, y, z, out) {
+    var vx = x - cam.px, vy = y - cam.py, vz = z - cam.pz, zc = vx * cam.fx + vy * cam.fy + vz * cam.fz;
+    if (zc < 0.5) return false;
+    out[0] = cam.cx + cam.foc * (vx * cam.rx + vy * cam.ry + vz * cam.rz) / zc;
+    out[1] = cam.cy - cam.foc * (vx * cam.ux + vy * cam.uy + vz * cam.uz) / zc;
+    out[2] = zc; return true;
+  }
+  var tmp = [0, 0, 0], tmp2 = [0, 0, 0];
+  var EDGES = [[0, 1], [1, 2], [2, 3], [3, 0], [4, 5], [5, 6], [6, 7], [7, 4], [0, 4], [1, 5], [2, 6], [3, 7]];
+  function render(time) {
+    setCam(time);
+    ctx.clearRect(0, 0, W, H);
+    // range rings on the ground every 10 m
+    ctx.lineWidth = 1; ctx.strokeStyle = 'rgba(122,165,240,.13)';
+    for (var rr = 10; rr <= 40; rr += 10) {
+      ctx.beginPath(); var first = true;
+      for (var s = 0; s <= 96; s++) { var a = s / 96 * Math.PI * 2;
+        if (proj(rr * Math.cos(a), rr * Math.sin(a), GROUND, tmp)) { if (first) { ctx.moveTo(tmp[0], tmp[1]); first = false; } else ctx.lineTo(tmp[0], tmp[1]); } else first = true; }
+      ctx.stroke();
+    }
+    // project every point once
+    for (var i = 0; i < P.length; i++) { var p = P[i]; if (proj(p.x, p.y, p.z, tmp)) { SX[i] = tmp[0]; SY[i] = tmp[1]; SZ[i] = tmp[2]; } else SZ[i] = 0; }
+    var sweep = (time * 1.6) % (Math.PI * 2);
+    ctx.globalAlpha = 0.82;
+    for (var bk = 0; bk < binKeys.length; bk++) {
+      var idx = bins[binKeys[bk]]; ctx.fillStyle = binKeys[bk];
+      for (var j = 0; j < idx.length; j++) { var n = idx[j]; if (!SZ[n]) continue; var sz = Math.min(2.6, 0.9 + 22 / SZ[n]); ctx.fillRect(SX[n] - sz / 2, SY[n] - sz / 2, sz, sz); }
+    }
+    // sweep afterglow: points the rotating beam just passed light up
+    if (!reduce) {
+      ctx.fillStyle = '#eaf2ff';
+      for (var g = 0; g < P.length; g++) {
+        if (!SZ[g]) continue; var df = sweep - P[g].az; if (df < 0) df += Math.PI * 2;
+        if (df > 0.9) continue; ctx.globalAlpha = 0.75 * (1 - df / 0.9); var s2 = Math.min(2.8, 1 + 22 / SZ[g]);
+        ctx.fillRect(SX[g] - s2 / 2, SY[g] - s2 / 2, s2, s2);
       }
     }
-    if (now - t0 > 400) {
-      t0 = now;
-      document.getElementById('hudFps').textContent = 'yolo · ' + (24.2 + Math.random() * 1.6).toFixed(1) + ' fps';
-      document.getElementById('hudCount').textContent = 'tracks ' + tracks + ' · plates ' + plates;
+    ctx.globalAlpha = 1;
+    // 3D boxes + labels for road users
+    ctx.font = '600 10.5px ui-monospace, Consolas, monospace';
+    for (var o = 0; o < objects.length; o++) {
+      var b = objects[o], col = CLS[b.kind], pad = 0.15;
+      var cs = [[b.x0 - pad, b.y0 - pad, b.z0], [b.x1 + pad, b.y0 - pad, b.z0], [b.x1 + pad, b.y1 + pad, b.z0], [b.x0 - pad, b.y1 + pad, b.z0]];
+      cs = cs.concat(cs.map(function (c) { return [c[0], c[1], b.z1 + pad]; }));
+      var sc = [], ok = true;
+      for (var c = 0; c < 8; c++) { if (!proj(cs[c][0], cs[c][1], cs[c][2], tmp)) { ok = false; break; } sc.push([tmp[0], tmp[1]]); }
+      if (!ok) continue;
+      ctx.strokeStyle = col; ctx.lineWidth = 1.4; ctx.beginPath();
+      EDGES.forEach(function (e) { ctx.moveTo(sc[e[0]][0], sc[e[0]][1]); ctx.lineTo(sc[e[1]][0], sc[e[1]][1]); });
+      ctx.stroke();
+      // heading tick on the front face
+      if (proj(b.x1 + pad, (b.y0 + b.y1) / 2, (b.z0 + b.z1) / 2, tmp) && proj(b.x1 + pad + 1, (b.y0 + b.y1) / 2, (b.z0 + b.z1) / 2, tmp2)) {
+        ctx.beginPath(); ctx.moveTo(tmp[0], tmp[1]); ctx.lineTo(tmp2[0], tmp2[1]); ctx.stroke();
+      }
+      var top = sc.reduce(function (m, q) { return q[1] < m[1] ? q : m; });
+      var dist = Math.hypot((b.x0 + b.x1) / 2, (b.y0 + b.y1) / 2);
+      var label = b.kind + ' ' + dist.toFixed(1) + 'm', tw = ctx.measureText(label).width + 8;
+      ctx.fillStyle = 'rgba(5,8,15,.78)'; ctx.fillRect(top[0] - tw / 2, top[1] - 19, tw, 15);
+      ctx.fillStyle = col; ctx.fillText(label, top[0] - tw / 2 + 4, top[1] - 8);
     }
-    if (!reduce && !document.hidden) requestAnimationFrame(draw);
+    // the sensor itself
+    if (proj(0, 0, 0, tmp)) { ctx.fillStyle = '#34d399'; ctx.beginPath(); ctx.arc(tmp[0], tmp[1], 3.5, 0, Math.PI * 2); ctx.fill(); }
   }
-  function roundRect(x, y, w, h, r) { ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath(); }
-  function corners(x, y, w, h, col) {
-    var s = Math.min(10, w / 4, h / 3); ctx.strokeStyle = col; ctx.lineWidth = 3; ctx.beginPath();
-    ctx.moveTo(x, y + s); ctx.lineTo(x, y); ctx.lineTo(x + s, y);
-    ctx.moveTo(x + w - s, y); ctx.lineTo(x + w, y); ctx.lineTo(x + w, y + s);
-    ctx.moveTo(x + w, y + h - s); ctx.lineTo(x + w, y + h); ctx.lineTo(x + w - s, y + h);
-    ctx.moveTo(x + s, y + h); ctx.lineTo(x, y + h); ctx.lineTo(x, y + h - s);
-    ctx.stroke();
-  }
-  if (reduce) { // a still frame: one car per lane, already read
-    for (var k = 0; k < lanes.length; k++) { var before = cars.length; while (cars.length === before) spawn(); }
-    cars.forEach(function (c, k) { c.lane = k; c.dir = k < 2 ? 1 : -1; c.x = 0.2 + k * 0.2; c.read = true; });
-    plates = cars.length;
-  }
-  requestAnimationFrame(draw);
-  document.addEventListener('visibilitychange', function () { if (!document.hidden && !reduce) { last = performance.now(); requestAnimationFrame(draw); } });
+
+  var visible = true, t0 = performance.now(), running = false;
+  function loop(now) { if (!visible || document.hidden) { running = false; return; } render((now - t0) / 1000); requestAnimationFrame(loop); }
+  function start() { if (reduce) { render(6); return; } if (!running) { running = true; requestAnimationFrame(loop); } }
+  if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { visible = es[0].isIntersecting; if (visible) start(); }).observe(hero);
+  document.addEventListener('visibilitychange', function () { if (!document.hidden) start(); });
+  start();
 })();
 </script>
 </body>
