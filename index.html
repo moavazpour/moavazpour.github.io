@@ -6,7 +6,8 @@
 <title>Mo Avazpour — Computer Vision &amp; Perception Engineer</title>
 <meta name="description" content="Mo Avazpour, computer vision and perception engineer in the Greater Munich area. Real-time detection, tracking and 3D perception on edge hardware: projects with demo videos and code on GitHub.">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#05080f">
+<meta name="theme-color" content="#05080f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f3f6fa" media="(prefers-color-scheme: light)">
 <link rel="canonical" href="https://moavazpour.com/">
 <link rel="alternate" hreflang="en" href="https://moavazpour.com/">
 <link rel="alternate" hreflang="de" href="https://moavazpour.com/?lang=de">
@@ -39,18 +40,28 @@
     --mono: ui-monospace, "SF Mono", "Cascadia Mono", "Segoe UI Mono", Menlo, Consolas, monospace;
     --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     --radius: 14px;
+    /* hero (point-cloud section) and the nav while it sits on the hero */
+    --hero-bg: #f3f6fa; --hero-rgb: 243,246,250; --hero-h1: #0b1220; --hero-fg: #1f2a3d; --hero-sub: #4a5568;
+    --hero-line: rgba(11,18,32,.16); --hero-btn: rgba(255,255,255,.7); --hero-primary: #1e3a6e; --hero-on-primary: #ffffff;
+    --hero-det: #0e9f6e; --hero-hud: rgba(30,42,61,.6);
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
       --bg: #070b14; --bg-2: #0a1020; --surface: #0d1423; --fg: #e7ecf5; --muted: #95a3b8;
       --line: #1b2640; --accent: #7aa5f0; --on-accent: #071022; --det: #34d399; --det-soft: rgba(52,211,153,.12);
       --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 32px rgba(0,0,0,.35);
+      --hero-bg: #05080f; --hero-rgb: 5,8,15; --hero-h1: #ffffff; --hero-fg: #dbe4f3; --hero-sub: #a7b4c8;
+      --hero-line: rgba(231,236,245,.22); --hero-btn: rgba(255,255,255,.04); --hero-primary: #7aa5f0; --hero-on-primary: #071022;
+      --hero-det: #34d399; --hero-hud: rgba(184,198,221,.7);
     }
   }
   :root[data-theme="dark"] {
     --bg: #070b14; --bg-2: #0a1020; --surface: #0d1423; --fg: #e7ecf5; --muted: #95a3b8;
     --line: #1b2640; --accent: #7aa5f0; --on-accent: #071022; --det: #34d399; --det-soft: rgba(52,211,153,.12);
     --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 32px rgba(0,0,0,.35);
+    --hero-bg: #05080f; --hero-rgb: 5,8,15; --hero-h1: #ffffff; --hero-fg: #dbe4f3; --hero-sub: #a7b4c8;
+    --hero-line: rgba(231,236,245,.22); --hero-btn: rgba(255,255,255,.04); --hero-primary: #7aa5f0; --hero-on-primary: #071022;
+    --hero-det: #34d399; --hero-hud: rgba(184,198,221,.7);
   }
 
   * { box-sizing: border-box; }
@@ -65,24 +76,25 @@
   .skip { position: absolute; left: -999px; top: 8px; background: var(--accent); color: var(--on-accent); padding: 8px 12px; border-radius: 8px; z-index: 100; }
   .skip:focus { left: 8px; }
 
-  /* ---------- nav (sits on the dark hero, turns solid on scroll) ---------- */
+  /* ---------- nav (sits on the hero, turns solid on scroll) ---------- */
   header.nav { position: fixed; inset: 0 0 auto 0; z-index: 50; transition: background .25s, border-color .25s; border-bottom: 1px solid transparent; }
   header.nav.scrolled { background: color-mix(in srgb, var(--bg) 82%, transparent); backdrop-filter: saturate(1.4) blur(12px); -webkit-backdrop-filter: saturate(1.4) blur(12px); border-bottom-color: var(--line); }
   .nav-in { display: flex; align-items: center; gap: 22px; height: 64px; }
-  .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: -.01em; color: #e7ecf5; }
+  .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: -.01em; color: var(--hero-h1); }
   .scrolled .brand { color: var(--fg); }
   .brand:hover { text-decoration: none; }
   .brand svg { width: 28px; height: 28px; }
+  .brand svg path { stroke: var(--hero-det); }
   .nav-links { display: flex; gap: 24px; margin-left: auto; }
-  .nav-links a { color: rgba(231,236,245,.72); font-size: .95rem; }
+  .nav-links a { color: var(--hero-sub); font-size: .95rem; }
   .scrolled .nav-links a { color: var(--muted); }
-  .nav-links a:hover { color: #fff; text-decoration: none; }
+  .nav-links a:hover { color: var(--hero-h1); text-decoration: none; }
   .scrolled .nav-links a:hover { color: var(--fg); }
   .tools { display: flex; gap: 6px; }
   .tbtn { height: 34px; min-width: 34px; padding: 0 10px; display: inline-flex; align-items: center; justify-content: center; gap: 5px;
-    border: 1px solid rgba(231,236,245,.22); border-radius: 9px; background: rgba(255,255,255,.04); color: #e7ecf5; font: 600 12px var(--mono); cursor: pointer; }
+    border: 1px solid var(--hero-line); border-radius: 9px; background: var(--hero-btn); color: var(--hero-h1); font: 600 12px var(--mono); cursor: pointer; }
   .scrolled .tbtn { border-color: var(--line); background: var(--surface); color: var(--fg); }
-  .tbtn:hover { border-color: #7aa5f0; }
+  .tbtn:hover { border-color: var(--accent); }
   .tbtn svg { width: 16px; height: 16px; }
   .lang b { font-weight: 600; opacity: .55; } .lang b.on { opacity: 1; }
   .icon-sun, :root[data-theme="dark"] .icon-moon { display: none; }
@@ -90,32 +102,32 @@
   @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .icon-moon { display: none; } :root:not([data-theme="light"]) .icon-sun { display: block; } }
   @media (max-width: 760px) { .nav-links { display: none; } .tools { margin-left: auto; } }
 
-  /* ---------- hero: always dark, LiDAR point cloud behind the text ---------- */
-  .hero { position: relative; min-height: min(92vh, 860px); display: flex; align-items: center; overflow: hidden; background: #05080f; color: #e7ecf5; }
+  /* ---------- hero: LiDAR point cloud behind the text, follows the theme ---------- */
+  .hero { position: relative; min-height: min(92vh, 860px); display: flex; align-items: center; overflow: hidden; background: var(--hero-bg); color: var(--hero-fg); }
   .hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
   .hero::before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
-    background: linear-gradient(90deg, rgba(5,8,15,.97) 0%, rgba(5,8,15,.9) 36%, rgba(5,8,15,.25) 60%, rgba(5,8,15,0) 100%); }
-  .hero::after { content: ""; position: absolute; inset: auto 0 0 0; height: 140px; z-index: 1; pointer-events: none; background: linear-gradient(transparent, #05080f); }
+    background: linear-gradient(90deg, rgba(var(--hero-rgb),.97) 0%, rgba(var(--hero-rgb),.9) 36%, rgba(var(--hero-rgb),.25) 60%, rgba(var(--hero-rgb),0) 100%); }
+  .hero::after { content: ""; position: absolute; inset: auto 0 0 0; height: 140px; z-index: 1; pointer-events: none; background: linear-gradient(rgba(var(--hero-rgb),0), var(--bg)); }
   .hero-in { position: relative; z-index: 2; width: 100%; padding-top: 96px; padding-bottom: 72px; }
   .hero-text { max-width: 560px; }
-  .kicker { display: inline-flex; align-items: center; gap: 8px; font: 600 12.5px var(--mono); letter-spacing: .05em; text-transform: uppercase; color: #34d399; }
-  .kicker::before { content: ""; width: 18px; height: 2px; background: #34d399; }
-  h1 { font-size: clamp(2.6rem, 6vw, 4.4rem); line-height: 1.02; letter-spacing: -.04em; margin: 16px 0 14px; color: #fff; }
-  .tagline { font-size: clamp(1.15rem, 2.1vw, 1.45rem); line-height: 1.4; letter-spacing: -.01em; margin: 0 0 18px; color: #dbe4f3; }
-  .lede { color: #a7b4c8; margin: 0 0 22px; }
-  .loc { display: inline-flex; align-items: center; gap: 8px; font-size: .92rem; color: #c9d4e6; margin: 0 0 30px; }
-  .loc svg { width: 16px; height: 16px; color: #34d399; }
+  .kicker { display: inline-flex; align-items: center; gap: 8px; font: 600 12.5px var(--mono); letter-spacing: .05em; text-transform: uppercase; color: var(--hero-det); }
+  .kicker::before { content: ""; width: 18px; height: 2px; background: var(--hero-det); }
+  h1 { font-size: clamp(2.6rem, 6vw, 4.4rem); line-height: 1.02; letter-spacing: -.04em; margin: 16px 0 14px; color: var(--hero-h1); }
+  .tagline { font-size: clamp(1.15rem, 2.1vw, 1.45rem); line-height: 1.4; letter-spacing: -.01em; margin: 0 0 18px; color: var(--hero-fg); }
+  .lede { color: var(--hero-sub); margin: 0 0 22px; }
+  .loc { display: inline-flex; align-items: center; gap: 8px; font-size: .92rem; color: var(--hero-fg); margin: 0 0 30px; }
+  .loc svg { width: 16px; height: 16px; color: var(--hero-det); }
   .ctas { display: flex; flex-wrap: wrap; gap: 10px; }
   .btn { display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 18px; border-radius: 11px; font-weight: 600; font-size: .95rem;
-    border: 1px solid rgba(231,236,245,.22); color: #e7ecf5; background: rgba(255,255,255,.04); }
-  .btn:hover { text-decoration: none; border-color: #7aa5f0; }
-  .btn.primary { background: #7aa5f0; border-color: #7aa5f0; color: #071022; }
+    border: 1px solid var(--hero-line); color: var(--hero-h1); background: var(--hero-btn); }
+  .btn:hover { text-decoration: none; border-color: var(--hero-primary); }
+  .btn.primary { background: var(--hero-primary); border-color: var(--hero-primary); color: var(--hero-on-primary); }
   .btn.primary:hover { filter: brightness(1.08); }
   .btn svg { width: 18px; height: 18px; }
-  .hud { position: absolute; z-index: 2; right: 20px; bottom: 22px; font: 600 11px/1.7 var(--mono); color: rgba(184,198,221,.7); text-align: right; pointer-events: none; }
-  .hud b { color: #34d399; font-weight: 600; }
+  .hud { position: absolute; z-index: 2; right: 20px; bottom: 22px; font: 600 11px/1.7 var(--mono); color: var(--hero-hud); text-align: right; pointer-events: none; }
+  .hud b { color: var(--hero-det); font-weight: 600; }
   @media (max-width: 900px) {
-    .hero::before { background: linear-gradient(180deg, rgba(5,8,15,.55) 0%, rgba(5,8,15,.82) 55%, rgba(5,8,15,.95) 100%); }
+    .hero::before { background: linear-gradient(180deg, rgba(var(--hero-rgb),.55) 0%, rgba(var(--hero-rgb),.82) 55%, rgba(var(--hero-rgb),.95) 100%); }
     .hud { display: none; }
   }
 
@@ -451,6 +463,7 @@
     var dark = d.dataset.theme ? d.dataset.theme === 'dark' : mq.matches;
     d.dataset.theme = dark ? 'light' : 'dark';
     try { localStorage.setItem('theme', d.dataset.theme); } catch (e) {}
+    if (reduce) render(6); // the still frame has to be redrawn in the new palette
   });
 
   /* ---------------- nav turns solid past the hero ---------------- */
@@ -523,16 +536,26 @@
       P.push({ x: dx * t, y: dy * t, z: dz * t, az: az, r: t, kind: kind });
     }
   }
-  // colour by height (ground teal → walls blue → tops amber), road users in their class colour
-  var CLS = { car: '#34d399', truck: '#fbbf24', ped: '#f472b6', cyclist: '#60a5fa' };
-  var RAMP = ['#0f3b4c', '#14566a', '#177487', '#2a8fb0', '#4a9fd8', '#6f9ceb', '#8fa8f0', '#b7b4ee', '#e3b6c6', '#f6c38a'];
-  var bins = {};
-  P.forEach(function (p, i) {
-    var c = CLS[p.kind];
-    if (!c) { var hz = Math.max(0, Math.min(.999, (p.z - GROUND) / 13)); c = RAMP[Math.floor(hz * RAMP.length)]; }
-    (bins[c] = bins[c] || []).push(i);
-  });
-  var binKeys = Object.keys(bins);
+  // colour by height (ground → walls → tops), road users in their class colour; one palette per theme
+  var PAL = {
+    dark: { cls: { car: '#34d399', truck: '#fbbf24', ped: '#f472b6', cyclist: '#60a5fa' },
+      ramp: ['#0f3b4c', '#14566a', '#177487', '#2a8fb0', '#4a9fd8', '#6f9ceb', '#8fa8f0', '#b7b4ee', '#e3b6c6', '#f6c38a'],
+      ring: 'rgba(122,165,240,.13)', glow: '#eaf2ff', glowA: 0.75, label: 'rgba(5,8,15,.78)', alpha: 0.82 },
+    light: { cls: { car: '#059669', truck: '#c26a06', ped: '#db2777', cyclist: '#2563eb' },
+      ramp: ['#b4c3d4', '#9bb0c7', '#7f9aba', '#6584ac', '#4f6f9d', '#3f5d8d', '#34507f', '#3b437a', '#5f3d73', '#8f4a3a'],
+      ring: 'rgba(30,58,110,.16)', glow: '#0b1220', glowA: 0.55, label: 'rgba(255,255,255,.88)', alpha: 0.9 }
+  };
+  function makeBins(pal) {
+    var bins = {};
+    P.forEach(function (p, i) {
+      var c = pal.cls[p.kind];
+      if (!c) { var hz = Math.max(0, Math.min(.999, (p.z - GROUND) / 13)); c = pal.ramp[Math.floor(hz * pal.ramp.length)]; }
+      (bins[c] = bins[c] || []).push(i);
+    });
+    return { bins: bins, keys: Object.keys(bins) };
+  }
+  var BINS = { dark: makeBins(PAL.dark), light: makeBins(PAL.light) };
+  function themeName() { return (d.dataset.theme ? d.dataset.theme === 'dark' : mq.matches) ? 'dark' : 'light'; }
   document.getElementById('hudPts').textContent = (P.length / 1000).toFixed(1) + 'k';
   document.getElementById('hudObj').textContent = objects.length + ' objects';
 
@@ -563,9 +586,10 @@
   var EDGES = [[0, 1], [1, 2], [2, 3], [3, 0], [4, 5], [5, 6], [6, 7], [7, 4], [0, 4], [1, 5], [2, 6], [3, 7]];
   function render(time) {
     setCam(time);
+    var th = themeName(), pal = PAL[th], bins = BINS[th].bins, binKeys = BINS[th].keys, CLS = pal.cls;
     ctx.clearRect(0, 0, W, H);
     // range rings on the ground every 10 m
-    ctx.lineWidth = 1; ctx.strokeStyle = 'rgba(122,165,240,.13)';
+    ctx.lineWidth = 1; ctx.strokeStyle = pal.ring;
     for (var rr = 10; rr <= 40; rr += 10) {
       ctx.beginPath(); var first = true;
       for (var s = 0; s <= 96; s++) { var a = s / 96 * Math.PI * 2;
@@ -575,17 +599,17 @@
     // project every point once
     for (var i = 0; i < P.length; i++) { var p = P[i]; if (proj(p.x, p.y, p.z, tmp)) { SX[i] = tmp[0]; SY[i] = tmp[1]; SZ[i] = tmp[2]; } else SZ[i] = 0; }
     var sweep = (time * 1.6) % (Math.PI * 2);
-    ctx.globalAlpha = 0.82;
+    ctx.globalAlpha = pal.alpha;
     for (var bk = 0; bk < binKeys.length; bk++) {
       var idx = bins[binKeys[bk]]; ctx.fillStyle = binKeys[bk];
       for (var j = 0; j < idx.length; j++) { var n = idx[j]; if (!SZ[n]) continue; var sz = Math.min(2.6, 0.9 + 22 / SZ[n]); ctx.fillRect(SX[n] - sz / 2, SY[n] - sz / 2, sz, sz); }
     }
     // sweep afterglow: points the rotating beam just passed light up
     if (!reduce) {
-      ctx.fillStyle = '#eaf2ff';
+      ctx.fillStyle = pal.glow;
       for (var g = 0; g < P.length; g++) {
         if (!SZ[g]) continue; var df = sweep - P[g].az; if (df < 0) df += Math.PI * 2;
-        if (df > 0.9) continue; ctx.globalAlpha = 0.75 * (1 - df / 0.9); var s2 = Math.min(2.8, 1 + 22 / SZ[g]);
+        if (df > 0.9) continue; ctx.globalAlpha = pal.glowA * (1 - df / 0.9); var s2 = Math.min(2.8, 1 + 22 / SZ[g]);
         ctx.fillRect(SX[g] - s2 / 2, SY[g] - s2 / 2, s2, s2);
       }
     }
@@ -609,11 +633,11 @@
       var top = sc.reduce(function (m, q) { return q[1] < m[1] ? q : m; });
       var dist = Math.hypot((b.x0 + b.x1) / 2, (b.y0 + b.y1) / 2);
       var label = b.kind + ' ' + dist.toFixed(1) + 'm', tw = ctx.measureText(label).width + 8;
-      ctx.fillStyle = 'rgba(5,8,15,.78)'; ctx.fillRect(top[0] - tw / 2, top[1] - 19, tw, 15);
+      ctx.fillStyle = pal.label; ctx.fillRect(top[0] - tw / 2, top[1] - 19, tw, 15);
       ctx.fillStyle = col; ctx.fillText(label, top[0] - tw / 2 + 4, top[1] - 8);
     }
     // the sensor itself
-    if (proj(0, 0, 0, tmp)) { ctx.fillStyle = '#34d399'; ctx.beginPath(); ctx.arc(tmp[0], tmp[1], 3.5, 0, Math.PI * 2); ctx.fill(); }
+    if (proj(0, 0, 0, tmp)) { ctx.fillStyle = CLS.car; ctx.beginPath(); ctx.arc(tmp[0], tmp[1], 3.5, 0, Math.PI * 2); ctx.fill(); }
   }
 
   var visible = true, t0 = performance.now(), running = false;
