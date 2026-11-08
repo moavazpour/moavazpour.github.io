@@ -238,7 +238,7 @@
         </div>
       </div>
     </div>
-    <div class="hud" aria-hidden="true">lidar · 32 beams · <span id="hudPts">0</span> pts<br><b id="hudObj">0 objects</b> · 3d boxes</div>
+    <div class="hud" aria-hidden="true">lidar on signal pole · 40 beams · <span id="hudPts">0</span> pts<br><b id="hudObj">0 tracks</b> · 3d boxes · track id · speed</div>
   </div>
 
   <section id="focus">
@@ -277,19 +277,36 @@
 
       <div class="projects">
         <article class="project reveal">
-          <div class="media" data-media="anpr"><div class="frame"><img src="assets/anpr.webp" alt="ANPR demo: live camera feed next to the detection result with plates read" loading="lazy"></div><i></i><i></i><i></i><i></i></div>
+          <div class="media" data-media="junction"><div class="frame"><img src="assets/junction.webp" alt="JunctionPerception web console: live bird's-eye digital twin of an intersection next to two camera feeds" loading="lazy"></div><i></i><i></i><i></i><i></i></div>
           <div>
-            <div class="ctx" data-i18n="p.anpr.ctx">Production system · 2022–2025</div>
-            <h3 data-i18n="p.anpr.title">Automatic Number Plate Recognition at the Edge</h3>
-            <p class="desc" data-i18n="p.anpr.desc">An edge ANPR engine for access control and parking, rolled out from an 8-camera pilot to 74 cameras. Frames come in over RTSP or from Basler industrial cameras; detection, OCR, tracking and best-frame selection run on the device, and results go to MySQL and to the server over REST (HTTPS/TLS).</p>
+            <div class="ctx" data-i18n="p.jp.ctx">Independent project · 2026</div>
+            <h3 data-i18n="p.jp.title">Multi-Camera Intersection Digital Twin</h3>
+            <p class="desc" data-i18n="p.jp.desc">Turns the video of one or more fixed traffic cameras into one live, metric bird's-eye view of an intersection. Every vehicle, cyclist and pedestrian gets a map position, speed, heading and one identity across all cameras.</p>
             <ul class="how">
-              <li data-i18n="p.anpr.1">Moved the hot path from Python to multithreaded C++: RTSP ingestion, YOLO inference, OCR post-processing, storage and camera reconnection.</li>
-              <li data-i18n="p.anpr.2">YOLOv4-tiny with TensorRT FP16 at ~25 FPS on Jetson Nano, serving up to 4 cameras per device.</li>
-              <li data-i18n="p.anpr.3">Motion gating, direction of travel, tracking and best-frame selection per vehicle. On a CPU-only Intel Atom site, a motion-gated ROI buffer raised vehicle capture from under 30% to ~70%.</li>
+              <li data-i18n="p.jp.1">A C++/CUDA camera server per camera: YOLO26 detection, ByteTrack tracking and ground-plane localization with uncertainty.</li>
+              <li data-i18n="p.jp.2">A Python world model fuses all cameras into global IDs that survive occlusions and ID switches, and adds lane queues and traffic-light state.</li>
+              <li data-i18n="p.jp.3">Calibration by clicking a few points in the image and on the map; a TypeScript web console shows the live twin, the camera videos and playback.</li>
             </ul>
-            <p class="result"><b data-i18n="result">Result</b><span data-i18n="p.anpr.r">Field test with 1,200 vehicles over 24 h: none missed, 99.4% of plates read exactly right.</span></p>
-            <ul class="chips"><li>C++17</li><li>Python</li><li>YOLOv4</li><li>TensorRT</li><li>CUDA</li><li>OpenCV</li><li>GStreamer</li><li>Basler Pylon</li></ul>
-            <a class="gh" href="https://github.com/moavazpour/anpr-showcase"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2.2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg><span data-i18n="gh.showcase">Showcase on GitHub</span></a><span class="note" data-i18n="note.prop">production code is proprietary</span>
+            <p class="result"><b data-i18n="result">Result</b><span data-i18n="p.jp.r">Against TUMTraf LiDAR ground truth: 0.54 m median position error and 85% within 2 m up to 40 m from the camera; about 13.7 fps per camera with two cameras on a laptop GPU.</span></p>
+            <ul class="chips"><li>C++23</li><li>CUDA</li><li>YOLO26</li><li>ByteTrack</li><li>ONNX Runtime</li><li>Python</li><li>TypeScript</li><li>Docker</li></ul>
+            <a class="gh" href="https://github.com/moavazpour/JunctionPerception"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2.2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg><span data-i18n="gh.code">Code on GitHub</span></a>
+          </div>
+        </article>
+
+        <article class="project reveal">
+          <div class="media" data-media="conveyor"><div class="frame"><img src="assets/conveyor.webp" alt="Baked goods segmented, tracked and counted on a moving conveyor belt" loading="lazy"></div><i></i><i></i><i></i><i></i></div>
+          <div>
+            <div class="ctx" data-i18n="p.conv.ctx">Independent project · 2026</div>
+            <h3 data-i18n="p.conv.title">Detection, Tracking &amp; Classification on a Conveyor</h3>
+            <p class="desc" data-i18n="p.conv.desc">Segments, tracks, counts and classifies baked goods on a moving conveyor belt without a single labeled training image.</p>
+            <ul class="how">
+              <li data-i18n="p.conv.1">FastSAM masks with ROI-relative area filtering to separate touching and overlapping objects.</li>
+              <li data-i18n="p.conv.2">Hungarian data association with velocity-based prediction bridges short dropouts; a four-stage line-crossing state machine with hysteresis counts each track once.</li>
+              <li data-i18n="p.conv.3">Online classification with DINOv2 embeddings and incremental clustering; noise goes to an "unclear" class.</li>
+            </ul>
+            <p class="result"><b data-i18n="result">Result</b><span data-i18n="p.conv.r">An annotated video, JSON/CSV export and a sorted image archive, from the CLI or a Gradio web demo.</span></p>
+            <ul class="chips"><li>Python</li><li>FastSAM</li><li>DINOv2</li><li>OpenCV</li><li data-i18n="c.hung">Hungarian algorithm</li><li>Gradio</li></ul>
+            <a class="gh" href="https://github.com/moavazpour/bakery-conveyor-cv"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2.2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg><span data-i18n="gh.code">Code on GitHub</span></a>
           </div>
         </article>
 
@@ -311,23 +328,6 @@
         </article>
 
         <article class="project reveal">
-          <div class="media" data-media="intersection"><div class="frame"><img src="assets/intersection.webp" alt="Lane-level regions of interest marking lanes as occupied or empty at an intersection" loading="lazy"></div><i></i><i></i><i></i><i></i></div>
-          <div>
-            <div class="ctx" data-i18n="p.int.ctx">Production pilot · 2021</div>
-            <h3 data-i18n="p.int.title">Adaptive Intersection Controller</h3>
-            <p class="desc" data-i18n="p.int.desc">Camera-based vehicle-presence detection for an adaptive traffic-signal pilot at 3 intersections with 12 cameras. Each lane becomes a virtual inductive loop that sends a 0/1 presence signal over RS-485 to the controller, which sizes each green phase from it. My part was the detection module.</p>
-            <ul class="how">
-              <li data-i18n="p.int.1">Classical computer vision on Raspberry-Pi-class hardware, with no GPU and no neural network: adaptive background subtraction, Canny edges and lane-level ROIs.</li>
-              <li data-i18n="p.int.2">Wet asphalt caused false positives with raw edge counting; adaptive background subtraction removed them.</li>
-              <li data-i18n="p.int.3">Recovered and analysed 371,000 signal phases from a controller log corrupted by SPI noise.</li>
-            </ul>
-            <p class="result"><b data-i18n="result">Result</b><span data-i18n="p.int.r">Team result: average cycle 12% shorter than the fixed-time plan, 92.5% adaptive-mode availability in heat up to 45 °C.</span></p>
-            <ul class="chips"><li>Python</li><li>OpenCV</li><li data-i18n="c.bgsub">Background subtraction</li><li>Canny</li><li>RS-485</li><li>pandas</li></ul>
-            <a class="gh" href="https://github.com/moavazpour/adaptive-intersection-showcase"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2.2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg><span data-i18n="gh.showcase">Showcase on GitHub</span></a><span class="note" data-i18n="note.prop">production code is proprietary</span>
-          </div>
-        </article>
-
-        <article class="project reveal">
           <div class="media" data-media="tsr"><div class="frame"><img src="assets/tsr.webp" alt="Traffic signs detected and classified in a rainy driving video" loading="lazy"></div><i></i><i></i><i></i><i></i></div>
           <div>
             <div class="ctx" data-i18n="p.tsr.ctx">Seminar project · 2026</div>
@@ -345,19 +345,36 @@
         </article>
 
         <article class="project reveal">
-          <div class="media" data-media="conveyor"><div class="frame"><img src="assets/conveyor.webp" alt="Baked goods segmented, tracked and counted on a moving conveyor belt" loading="lazy"></div><i></i><i></i><i></i><i></i></div>
+          <div class="media" data-media="anpr"><div class="frame"><img src="assets/anpr.webp" alt="ANPR demo: live camera feed next to the detection result with plates read" loading="lazy"></div><i></i><i></i><i></i><i></i></div>
           <div>
-            <div class="ctx" data-i18n="p.conv.ctx">Independent project · 2026</div>
-            <h3 data-i18n="p.conv.title">Detection, Tracking &amp; Classification on a Conveyor</h3>
-            <p class="desc" data-i18n="p.conv.desc">Segments, tracks, counts and classifies baked goods on a moving conveyor belt without a single labeled training image.</p>
+            <div class="ctx" data-i18n="p.anpr.ctx">Production system · 2022–2025</div>
+            <h3 data-i18n="p.anpr.title">Automatic Number Plate Recognition at the Edge</h3>
+            <p class="desc" data-i18n="p.anpr.desc">An edge ANPR engine for access control and parking, rolled out from an 8-camera pilot to 74 cameras. Frames come in over RTSP or from Basler industrial cameras; detection, OCR, tracking and best-frame selection run on the device, and results go to MySQL and to the server over REST (HTTPS/TLS).</p>
             <ul class="how">
-              <li data-i18n="p.conv.1">FastSAM masks with ROI-relative area filtering to separate touching and overlapping objects.</li>
-              <li data-i18n="p.conv.2">Hungarian data association with velocity-based prediction bridges short dropouts; a four-stage line-crossing state machine with hysteresis counts each track once.</li>
-              <li data-i18n="p.conv.3">Online classification with DINOv2 embeddings and incremental clustering; noise goes to an "unclear" class.</li>
+              <li data-i18n="p.anpr.1">Moved the hot path from Python to multithreaded C++: RTSP ingestion, YOLO inference, OCR post-processing, storage and camera reconnection.</li>
+              <li data-i18n="p.anpr.2">YOLOv4-tiny with TensorRT FP16 at ~25 FPS on Jetson Nano, serving up to 4 cameras per device.</li>
+              <li data-i18n="p.anpr.3">Motion gating, direction of travel, tracking and best-frame selection per vehicle. On a CPU-only Intel Atom site, a motion-gated ROI buffer raised vehicle capture from under 30% to ~70%.</li>
             </ul>
-            <p class="result"><b data-i18n="result">Result</b><span data-i18n="p.conv.r">An annotated video, JSON/CSV export and a sorted image archive, from the CLI or a Gradio web demo.</span></p>
-            <ul class="chips"><li>Python</li><li>FastSAM</li><li>DINOv2</li><li>OpenCV</li><li data-i18n="c.hung">Hungarian algorithm</li><li>Gradio</li></ul>
-            <a class="gh" href="https://github.com/moavazpour/bakery-conveyor-cv"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2.2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg><span data-i18n="gh.code">Code on GitHub</span></a>
+            <p class="result"><b data-i18n="result">Result</b><span data-i18n="p.anpr.r">Field test with 1,200 vehicles over 24 h: none missed, 99.4% of plates read exactly right.</span></p>
+            <ul class="chips"><li>C++17</li><li>Python</li><li>YOLOv4</li><li>TensorRT</li><li>CUDA</li><li>OpenCV</li><li>GStreamer</li><li>Basler Pylon</li></ul>
+            <a class="gh" href="https://github.com/moavazpour/anpr-showcase"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2.2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg><span data-i18n="gh.showcase">Showcase on GitHub</span></a><span class="note" data-i18n="note.prop">production code is proprietary</span>
+          </div>
+        </article>
+
+        <article class="project reveal">
+          <div class="media" data-media="intersection"><div class="frame"><img src="assets/intersection.webp" alt="Lane-level regions of interest marking lanes as occupied or empty at an intersection" loading="lazy"></div><i></i><i></i><i></i><i></i></div>
+          <div>
+            <div class="ctx" data-i18n="p.int.ctx">Production pilot · 2021</div>
+            <h3 data-i18n="p.int.title">Adaptive Intersection Controller</h3>
+            <p class="desc" data-i18n="p.int.desc">Camera-based vehicle-presence detection for an adaptive traffic-signal pilot at 3 intersections with 12 cameras. Each lane becomes a virtual inductive loop that sends a 0/1 presence signal over RS-485 to the controller, which sizes each green phase from it. My part was the detection module.</p>
+            <ul class="how">
+              <li data-i18n="p.int.1">Classical computer vision on Raspberry-Pi-class hardware, with no GPU and no neural network: adaptive background subtraction, Canny edges and lane-level ROIs.</li>
+              <li data-i18n="p.int.2">Wet asphalt caused false positives with raw edge counting; adaptive background subtraction removed them.</li>
+              <li data-i18n="p.int.3">Recovered and analysed 371,000 signal phases from a controller log corrupted by SPI noise.</li>
+            </ul>
+            <p class="result"><b data-i18n="result">Result</b><span data-i18n="p.int.r">Team result: average cycle 12% shorter than the fixed-time plan, 92.5% adaptive-mode availability in heat up to 45 °C.</span></p>
+            <ul class="chips"><li>Python</li><li>OpenCV</li><li data-i18n="c.bgsub">Background subtraction</li><li>Canny</li><li>RS-485</li><li>pandas</li></ul>
+            <a class="gh" href="https://github.com/moavazpour/adaptive-intersection-showcase"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2.2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg><span data-i18n="gh.showcase">Showcase on GitHub</span></a><span class="note" data-i18n="note.prop">production code is proprietary</span>
           </div>
         </article>
       </div>
@@ -426,6 +443,13 @@
     'p.int.2': 'Nasser Asphalt verursachte bei reiner Kantenzählung Fehldetektionen; adaptive Hintergrundsubtraktion hat sie beseitigt.',
     'p.int.3': '371.000 Signalphasen aus einem durch SPI-Störungen beschädigten Controller-Log wiederhergestellt und analysiert.',
     'p.int.r': 'Teamergebnis: mittlere Zykluszeit 12 % kürzer als im Festzeitplan, 92,5 % Verfügbarkeit im adaptiven Betrieb bei bis zu 45 °C.',
+    'p.jp.ctx': 'Eigenes Projekt · 2026',
+    'p.jp.title': 'Digitaler Zwilling einer Kreuzung aus mehreren Kameras',
+    'p.jp.desc': 'Macht aus dem Video einer oder mehrerer fest montierter Verkehrskameras eine live, metrische Vogelperspektive der Kreuzung. Jedes Fahrzeug, jeder Radfahrer und Fußgänger erhält Kartenposition, Geschwindigkeit, Fahrtrichtung und eine Identität über alle Kameras hinweg.',
+    'p.jp.1': 'Ein C++/CUDA-Kameraserver pro Kamera: YOLO26-Detektion, ByteTrack-Tracking und Lokalisierung auf der Bodenebene mit Unsicherheit.',
+    'p.jp.2': 'Ein Weltmodell in Python fusioniert alle Kameras zu globalen IDs, die Verdeckungen und ID-Wechsel überstehen, und ergänzt Rückstaus pro Spur und den Ampelzustand.',
+    'p.jp.3': 'Kalibrierung durch Anklicken weniger Punkte im Bild und auf der Karte; eine Web-Konsole in TypeScript zeigt den Live-Zwilling, die Kameravideos und die Wiedergabe.',
+    'p.jp.r': 'Gegen TUMTraf-LiDAR-Ground-Truth: 0,54 m medianer Positionsfehler und 85 % innerhalb von 2 m bis 40 m Abstand zur Kamera; rund 13,7 fps pro Kamera mit zwei Kameras auf einer Laptop-GPU.',
     'p.tsr.ctx': 'Seminarprojekt · 2026',
     'p.tsr.title': 'Verkehrszeichenerkennung &amp; EU-ISA',
     'p.tsr.desc': 'Eine zweistufige Echtzeit-Pipeline zur Verkehrszeichenerkennung, analysiert gegen die EU-Anforderungen an den Intelligenten Geschwindigkeitsassistenten (ISA).',
@@ -498,151 +522,339 @@
     document.querySelectorAll('[data-media]').forEach(function (m) { vo.observe(m); });
   }
 
-  /* ---------------- hero: simulated LiDAR scan of a street ----------------
-     A 32-beam spinning LiDAR at the origin (z up, 1.8 m above the road) is ray-cast
-     once against a box-world street; the camera then orbits the cloud while a sweep
-     highlights the points the beam just passed, and 3D boxes mark the road users. */
+  /* ---------------- hero: LiDAR on a traffic-light pole at an intersection ----------------
+     A 40-beam spinning LiDAR sits on top of the south-west signal pole, 6.6 m above the road.
+     The static scene (road markings, buildings, poles, trees) is ray-cast once; every frame only
+     the rays that point at a moving road user are re-cast against its box. Cars, trucks, cyclists
+     and pedestrians follow a simple signal cycle, and each one gets a 3D box, a track ID and its speed. */
   var cv = document.getElementById('cloud'), ctx = cv.getContext('2d');
-  var GROUND = -1.8, MAXR = 55;
-  var boxes = [], objects = [];
-  function box(x, y, l, w, h, z0, kind) { var b = { x0: x - l / 2, x1: x + l / 2, y0: y - w / 2, y1: y + w / 2, z0: z0 == null ? GROUND : z0, kind: kind }; b.z1 = b.z0 + h; boxes.push(b); return b; }
-  // buildings on both sides of the street, with gaps
-  [[-52, -34, 12], [-30, -12, 9], [-8, 10, 14], [14, 30, 8], [34, 54, 11]].forEach(function (s) { box((s[0] + s[1]) / 2, 15.5, s[1] - s[0], 7, s[2], null, 'bld'); });
-  [[-50, -28, 10], [-24, -6, 13], [-2, 20, 9], [24, 50, 12]].forEach(function (s) { box((s[0] + s[1]) / 2, -15.5, s[1] - s[0], 7, s[2], null, 'bld'); });
-  // trees and poles along the sidewalks
-  [-36, -20, -4, 12, 28, 44].forEach(function (x, i) { var y = i % 2 ? 9.6 : -9.6; box(x, y, .35, .35, 3, null, 'pole'); box(x, y, 3, 3, 2.4, GROUND + 2.6, 'tree'); });
-  [-12, 20, 36].forEach(function (x) { box(x, -9.4, .2, .2, 5.5, null, 'pole'); });
-  // road users (these get 3D boxes)
-  [[9, -3.4, 4.5, 1.9, 1.5, 'car'], [17.5, 3.3, 4.4, 1.85, 1.45, 'car'], [-9, 3.5, 4.6, 1.9, 1.55, 'car'], [-17, -3.5, 4.3, 1.8, 1.5, 'car'],
-   [27, -3.6, 4.6, 1.9, 1.6, 'car'], [-29, 3.4, 9.5, 2.5, 3.2, 'truck'], [5.5, 8.6, .7, .7, 1.8, 'ped'], [-4.5, -8.4, .7, .7, 1.75, 'ped'], [13, -6.6, 1.8, .7, 1.7, 'cyclist']]
-    .forEach(function (o) { objects.push(box(o[0], o[1], o[2], o[3], o[4], null, o[5])); });
+  var OX = -8.6, OY = -8.6, OZ = 6.6, MAXR = 70, L = 60, RW = 7, TAU = Math.PI * 2;
+  var K_ROAD = 1, K_SIDE = 2, K_MARK = 3, K_BLD = 4, K_POLE = 5, K_TREE = 6;
+  var statics = [], heads = [];
+  function sbox(x0, x1, y0, y1, z0, z1, kind) { statics.push({ x0: Math.min(x0, x1), x1: Math.max(x0, x1), y0: Math.min(y0, y1), y1: Math.max(y0, y1), z0: z0, z1: z1, kind: kind }); }
+  function tree(x, y) { sbox(x - .15, x + .15, y - .15, y + .15, 0, 2.8, K_TREE); sbox(x - 1.4, x + 1.4, y - 1.4, y + 1.4, 2.5, 5, K_TREE); }
+  // buildings on the four corners
+  [[1, 1, 12, 9], [1, -1, 16, 11], [-1, 1, 10, 14], [-1, -1, 13, 8]].forEach(function (q) {
+    sbox(q[0] * 14, q[0] * 31, q[1] * 14, q[1] * 42, 0, q[2], K_BLD);
+    sbox(q[0] * 34, q[0] * 52, q[1] * 14, q[1] * 29, 0, q[3], K_BLD);
+  });
+  // signal poles with an arm over the road and a signal head; SW + NE show the north–south phase
+  [[-1, -1, 'x', 'ns'], [1, 1, 'x', 'ns'], [1, -1, 'y', 'ew'], [-1, 1, 'y', 'ew']].forEach(function (p) {
+    var px = p[0] * 8.6, py = p[1] * 8.6, ex = p[2] === 'x' ? px - p[0] * 7.5 : px, ey = p[2] === 'y' ? py - p[1] * 7.5 : py;
+    sbox(px - .16, px + .16, py - .16, py + .16, 0, 6.2, K_POLE);
+    if (p[2] === 'x') sbox(px, ex, py - .1, py + .1, 5.55, 5.75, K_POLE); else sbox(px - .1, px + .1, py, ey, 5.55, 5.75, K_POLE);
+    sbox(ex - .2, ex + .2, ey - .2, ey + .2, 4.5, 5.55, K_POLE);
+    heads.push({ x: ex, y: ey, z: 5.0, grp: p[3] });
+  });
+  [18, 30, 42].forEach(function (a) { [[a, 10.6], [-a, 10.6], [a, -10.6], [-a, -10.6]].forEach(function (p) { tree(p[0], p[1]); tree(p[1], p[0]); }); });
 
-  function hitBox(dx, dy, dz, b) { // slab test from the origin
-    var t0 = 0, t1 = 1e9, ta, tb, tmp;
-    if (Math.abs(dx) < 1e-9) { if (0 < b.x0 || 0 > b.x1) return -1; } else { ta = b.x0 / dx; tb = b.x1 / dx; if (ta > tb) { tmp = ta; ta = tb; tb = tmp; } t0 = Math.max(t0, ta); t1 = Math.min(t1, tb); }
-    if (Math.abs(dy) < 1e-9) { if (0 < b.y0 || 0 > b.y1) return -1; } else { ta = b.y0 / dy; tb = b.y1 / dy; if (ta > tb) { tmp = ta; ta = tb; tb = tmp; } t0 = Math.max(t0, ta); t1 = Math.min(t1, tb); }
-    ta = b.z0 / dz; tb = b.z1 / dz; if (ta > tb) { tmp = ta; ta = tb; tb = tmp; } t0 = Math.max(t0, ta); t1 = Math.min(t1, tb);
+  // what the ground looks like to the sensor: road, sidewalk, or a painted marking (high intensity)
+  function groundKind(x, y) {
+    var ax = Math.abs(x), ay = Math.abs(y), onEW = ay < RW, onNS = ax < RW;
+    if (!onEW && !onNS) return K_SIDE;
+    if (onEW && ax > 8.5 && ax < 11.5) return Math.floor((y + RW) / 0.9) % 2 ? K_ROAD : K_MARK;   // zebra crossings
+    if (onNS && ay > 8.5 && ay < 11.5) return Math.floor((x + RW) / 0.9) % 2 ? K_ROAD : K_MARK;
+    if (onEW && !onNS && ax > 12.5 && ax < 13 && x * y > 0) return K_MARK;                          // stop lines
+    if (onNS && !onEW && ay > 12.5 && ay < 13 && x * y < 0) return K_MARK;
+    if (onEW && !onNS && ax > 13 && ((ay < .12 && Math.floor(ax / 3) % 2 === 0) || Math.abs(ay - 5.1) < .1)) return K_MARK;
+    if (onNS && !onEW && ay > 13 && ((ax < .12 && Math.floor(ay / 3) % 2 === 0) || Math.abs(ax - 5.1) < .1)) return K_MARK;
+    return K_ROAD;
+  }
+
+  function slab(dx, dy, dz, b) { // ray from the sensor against an axis-aligned box; -1 = miss
+    var t0 = 0, t1 = 1e9, ta, tb, s;
+    if (dx !== 0) { ta = (b.x0 - OX) / dx; tb = (b.x1 - OX) / dx; if (ta > tb) { s = ta; ta = tb; tb = s; } if (ta > t0) t0 = ta; if (tb < t1) t1 = tb; if (t0 > t1) return -1; } else if (OX < b.x0 || OX > b.x1) return -1;
+    if (dy !== 0) { ta = (b.y0 - OY) / dy; tb = (b.y1 - OY) / dy; if (ta > tb) { s = ta; ta = tb; tb = s; } if (ta > t0) t0 = ta; if (tb < t1) t1 = tb; if (t0 > t1) return -1; } else if (OY < b.y0 || OY > b.y1) return -1;
+    ta = (b.z0 - OZ) / dz; tb = (b.z1 - OZ) / dz; if (ta > tb) { s = ta; ta = tb; tb = s; } if (ta > t0) t0 = ta; if (tb < t1) t1 = tb;
     return t1 >= t0 && t0 > 0 ? t0 : -1;
   }
-  var BEAMS = 32, AZ = 520, P = [];
+
+  // palette index: 0–9 height ramp, 10 road, 11 sidewalk, 12 marking, 13 car, 14 truck, 15 pedestrian, 16 cyclist
+  var CI = { car: 13, truck: 14, ped: 15, cyclist: 16 }, NCOL = 17;
+  var small = innerWidth < 700, BEAMS = small ? 28 : 40, AZ = small ? 360 : 480, N = BEAMS * AZ, STEP = TAU / AZ;
+  var DX = new Float32Array(N), DY = new Float32Array(N), DZ = new Float32Array(N), AZA = new Float32Array(N);
+  var TS = new Float32Array(N), CS = new Uint8Array(N), NZ = new Float32Array(N), TC = new Float32Array(N), CC = new Uint8Array(N);
   for (var bi = 0; bi < BEAMS; bi++) {
-    var f = bi / (BEAMS - 1), el = (-25 + 30 * Math.pow(f, 1.6)) * Math.PI / 180; // denser near the horizon
+    // most beams look down so their ground rings land evenly every ~1.4 m (3–50 m); the top few see buildings
+    var UP = small ? 5 : 6, nG = BEAMS - UP;
+    var el = bi < nG ? -Math.atan(OZ / (3 + bi * 47 / (nG - 1))) : (-2 + (bi - nG) * 10 / (UP - 1)) * Math.PI / 180;
     for (var ai = 0; ai < AZ; ai++) {
-      var az = (ai / AZ) * Math.PI * 2 + bi * 0.0021, dx = Math.cos(el) * Math.cos(az), dy = Math.cos(el) * Math.sin(az), dz = Math.sin(el);
-      var t = dz < 0 ? GROUND / dz : 1e9, kind = 'ground';
-      for (var k = 0; k < boxes.length; k++) { var h = hitBox(dx, dy, dz, boxes[k]); if (h > 0 && h < t) { t = h; kind = boxes[k].kind; } }
-      if (t > MAXR || t < 1.2) continue;
-      t += (Math.random() - .5) * 0.06;
-      P.push({ x: dx * t, y: dy * t, z: dz * t, az: az, r: t, kind: kind });
+      var i = bi * AZ + ai, az = ai * STEP + bi * 0.0021, dx = Math.cos(el) * Math.cos(az), dy = Math.cos(el) * Math.sin(az), dz = Math.sin(el);
+      DX[i] = dx; DY[i] = dy; DZ[i] = dz; AZA[i] = az % TAU; NZ[i] = (Math.random() - .5) * 0.06;
+      var t = dz < 0 ? -OZ / dz : 1e9, kind = 0;
+      for (var k = 0; k < statics.length; k++) { var h = slab(dx, dy, dz, statics[k]); if (h > 0 && h < t) { t = h; kind = statics[k].kind; } }
+      if (t > MAXR || t < 1) { TS[i] = 1e9; continue; }
+      TS[i] = t;
+      if (!kind) { var g = groundKind(OX + dx * t, OY + dy * t); CS[i] = g === K_ROAD ? 10 : g === K_SIDE ? 11 : 12; }
+      else CS[i] = Math.floor(Math.max(0, Math.min(.999, (OZ + dz * t) / 16)) * 10);
     }
   }
-  // colour by height (ground → walls → tops), road users in their class colour; one palette per theme
-  var PAL = {
-    dark: { cls: { car: '#34d399', truck: '#fbbf24', ped: '#f472b6', cyclist: '#60a5fa' },
-      ramp: ['#0f3b4c', '#14566a', '#177487', '#2a8fb0', '#4a9fd8', '#6f9ceb', '#8fa8f0', '#b7b4ee', '#e3b6c6', '#f6c38a'],
-      ring: 'rgba(122,165,240,.13)', glow: '#eaf2ff', glowA: 0.75, label: 'rgba(5,8,15,.78)', alpha: 0.82 },
-    light: { cls: { car: '#059669', truck: '#c26a06', ped: '#db2777', cyclist: '#2563eb' },
-      ramp: ['#b4c3d4', '#9bb0c7', '#7f9aba', '#6584ac', '#4f6f9d', '#3f5d8d', '#34507f', '#3b437a', '#5f3d73', '#8f4a3a'],
-      ring: 'rgba(30,58,110,.16)', glow: '#0b1220', glowA: 0.55, label: 'rgba(255,255,255,.88)', alpha: 0.9 }
-  };
-  function makeBins(pal) {
-    var bins = {};
-    P.forEach(function (p, i) {
-      var c = pal.cls[p.kind];
-      if (!c) { var hz = Math.max(0, Math.min(.999, (p.z - GROUND) / 13)); c = pal.ramp[Math.floor(hz * pal.ramp.length)]; }
-      (bins[c] = bins[c] || []).push(i);
-    });
-    return { bins: bins, keys: Object.keys(bins) };
-  }
-  var BINS = { dark: makeBins(PAL.dark), light: makeBins(PAL.light) };
-  function themeName() { return (d.dataset.theme ? d.dataset.theme === 'dark' : mq.matches) ? 'dark' : 'light'; }
-  document.getElementById('hudPts').textContent = (P.length / 1000).toFixed(1) + 'k';
-  document.getElementById('hudObj').textContent = objects.length + ' objects';
 
-  var SX = new Float32Array(P.length), SY = new Float32Array(P.length), SZ = new Float32Array(P.length);
+  var PAL = {
+    dark: { col: ['#0f3b4c', '#14566a', '#177487', '#2a8fb0', '#4a9fd8', '#6f9ceb', '#8fa8f0', '#b7b4ee', '#e3b6c6', '#f6c38a',
+      '#1d5169', '#2b6f86', '#e8f4ff', '#34d399', '#fbbf24', '#f472b6', '#60a5fa'],
+      ring: 'rgba(122,165,240,.13)', glow: '#eaf2ff', glowA: 0.7, label: 'rgba(5,8,15,.78)', alpha: 0.85 },
+    light: { col: ['#b4c3d4', '#9bb0c7', '#7f9aba', '#6584ac', '#4f6f9d', '#3f5d8d', '#34507f', '#3b437a', '#5f3d73', '#8f4a3a',
+      '#8ea3bb', '#b3c2d3', '#0b1a3a', '#059669', '#c26a06', '#db2777', '#2563eb'],
+      ring: 'rgba(30,58,110,.16)', glow: '#0b1220', glowA: 0.5, label: 'rgba(255,255,255,.9)', alpha: 0.92 }
+  };
+  PAL.dark.map = 'rgba(170,200,240,.26)'; PAL.light.map = 'rgba(30,58,110,.28)';
+  var SIG = { g: '#22c55e', y: '#eab308', r: '#ef4444' };
+  // map segments [x0, y0, x1, y1] on the ground, mirrored into all four arms of the intersection
+  var MAP = [];
+  [[1, 0], [-1, 0], [0, 1], [0, -1]].forEach(function (d4) {
+    function seg(a0, b0, a1, b1) { // a = along the arm (away from the centre), b = across it
+      if (d4[0]) MAP.push([d4[0] * a0, b0, d4[0] * a1, b1]); else MAP.push([b0, d4[1] * a0, b1, d4[1] * a1]);
+    }
+    seg(RW, RW, 55, RW); seg(RW, -RW, 55, -RW);                                   // curbs
+    for (var a = 13; a < 55; a += 6) seg(a, 0, a + 3, 0);                         // dashed centre line
+    seg(13, 5.1, 55, 5.1); seg(13, -5.1, 55, -5.1);                               // bike-lane lines
+    seg(8.5, -RW, 8.5, RW); seg(11.5, -RW, 11.5, RW);                             // crossing edges
+  });
+  // stop lines (on the right-hand side of each approach)
+  MAP.push([-12.8, -RW, -12.8, 0], [12.8, 0, 12.8, RW], [0, -12.8, RW, -12.8], [-RW, 12.8, 0, 12.8]);
+  function themeName() { return (d.dataset.theme ? d.dataset.theme === 'dark' : mq.matches) ? 'dark' : 'light'; }
+
+  /* ---- traffic: a 24 s signal cycle, vehicles that stop for red and queue, pedestrians on the crossings ---- */
+  var simT = 0, agents = [], nextId = 1;
+  function rand(a, b) { return a + Math.random() * (b - a); }
+  function signal(grp) { var c = simT % 24; if (grp === 'ew') return c < 9 ? 'g' : c < 11.5 ? 'y' : 'r'; return c >= 12 && c < 21 ? 'g' : c >= 21 && c < 23.5 ? 'y' : 'r'; }
+  function greenAge(grp) { var c = simT % 24; return grp === 'ew' ? c : c - 12; }
+  var LANES = [
+    { ax: 'x', dir: 1, off: -3.5, grp: 'ew' }, { ax: 'x', dir: -1, off: 3.5, grp: 'ew' },
+    { ax: 'y', dir: 1, off: 3.5, grp: 'ns' }, { ax: 'y', dir: -1, off: -3.5, grp: 'ns' },
+    { ax: 'x', dir: 1, off: -6, grp: 'ew', bike: true }, { ax: 'x', dir: -1, off: 6, grp: 'ew', bike: true },
+    { ax: 'y', dir: 1, off: 6, grp: 'ns', bike: true }, { ax: 'y', dir: -1, off: -6, grp: 'ns', bike: true }
+  ];
+  LANES.forEach(function (l) { l.timer = rand(0, 4); });
+  var STOP = L - 12.8; // travelled distance at which a vehicle's front reaches its stop line
+  function placeVehicle(a) {
+    var l = a.lane, p = l.dir * (a.s - L);
+    if (l.ax === 'x') { a.x = p; a.y = l.off; a.lx = a.len; a.ly = a.wid; a.vx = a.v * l.dir; a.vy = 0; }
+    else { a.x = l.off; a.y = p; a.lx = a.wid; a.ly = a.len; a.vx = 0; a.vy = a.v * l.dir; }
+  }
+  function spawnVehicle(l) {
+    var last = null;
+    agents.forEach(function (o) { if (o.lane === l && (!last || o.s < last.s)) last = o; });
+    var cls = l.bike ? 'cyclist' : Math.random() < 0.14 ? 'truck' : 'car';
+    var len = cls === 'truck' ? 9 : cls === 'car' ? rand(4.2, 4.8) : 1.8;
+    if (last && last.s - last.len / 2 < len + 3) return false;
+    var a = { id: nextId++, cls: cls, lane: l, len: len, wid: cls === 'truck' ? 2.5 : cls === 'car' ? 1.9 : .7, h: cls === 'truck' ? 3.3 : cls === 'car' ? rand(1.4, 1.6) : 1.75,
+      v0: cls === 'truck' ? 7 : cls === 'car' ? rand(8, 11) : rand(4, 5.5), s: len / 2 };
+    a.v = a.v0 * 0.9; placeVehicle(a); agents.push(a); return true;
+  }
+  function stepVehicle(a, dt) {
+    var front = a.s + a.len / 2, target = 1e9, lead = null, st = signal(a.lane.grp);
+    agents.forEach(function (o) { if (o !== a && o.lane === a.lane && o.s > a.s && (!lead || o.s < lead.s)) lead = o; });
+    if (lead) target = lead.s - lead.len / 2 - 2.2;
+    if (st !== 'g' && front < STOP + 0.3 && (st === 'r' || STOP - front > a.v * a.v / 8 * 0.9)) target = Math.min(target, STOP);
+    var want = Math.min(a.v0, Math.sqrt(2 * 4 * Math.max(0, target - front)));
+    a.v = want < a.v ? Math.max(want, a.v - 8 * dt) : Math.min(want, a.v + 2.2 * dt);
+    a.s += a.v * dt; placeVehicle(a);
+    return a.s < 2 * L + 10;
+  }
+  var CROSS = [{ c: -10, walk: 'y', grp: 'ns' }, { c: 10, walk: 'y', grp: 'ns' }, { c: -10, walk: 'x', grp: 'ew' }, { c: 10, walk: 'x', grp: 'ew' }];
+  var pedTimer = 1;
+  function spawnPed() {
+    var cw = CROSS[(Math.random() * 4) | 0], sg = Math.sign(cw.c), side = Math.random() < .5 ? 1 : -1, wp;
+    var a0 = cw.c + sg * rand(7, 16), a1 = cw.c + sg * rand(7, 16);
+    if (cw.walk === 'y') wp = [[a0, side * 9.7], [cw.c, side * 9.7], [cw.c, -side * 9.7], [a1, -side * 9.7]];
+    else wp = [[side * 9.7, a0], [side * 9.7, cw.c], [-side * 9.7, cw.c], [-side * 9.7, a1]];
+    agents.push({ id: nextId++, cls: 'ped', cw: cw, wp: wp, k: 1, x: wp[0][0], y: wp[0][1], lx: .6, ly: .6, h: rand(1.6, 1.85), sp: rand(1.2, 1.6), vx: 0, vy: 0 });
+  }
+  function stepPed(a, dt) {
+    var w = a.wp[a.k], ddx = w[0] - a.x, ddy = w[1] - a.y, dist = Math.hypot(ddx, ddy);
+    if (dist < 0.05) {
+      if (a.k === 1 && !(signal(a.cw.grp) === 'g' && greenAge(a.cw.grp) < 6)) { a.vx = a.vy = 0; return true; } // wait at the curb
+      a.k++; if (a.k >= a.wp.length) return false;
+      return true;
+    }
+    var m = Math.min(dist, a.sp * dt); a.vx = ddx / dist * a.sp; a.vy = ddy / dist * a.sp;
+    a.x += ddx / dist * m; a.y += ddy / dist * m;
+    return true;
+  }
+  function step(dt) {
+    simT += dt;
+    LANES.forEach(function (l) {
+      l.timer -= dt;
+      if (l.timer <= 0) l.timer = spawnVehicle(l) ? (l.bike ? rand(18, 34) : rand(5, 10)) : 0.5;
+    });
+    pedTimer -= dt;
+    if (pedTimer <= 0) { var np = agents.filter(function (a) { return a.cls === 'ped'; }).length; if (np < 4) spawnPed(); pedTimer = rand(4, 9); }
+    agents = agents.filter(function (a) { return a.cls === 'ped' ? stepPed(a, dt) : stepVehicle(a, dt); });
+  }
+  for (var w = 0; w < 220; w++) step(0.1); // start with traffic already on the road
+
+  // re-cast only the rays that can see each road user
+  function castDynamic() {
+    TC.set(TS); CC.set(CS);
+    for (var n = 0; n < agents.length; n++) {
+      var a = agents[n], b = { x0: a.x - a.lx / 2, x1: a.x + a.lx / 2, y0: a.y - a.ly / 2, y1: a.y + a.ly / 2, z0: 0, z1: a.h };
+      if (Math.hypot(a.x - OX, a.y - OY) > MAXR) continue;
+      var ac = Math.atan2(a.y - OY, a.x - OX), lo = 0, hi = 0;
+      [[b.x0, b.y0], [b.x1, b.y0], [b.x0, b.y1], [b.x1, b.y1]].forEach(function (c) {
+        var q = Math.atan2(c[1] - OY, c[0] - OX) - ac; if (q > Math.PI) q -= TAU; if (q < -Math.PI) q += TAU;
+        if (q < lo) lo = q; if (q > hi) hi = q;
+      });
+      if (ac < 0) ac += TAU;
+      var c0 = Math.floor((ac + lo) / STEP) - 7, c1 = Math.ceil((ac + hi) / STEP) + 1, ci = CI[a.cls];
+      for (var c = c0; c <= c1; c++) {
+        var col = ((c % AZ) + AZ) % AZ;
+        for (var bb = 0; bb < BEAMS; bb++) {
+          var r = bb * AZ + col, t = slab(DX[r], DY[r], DZ[r], b);
+          if (t > 0 && t < TC[r]) { TC[r] = t; CC[r] = ci; }
+        }
+      }
+    }
+  }
+
+  var PX = new Float32Array(N), PY = new Float32Array(N), PZ = new Float32Array(N);
   var W = 0, H = 0, DPR = Math.min(devicePixelRatio || 1, 2);
-  function resize() { var r = cv.getBoundingClientRect(); W = r.width; H = r.height; cv.width = Math.round(W * DPR); cv.height = Math.round(H * DPR); ctx.setTransform(DPR, 0, 0, DPR, 0, 0); }
-  resize(); addEventListener('resize', function () { resize(); if (reduce) render(0); });
+  // points are drawn into an RGBA buffer at CSS-pixel size, then scaled onto the canvas in one drawImage
+  var off = document.createElement('canvas'), octx = off.getContext('2d'), img = null, buf = null, BW = 0, BH = 0;
+  function packHex(h, a) { var n = parseInt(h.slice(1), 16); return ((a << 24) | ((n & 255) << 16) | (((n >> 8) & 255) << 8) | ((n >> 16) & 255)) >>> 0; }
+  ['dark', 'light'].forEach(function (k) {
+    var p = PAL[k], n = parseInt(p.glow.slice(1), 16);
+    p.pk = new Uint32Array(p.col.map(function (h) { return packHex(h, Math.round(p.alpha * 255)); }));
+    p.gr = (n >> 16) & 255; p.gg = (n >> 8) & 255; p.gb = n & 255;
+  });
+  function plot(x, y, s, v) {
+    var x0 = (x - s / 2 + 0.5) | 0, y0 = (y - s / 2 + 0.5) | 0;
+    for (var yy = y0; yy < y0 + s; yy++) { if (yy < 0 || yy >= BH) continue; var row = yy * BW; for (var xx = x0; xx < x0 + s; xx++) if (xx >= 0 && xx < BW) buf[row + xx] = v; }
+  }
+  function glow(x, y, s, a, base, p) { // blend the pixels toward the glow colour by a
+    var x0 = (x - s / 2 + 0.5) | 0, y0 = (y - s / 2 + 0.5) | 0;
+    for (var yy = y0; yy < y0 + s; yy++) { if (yy < 0 || yy >= BH) continue; var row = yy * BW;
+      for (var xx = x0; xx < x0 + s; xx++) { if (xx < 0 || xx >= BW) continue;
+        var q = buf[row + xx] || base, r = q & 255, g = (q >> 8) & 255, b = (q >> 16) & 255, al = q >>> 24;
+        r += (p.gr - r) * a; g += (p.gg - g) * a; b += (p.gb - b) * a; al = Math.max(al, 255 * a);
+        buf[row + xx] = ((al << 24) | (b << 16) | (g << 8) | r) >>> 0; } }
+  }
+  function resize() {
+    var r = cv.getBoundingClientRect(); W = r.width; H = r.height; cv.width = Math.round(W * DPR); cv.height = Math.round(H * DPR); ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    BW = Math.max(1, Math.ceil(W)); BH = Math.max(1, Math.ceil(H)); off.width = BW; off.height = BH; img = octx.createImageData(BW, BH); buf = new Uint32Array(img.data.buffer);
+  }
+  resize(); addEventListener('resize', function () { resize(); if (reduce) render(6); });
 
   var cam = {};
   function setCam(time) {
-    var th = -2.35 + time * 0.045, elv = 0.62, dist = 50, tx = 2, ty = 0, tz = -1;
+    var th = -2.0 + time * 0.04, elv = 0.7, dist = 50, tx = -1, ty = -1, tz = 0;
     var px = tx + dist * Math.cos(elv) * Math.cos(th), py = ty + dist * Math.cos(elv) * Math.sin(th), pz = tz + dist * Math.sin(elv);
     var fx = tx - px, fy = ty - py, fz = tz - pz, fl = Math.hypot(fx, fy, fz); fx /= fl; fy /= fl; fz /= fl;
-    var rx = fy, ry = -fx, rz = 0, rl = Math.hypot(rx, ry); rx /= rl; ry /= rl;          // right = f × up
-    var ux = ry * fz - rz * fy, uy = rz * fx - rx * fz, uz = rx * fy - ry * fx;            // up = r × f
+    var rx = fy, ry = -fx, rl = Math.hypot(rx, ry); rx /= rl; ry /= rl;                     // right = f × up
+    var ux = ry * fz, uy = -rx * fz, uz = rx * fy - ry * fx;                                 // up = r × f
     var wide = W > 900;
-    cam = { px: px, py: py, pz: pz, fx: fx, fy: fy, fz: fz, rx: rx, ry: ry, rz: rz, ux: ux, uy: uy, uz: uz,
-      cx: wide ? W * 0.68 : W * 0.5, cy: wide ? H * 0.5 : H * 0.42, foc: Math.min(W, H * 1.5) * (wide ? 0.95 : 1.15) };
+    cam = { px: px, py: py, pz: pz, fx: fx, fy: fy, fz: fz, rx: rx, ry: ry, ux: ux, uy: uy, uz: uz,
+      cx: wide ? W * 0.68 : W * 0.5, cy: wide ? H * 0.52 : H * 0.42, foc: Math.min(W, H * 1.5) * (wide ? 1.0 : 1.2) };
   }
   function proj(x, y, z, out) {
     var vx = x - cam.px, vy = y - cam.py, vz = z - cam.pz, zc = vx * cam.fx + vy * cam.fy + vz * cam.fz;
     if (zc < 0.5) return false;
-    out[0] = cam.cx + cam.foc * (vx * cam.rx + vy * cam.ry + vz * cam.rz) / zc;
+    out[0] = cam.cx + cam.foc * (vx * cam.rx + vy * cam.ry) / zc;
     out[1] = cam.cy - cam.foc * (vx * cam.ux + vy * cam.uy + vz * cam.uz) / zc;
     out[2] = zc; return true;
   }
-  var tmp = [0, 0, 0], tmp2 = [0, 0, 0];
+  var tmp = [0, 0, 0], tmp2 = [0, 0, 0], hudT = 0;
   var EDGES = [[0, 1], [1, 2], [2, 3], [3, 0], [4, 5], [5, 6], [6, 7], [7, 4], [0, 4], [1, 5], [2, 6], [3, 7]];
+  var hudPts = document.getElementById('hudPts'), hudObj = document.getElementById('hudObj');
   function render(time) {
-    setCam(time);
-    var th = themeName(), pal = PAL[th], bins = BINS[th].bins, binKeys = BINS[th].keys, CLS = pal.cls;
-    ctx.clearRect(0, 0, W, H);
-    // range rings on the ground every 10 m
-    ctx.lineWidth = 1; ctx.strokeStyle = pal.ring;
-    for (var rr = 10; rr <= 40; rr += 10) {
-      ctx.beginPath(); var first = true;
-      for (var s = 0; s <= 96; s++) { var a = s / 96 * Math.PI * 2;
-        if (proj(rr * Math.cos(a), rr * Math.sin(a), GROUND, tmp)) { if (first) { ctx.moveTo(tmp[0], tmp[1]); first = false; } else ctx.lineTo(tmp[0], tmp[1]); } else first = true; }
-      ctx.stroke();
+    setCam(time); castDynamic();
+    var th = themeName(), pal = PAL[th], col = pal.col, pk = pal.pk;
+    // project every return (inlined proj(): this loop runs for every ray, every frame)
+    var vis = 0, cpx = OX - cam.px, cpy = OY - cam.py, cpz = OZ - cam.pz, fx = cam.fx, fy = cam.fy, fz = cam.fz, rx = cam.rx, ry = cam.ry,
+      ux = cam.ux, uy = cam.uy, uz = cam.uz, ccx = cam.cx, ccy = cam.cy, foc = cam.foc;
+    for (var i = 0; i < N; i++) {
+      var t = TC[i]; PZ[i] = 0;
+      if (t > MAXR) continue;
+      t += NZ[i];
+      var vx = cpx + DX[i] * t, vy = cpy + DY[i] * t, vz = cpz + DZ[i] * t, zc = vx * fx + vy * fy + vz * fz;
+      if (zc < 0.5) continue;
+      PX[i] = ccx + foc * (vx * rx + vy * ry) / zc; PY[i] = ccy - foc * (vx * ux + vy * uy + vz * uz) / zc; PZ[i] = zc; vis++;
     }
-    // project every point once
-    for (var i = 0; i < P.length; i++) { var p = P[i]; if (proj(p.x, p.y, p.z, tmp)) { SX[i] = tmp[0]; SY[i] = tmp[1]; SZ[i] = tmp[2]; } else SZ[i] = 0; }
-    var sweep = (time * 1.6) % (Math.PI * 2);
-    ctx.globalAlpha = pal.alpha;
-    for (var bk = 0; bk < binKeys.length; bk++) {
-      var idx = bins[binKeys[bk]]; ctx.fillStyle = binKeys[bk];
-      for (var j = 0; j < idx.length; j++) { var n = idx[j]; if (!SZ[n]) continue; var sz = Math.min(2.6, 0.9 + 22 / SZ[n]); ctx.fillRect(SX[n] - sz / 2, SY[n] - sz / 2, sz, sz); }
-    }
-    // sweep afterglow: points the rotating beam just passed light up
+    // write the points into a pixel buffer (far cheaper than one fillRect per point); road users last, on top
+    buf.fill(0);
+    for (var pass = 0; pass < 2; pass++)
+      for (var j = 0; j < N; j++) {
+        if (!PZ[j] || (CC[j] >= 13) !== (pass === 1)) continue;
+        plot(PX[j], PY[j], Math.max(1, Math.min(3, Math.round(0.9 + 28 / PZ[j]))), pk[CC[j]]);
+      }
+    // sweep afterglow: returns the rotating head just passed light up
     if (!reduce) {
-      ctx.fillStyle = pal.glow;
-      for (var g = 0; g < P.length; g++) {
-        if (!SZ[g]) continue; var df = sweep - P[g].az; if (df < 0) df += Math.PI * 2;
-        if (df > 0.9) continue; ctx.globalAlpha = pal.glowA * (1 - df / 0.9); var s2 = Math.min(2.8, 1 + 22 / SZ[g]);
-        ctx.fillRect(SX[g] - s2 / 2, SY[g] - s2 / 2, s2, s2);
+      var sweep = (time * 1.6) % TAU;
+      // only the columns the head swept in the last 0.9 rad (plus the per-beam azimuth offset)
+      for (var gc = Math.floor((sweep - 0.9 - 0.09) / STEP); gc <= Math.ceil(sweep / STEP); gc++) {
+        var gcol = ((gc % AZ) + AZ) % AZ;
+        for (var gb = 0; gb < BEAMS; gb++) {
+          var g = gb * AZ + gcol;
+          if (!PZ[g]) continue; var df = sweep - AZA[g]; if (df < 0) df += TAU;
+          if (df > 0.9) continue;
+          glow(PX[g], PY[g], Math.max(1, Math.min(3, Math.round(1 + 28 / PZ[g]))), pal.glowA * (1 - df / 0.9), pk[CC[g]], pal);
+        }
       }
     }
-    ctx.globalAlpha = 1;
-    // 3D boxes + labels for road users
-    ctx.font = '600 10.5px ui-monospace, Consolas, monospace';
-    for (var o = 0; o < objects.length; o++) {
-      var b = objects[o], col = CLS[b.kind], pad = 0.15;
-      var cs = [[b.x0 - pad, b.y0 - pad, b.z0], [b.x1 + pad, b.y0 - pad, b.z0], [b.x1 + pad, b.y1 + pad, b.z0], [b.x0 - pad, b.y1 + pad, b.z0]];
-      cs = cs.concat(cs.map(function (c) { return [c[0], c[1], b.z1 + pad]; }));
-      var sc = [], ok = true;
-      for (var c = 0; c < 8; c++) { if (!proj(cs[c][0], cs[c][1], cs[c][2], tmp)) { ok = false; break; } sc.push([tmp[0], tmp[1]]); }
-      if (!ok) continue;
-      ctx.strokeStyle = col; ctx.lineWidth = 1.4; ctx.beginPath();
-      EDGES.forEach(function (e) { ctx.moveTo(sc[e[0]][0], sc[e[0]][1]); ctx.lineTo(sc[e[1]][0], sc[e[1]][1]); });
+    octx.putImageData(img, 0, 0);
+    ctx.clearRect(0, 0, W, H);
+    ctx.imageSmoothingEnabled = false;
+    ctx.drawImage(off, 0, 0, BW, BH);
+    // faint HD-map layer: curbs, lane lines, crossings and stop lines
+    ctx.lineWidth = 1; ctx.strokeStyle = pal.map;
+    for (var m = 0; m < MAP.length; m++) {
+      var seg = MAP[m];
+      if (proj(seg[0], seg[1], 0.02, tmp) && proj(seg[2], seg[3], 0.02, tmp2)) { ctx.beginPath(); ctx.moveTo(tmp[0], tmp[1]); ctx.lineTo(tmp2[0], tmp2[1]); ctx.stroke(); }
+    }
+    // range rings around the pole, every 10 m
+    ctx.strokeStyle = pal.ring;
+    for (var rr = 10; rr <= 50; rr += 10) {
+      ctx.beginPath(); var first = true;
+      for (var s = 0; s <= 120; s++) { var an = s / 120 * TAU;
+        if (proj(OX + rr * Math.cos(an), OY + rr * Math.sin(an), 0, tmp)) { if (first) { ctx.moveTo(tmp[0], tmp[1]); first = false; } else ctx.lineTo(tmp[0], tmp[1]); } else first = true; }
       ctx.stroke();
-      // heading tick on the front face
-      if (proj(b.x1 + pad, (b.y0 + b.y1) / 2, (b.z0 + b.z1) / 2, tmp) && proj(b.x1 + pad + 1, (b.y0 + b.y1) / 2, (b.z0 + b.z1) / 2, tmp2)) {
-        ctx.beginPath(); ctx.moveTo(tmp[0], tmp[1]); ctx.lineTo(tmp2[0], tmp2[1]); ctx.stroke();
-      }
-      var top = sc.reduce(function (m, q) { return q[1] < m[1] ? q : m; });
-      var dist = Math.hypot((b.x0 + b.x1) / 2, (b.y0 + b.y1) / 2);
-      var label = b.kind + ' ' + dist.toFixed(1) + 'm', tw = ctx.measureText(label).width + 8;
-      ctx.fillStyle = pal.label; ctx.fillRect(top[0] - tw / 2, top[1] - 19, tw, 15);
-      ctx.fillStyle = col; ctx.fillText(label, top[0] - tw / 2 + 4, top[1] - 8);
     }
-    // the sensor itself
-    if (proj(0, 0, 0, tmp)) { ctx.fillStyle = CLS.car; ctx.beginPath(); ctx.arc(tmp[0], tmp[1], 3.5, 0, Math.PI * 2); ctx.fill(); }
+    // signal heads
+    heads.forEach(function (hd) {
+      if (!proj(hd.x, hd.y, hd.z, tmp)) return;
+      var sc = SIG[signal(hd.grp)]; ctx.fillStyle = sc; ctx.shadowColor = sc; ctx.shadowBlur = 10;
+      ctx.beginPath(); ctx.arc(tmp[0], tmp[1], 3.6, 0, TAU); ctx.fill(); ctx.shadowBlur = 0;
+    });
+    // 3D boxes with track ID and speed
+    ctx.font = '600 10.5px ui-monospace, Consolas, monospace';
+    var tracked = 0;
+    for (var a = 0; a < agents.length; a++) {
+      var ag = agents[a], bc = col[CI[ag.cls]], pad = 0.12;
+      var range = Math.hypot(ag.x - OX, ag.y - OY);
+      if (range > 48) continue;
+      var x0 = ag.x - ag.lx / 2 - pad, x1 = ag.x + ag.lx / 2 + pad, y0 = ag.y - ag.ly / 2 - pad, y1 = ag.y + ag.ly / 2 + pad, z1 = ag.h + pad;
+      var cs = [[x0, y0, 0], [x1, y0, 0], [x1, y1, 0], [x0, y1, 0], [x0, y0, z1], [x1, y0, z1], [x1, y1, z1], [x0, y1, z1]], sc2 = [], ok = true;
+      for (var q = 0; q < 8; q++) { if (!proj(cs[q][0], cs[q][1], cs[q][2], tmp)) { ok = false; break; } sc2.push([tmp[0], tmp[1]]); }
+      if (!ok) continue;
+      tracked++;
+      ctx.strokeStyle = bc; ctx.lineWidth = 1.4; ctx.beginPath();
+      EDGES.forEach(function (e) { ctx.moveTo(sc2[e[0]][0], sc2[e[0]][1]); ctx.lineTo(sc2[e[1]][0], sc2[e[1]][1]); });
+      ctx.stroke();
+      var sp = Math.hypot(ag.vx, ag.vy);
+      if (sp > 0.2 && proj(ag.x, ag.y, ag.h / 2, tmp) && proj(ag.x + ag.vx / sp * (ag.cls === 'ped' ? 1 : 3), ag.y + ag.vy / sp * (ag.cls === 'ped' ? 1 : 3), ag.h / 2, tmp2)) {
+        ctx.beginPath(); ctx.moveTo(tmp[0], tmp[1]); ctx.lineTo(tmp2[0], tmp2[1]); ctx.stroke();   // heading
+      }
+      if (range > 30 || W < 700) continue; // label only what is close to the pole (and nothing on phones), to keep the text readable
+      var top = sc2.reduce(function (m, p) { return p[1] < m[1] ? p : m; });
+      var label = ag.cls + ' #' + ag.id + ' · ' + sp.toFixed(1) + ' m/s', tw = ctx.measureText(label).width + 8;
+      ctx.fillStyle = pal.label; ctx.fillRect(top[0] - tw / 2, top[1] - 19, tw, 15);
+      ctx.fillStyle = bc; ctx.fillText(label, top[0] - tw / 2 + 4, top[1] - 8);
+    }
+    // the sensor on its pole
+    if (proj(OX, OY, OZ, tmp)) { ctx.fillStyle = col[13]; ctx.beginPath(); ctx.arc(tmp[0], tmp[1], 4, 0, TAU); ctx.fill(); }
+    if (time - hudT > 0.5 || reduce) { hudT = time; hudPts.textContent = (vis / 1000).toFixed(1) + 'k'; hudObj.textContent = tracked + ' tracks'; }
   }
 
-  var visible = true, t0 = performance.now(), running = false;
-  function loop(now) { if (!visible || document.hidden) { running = false; return; } render((now - t0) / 1000); requestAnimationFrame(loop); }
-  function start() { if (reduce) { render(6); return; } if (!running) { running = true; requestAnimationFrame(loop); } }
+  var visible = true, t0 = performance.now(), last = t0, running = false;
+  function loop(now) {
+    if (!visible || document.hidden) { running = false; return; }
+    requestAnimationFrame(loop);
+    if (now - last < 32) return; // ~30 fps is plenty for a LiDAR that spins at 10–20 Hz
+    step(Math.min(0.1, (now - last) / 1000)); last = now;
+    render((now - t0) / 1000);
+  }
+  function start() { if (reduce) { render(6); return; } if (!running) { running = true; last = performance.now(); requestAnimationFrame(loop); } }
   if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { visible = es[0].isIntersecting; if (visible) start(); }).observe(hero);
   document.addEventListener('visibilitychange', function () { if (!document.hidden) start(); });
   start();
