@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mo Avazpour — Computer Vision &amp; Perception Engineer</title>
-<meta name="description" content="Mo Avazpour, computer vision and perception engineer in the Greater Munich area. Real-time detection, tracking and 3D perception on edge hardware: projects with demo videos and code on GitHub.">
+<title>Mo Avazpour — Robotics Software Engineer</title>
+<meta name="description" content="Mo Avazpour, robotics software engineer in the Greater Munich area. Robot perception, kinematics and control in C++ and ROS 2, from camera and LiDAR to motion: projects with demo videos and code on GitHub.">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#05080f" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#f3f6fa" media="(prefers-color-scheme: light)">
@@ -14,12 +14,12 @@
 <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://moavazpour.com/">
-<meta property="og:title" content="Mo Avazpour — Computer Vision &amp; Perception Engineer">
-<meta property="og:description" content="Real-time detection, tracking and 3D perception on edge hardware: projects with demo videos and code.">
+<meta property="og:title" content="Mo Avazpour — Robotics Software Engineer">
+<meta property="og:description" content="Robot perception, kinematics and control in C++ and ROS 2: projects with demo videos and code.">
 <meta property="og:image" content="https://moavazpour.com/assets/anpr.webp">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person","name":"Mohammadali (Mo) Avazpour","jobTitle":"Computer Vision & Perception Engineer","url":"https://moavazpour.com/","email":"mailto:info@moavazpour.com","address":{"@type":"PostalAddress","addressRegion":"Greater Munich Metropolitan Area","addressCountry":"DE"},"sameAs":["https://github.com/moavazpour","https://linkedin.com/in/moavazpour"]}
+{"@context":"https://schema.org","@type":"Person","name":"Mohammadali (Mo) Avazpour","jobTitle":"Robotics Software Engineer","url":"https://moavazpour.com/","email":"mailto:info@moavazpour.com","address":{"@type":"PostalAddress","addressRegion":"Greater Munich Metropolitan Area","addressCountry":"DE"},"sameAs":["https://github.com/moavazpour","https://linkedin.com/in/moavazpour"]}
 </script>
 <script>
   // Apply saved theme/lang before paint to avoid a flash.
@@ -127,7 +127,9 @@
   .hud { position: absolute; z-index: 2; right: 20px; bottom: 22px; font: 600 11px/1.7 var(--mono); color: var(--hero-hud); text-align: right; pointer-events: none; }
   .hud b { color: var(--hero-det); font-weight: 600; }
   @media (max-width: 900px) {
-    .hero::before { background: linear-gradient(180deg, rgba(var(--hero-rgb),.55) 0%, rgba(var(--hero-rgb),.82) 55%, rgba(var(--hero-rgb),.95) 100%); }
+    .hero::before { background: linear-gradient(180deg, rgba(var(--hero-rgb),.7) 0%, rgba(var(--hero-rgb),.86) 50%, rgba(var(--hero-rgb),.5) 70%, rgba(var(--hero-rgb),0) 82%); }
+    .hero::after { height: 60px; }
+    .hero-in { padding-bottom: 290px; }
     .hud { display: none; }
   }
 
@@ -145,8 +147,27 @@
   .f .ic svg { width: 20px; height: 20px; }
   .f h3 { margin: 0 0 6px; font-size: 1.02rem; letter-spacing: -.01em; }
   .f p { margin: 0; color: var(--muted); font-size: .92rem; line-height: 1.55; }
+  .f .chips { margin: 14px 0 0; }
+  .f .chips li { font-size: 11.5px; padding: 2px 7px; }
   @media (max-width: 1000px) { .focus { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 560px) { .focus { grid-template-columns: 1fr; } }
+  .extra { display: grid; grid-template-columns: 1.6fr 1fr; gap: 16px 40px; margin: 26px 0 0; font-size: .93rem; }
+  .extra dt { font: 600 12px var(--mono); letter-spacing: .04em; text-transform: uppercase; color: var(--det); margin-bottom: 4px; }
+  .extra dd { margin: 0; color: var(--muted); }
+  @media (max-width: 760px) { .extra { grid-template-columns: 1fr; } }
+
+  /* ---------- profile ---------- */
+  .profile { display: grid; grid-template-columns: 1.3fr 1fr; gap: 56px; margin-top: 28px; align-items: start; }
+  .about p { margin: 0 0 16px; color: var(--muted); }
+  .about p.lead { font-size: clamp(1.12rem, 1.8vw, 1.28rem); line-height: 1.5; letter-spacing: -.01em; color: var(--fg); }
+  .tl-h { font: 600 12.5px var(--mono); letter-spacing: .05em; text-transform: uppercase; color: var(--det); margin: 6px 0 16px; }
+  .tl { list-style: none; margin: 0; padding: 0 0 0 18px; border-left: 2px solid var(--line); display: grid; gap: 18px; }
+  .tl li { position: relative; display: grid; gap: 1px; line-height: 1.4; }
+  .tl li::before { content: ""; position: absolute; left: -25px; top: 5px; width: 8px; height: 8px; border: 2px solid var(--det); border-radius: 2px; background: var(--bg); }
+  .tl .when { font: 500 12px var(--mono); color: var(--muted); }
+  .tl b { font-size: .97rem; letter-spacing: -.01em; }
+  .tl .org { font-size: .9rem; color: var(--muted); }
+  @media (max-width: 900px) { .profile { grid-template-columns: 1fr; gap: 36px; } }
 
   /* ---------- projects ---------- */
   .projects { display: grid; gap: 88px; }
@@ -206,7 +227,8 @@
       <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M10 22V10h12M42 10h12v12M54 42v12H42M22 54H10V42" fill="none" stroke="#34d399" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="32" cy="32" r="5" fill="currentColor"/></svg>
       <span>Mo Avazpour</span></a>
     <nav class="nav-links" aria-label="Sections">
-      <a href="#focus" data-i18n="nav.focus">Focus</a>
+      <a href="#profile" data-i18n="nav.profile">Profile</a>
+      <a href="#skills" data-i18n="nav.skills">Skills</a>
       <a href="#projects" data-i18n="nav.projects">Projects</a>
       <a href="https://github.com/moavazpour" rel="me">GitHub</a>
     </nav>
@@ -225,10 +247,10 @@
     <canvas id="cloud" aria-hidden="true"></canvas>
     <div class="wrap hero-in">
       <div class="hero-text">
-        <span class="kicker">Computer Vision &amp; Perception Engineer</span>
+        <span class="kicker">Robotics Software Engineer</span>
         <h1>Mo Avazpour</h1>
-        <p class="tagline" data-i18n="hero.tagline">Real-time perception that runs on the edge.</p>
-        <p class="lede" data-i18n="hero.lede">I build perception systems that run in real time on edge hardware: object detection and tracking, OCR, and 3D perception from LiDAR and cameras, for traffic and automated driving. Below are my projects, each with a demo video and the code or write-up on GitHub.</p>
+        <p class="tagline" data-i18n="hero.tagline">From pixels and point clouds to robot motion.</p>
+        <p class="lede" data-i18n="hero.lede">I write the software that lets robots see and act: camera and LiDAR perception, state estimation, kinematics and control in C++ and ROS 2, tested in simulation and proven on real hardware. Below are my projects, each with a demo video and the code or write-up on GitHub.</p>
         <p class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span data-i18n="hero.loc">Greater Munich Metropolitan Area</span></p>
         <div class="ctas">
           <a class="btn primary" href="#projects"><span data-i18n="hero.cta">See the projects</span>
@@ -238,44 +260,94 @@
         </div>
       </div>
     </div>
-    <div class="hud" aria-hidden="true">lidar on signal pole · 40 beams · <span id="hudPts">0</span> pts<br><b id="hudObj">0 tracks</b> · 3d boxes · track id · speed</div>
+    <div class="hud" aria-hidden="true"><span data-i18n="hud.1">drone + mobile manipulator · 24-beam lidar · slam</span> · <span id="hudPts">0</span> · <span id="hudMap">0</span><br><b id="hudObj">0 tracks</b> · <span id="hudTask"></span></div>
   </div>
 
-  <section id="focus">
+  <section id="profile">
     <div class="wrap">
-      <div class="sec-head"><span class="idx">01</span><h2 data-i18n="sec.focus">Technical focus</h2></div>
-      <p class="sec-sub" data-i18n="sec.focus.sub">What the projects below have in common: perception that has to work in the field, on limited hardware, with real data.</p>
-      <div class="focus">
-        <div class="f reveal">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8V4h4M17 4h4v4M21 16v4h-4M7 20H3v-4"/><rect x="8" y="8" width="8" height="8" rx="1"/></svg></div>
-          <h3 data-i18n="f1.t">Real-time detection &amp; tracking</h3>
-          <p data-i18n="f1.d">Training and deploying YOLO models, multi-object tracking, OCR post-processing and best-frame selection.</p>
+      <div class="sec-head"><span class="idx">01</span><h2 data-i18n="sec.profile">Profile</h2></div>
+      <div class="profile">
+        <div class="about reveal">
+          <p class="lead" data-i18n="ab.1">I am a robotics software engineer. I build the software between a robot's sensors and its motion: perception from cameras and LiDAR, state estimation, kinematics and control, written in C++ and ROS 2.</p>
+          <p data-i18n="ab.2">Before my master's I worked for over two years as a computer vision engineer. I designed a multithreaded C++ ANPR engine that ran on NVIDIA Jetson and edge PCs, grew from an 8-camera pilot to 74 cameras and read 99.4% of plates exactly in a 1,200-vehicle field test. That taught me what it takes for software to keep working in the field: real-time limits, unreliable hardware and testing that reflects real conditions.</p>
+          <p data-i18n="ab.3">Today I study Automated Driving and Vehicle Safety (M.Eng.) at TH Ingolstadt and work alongside it on simulation for cooperative perception and on test automation. My latest project closes the loop from camera to motion: a 7-DOF Franka Panda in Gazebo that finds a cube with its wrist camera, servos onto it and places it with 1.2 mm mean error, using a Cartesian controller I wrote from scratch.</p>
+          <p data-i18n="ab.4">I am open to working-student roles and a master's thesis in robotics, with the aim of staying long-term.</p>
         </div>
-        <div class="f reveal">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg></div>
-          <h3 data-i18n="f2.t">Edge deployment</h3>
-          <p data-i18n="f2.d">TensorRT FP16 on NVIDIA Jetson, CUDA OpenCV DNN, and multithreaded C++ pipelines for CPU-only industrial PCs.</p>
-        </div>
-        <div class="f reveal">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 3 8l9 5 9-5-9-5z"/><path d="M3 8v8l9 5 9-5V8M12 13v8"/></svg></div>
-          <h3 data-i18n="f3.t">3D perception</h3>
-          <p data-i18n="f3.d">LiDAR point clouds, CenterPoint and keypoint-based 3D boxes, camera–LiDAR calibration and SUMO–CARLA co-simulation.</p>
-        </div>
-        <div class="f reveal">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></div>
-          <h3 data-i18n="f4.t">Data &amp; foundation models</h3>
-          <p data-i18n="f4.d">Merging and validating large multi-source datasets, and FastSAM and DINOv2 for pipelines that need no labels.</p>
+        <div class="reveal">
+          <h3 class="tl-h" data-i18n="tl.h">Experience &amp; education</h3>
+          <ol class="tl">
+            <li><span class="when" data-i18n="tl.1.w">10/2026 – now</span><b data-i18n="tl.1.r">Working Student, AI Testing Platform</b><span class="org">diconium · Ingolstadt</span></li>
+            <li><span class="when" data-i18n="tl.2.w">08/2026 – now</span><b data-i18n="tl.2.r">Student Research Assistant, Cooperative Perception</b><span class="org">AImotion Bavaria · Ingolstadt</span></li>
+            <li><span class="when">03/2026 – 08/2026</span><b data-i18n="tl.3.r">Working Student, Function &amp; System Development (Central ECU)</b><span class="org">CARIAD SE · Ingolstadt</span></li>
+            <li><span class="when">03/2025 – 01/2028</span><b data-i18n="tl.4.r">M.Eng. Automated Driving and Vehicle Safety</b><span class="org">Technische Hochschule Ingolstadt</span></li>
+            <li><span class="when">10/2022 – 02/2025</span><b data-i18n="tl.5.r">Computer Vision Engineer</b><span class="org">Anamis Electronic Vira (GambroTech)</span></li>
+            <li><span class="when">09/2017 – 09/2022</span><b data-i18n="tl.6.r">B.Sc. Electrical Engineering</b><span class="org" data-i18n="tl.6.o">Technical and Vocational University · Yazd</span></li>
+          </ol>
         </div>
       </div>
     </div>
   </section>
 
+  <section id="skills">
+    <div class="wrap">
+      <div class="sec-head"><span class="idx">02</span><h2 data-i18n="sec.skills">Skills</h2></div>
+      <p class="sec-sub" data-i18n="sec.skills.sub">What I use in the projects below, grouped by where it sits in a robot's software.</p>
+      <div class="focus">
+        <div class="f reveal">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h8M8 20v-4l4-6 6-2"/><circle cx="8" cy="16" r="1.5"/><circle cx="12" cy="10" r="1.5"/><path d="M18 8l2-2M18 8l2 2"/></svg></div>
+          <h3 data-i18n="f1.t">Kinematics &amp; control</h3>
+          <p data-i18n="f1.d">Cartesian velocity control, damped least-squares IK and null-space control for redundant arms, position-based visual servoing and task state machines.</p>
+          <ul class="chips"><li>ROS 2</li><li>ros2_control</li><li>Gazebo</li><li>KDL</li><li>Eigen</li><li>URDF</li></ul>
+        </div>
+        <div class="f reveal">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8V4h4M17 4h4v4M21 16v4h-4M7 20H3v-4"/><rect x="8" y="8" width="8" height="8" rx="1"/></svg></div>
+          <h3 data-i18n="f2.t">Perception</h3>
+          <p data-i18n="f2.d">Object detection, multi-object tracking and Kalman filtering; camera calibration and pose estimation; LiDAR point clouds and camera–LiDAR calibration.</p>
+          <ul class="chips"><li>OpenCV</li><li>YOLO</li><li>PyTorch</li><li>ByteTrack</li><li>PCL</li><li>Open3D</li></ul>
+        </div>
+        <div class="f reveal">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg></div>
+          <h3 data-i18n="f3.t">Software engineering</h3>
+          <p data-i18n="f3.d">Object-oriented, multithreaded C++17/23 with design patterns, unit tests, CI and Docker; Python and C# for tools and test automation.</p>
+          <ul class="chips"><li>C++17/23</li><li>CMake</li><li>GoogleTest</li><li>Python</li><li>C#</li><li>Docker</li><li>GitHub Actions</li><li>Linux</li></ul>
+        </div>
+        <div class="f reveal">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg></div>
+          <h3 data-i18n="f4.t">Edge hardware &amp; simulation</h3>
+          <p data-i18n="f4.d">Real-time inference on NVIDIA Jetson, industrial camera integration, and simulation to test and generate data before the hardware.</p>
+          <ul class="chips"><li>CUDA</li><li>TensorRT</li><li>ONNX Runtime</li><li>Jetson</li><li>Basler Pylon</li><li>CARLA</li><li>SUMO</li></ul>
+        </div>
+      </div>
+      <dl class="extra reveal">
+        <div><dt data-i18n="ex.1.t">Also familiar with</dt><dd data-i18n="ex.1.d">SLAM, reinforcement and imitation learning, Qt, SolidWorks, STM32 and AVR, CAN and RS-485, Vector CANoe, LLM APIs and agentic coding</dd></div>
+        <div><dt data-i18n="ex.2.t">Languages</dt><dd data-i18n="ex.2.d">English (C1, IELTS 7.0) · German (B2, C1 in progress) · Persian (native)</dd></div>
+      </dl>
+    </div>
+  </section>
+
   <section id="projects">
     <div class="wrap">
-      <div class="sec-head"><span class="idx">02</span><h2 data-i18n="sec.projects">Projects</h2></div>
+      <div class="sec-head"><span class="idx">03</span><h2 data-i18n="sec.projects">Projects</h2></div>
       <p class="sec-sub" data-i18n="sec.projects.sub">Each project has a demo video and a GitHub repository with the details.</p>
 
       <div class="projects">
+        <article class="project reveal">
+          <div class="media" data-media="panda"><div class="frame"><img src="assets/panda.webp" alt="Franka Panda arm in Gazebo carrying a cube to a shelf, next to a task panel with the wrist camera view and the benchmark results" loading="lazy"></div><i></i><i></i><i></i><i></i></div>
+          <div>
+            <div class="ctx" data-i18n="p.pvs.ctx">Independent project · 2026</div>
+            <h3 data-i18n="p.pvs.title">Visual Servoing &amp; Pick-and-Place with a 7-DOF Panda</h3>
+            <p class="desc" data-i18n="p.pvs.desc">A simulated Franka Panda in Gazebo finds a cube with its wrist camera, servos above it, grasps it and places it on a shelf. It is guided only by ArUco markers, starts every cycle from a new random layout, and is measured against Gazebo ground truth.</p>
+            <ul class="how">
+              <li data-i18n="p.pvs.1">A Cartesian velocity controller written from scratch with KDL and Eigen at 100 Hz: damped least-squares IK near singularities, null-space projection for the redundant 7th joint, and closed-loop pose feedback with anti-windup.</li>
+              <li data-i18n="p.pvs.2">Position-based visual servoing on ArUco poses (OpenCV, IPPE PnP) with low-pass filtering, outlier rejection and hysteresis between moving and holding.</li>
+              <li data-i18n="p.pvs.3">A pick-and-place state machine with a probing grasp, contact detection, coarse-then-close-up localization of the shelf and a camera check after placing; five ROS 2 packages with ros2_control and a CI build.</li>
+            </ul>
+            <p class="result"><b data-i18n="result">Result</b><span data-i18n="p.pvs.r">Over 75 consecutive random layouts: 1.2 ± 0.9 mm mean placement error, 0.5° median yaw error, 89% success and 49 s per cycle.</span></p>
+            <ul class="chips"><li>C++17</li><li>ROS 2 Jazzy</li><li>Gazebo Harmonic</li><li>ros2_control</li><li>KDL</li><li>Eigen</li><li>OpenCV ArUco</li><li>Python</li></ul>
+            <a class="gh" href="https://github.com/moavazpour/panda-visual-servoing-ros2"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2.2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg><span data-i18n="gh.code">Code on GitHub</span></a>
+          </div>
+        </article>
+
         <article class="project reveal">
           <div class="media" data-media="junction"><div class="frame"><img src="assets/junction.webp" alt="JunctionPerception web console: live bird's-eye digital twin of an intersection next to two camera feeds" loading="lazy"></div><i></i><i></i><i></i><i></i></div>
           <div>
@@ -283,12 +355,13 @@
             <h3 data-i18n="p.jp.title">Multi-Camera Intersection Digital Twin</h3>
             <p class="desc" data-i18n="p.jp.desc">Turns the video of one or more fixed traffic cameras into one live, metric bird's-eye view of an intersection. Every vehicle, cyclist and pedestrian gets a map position, speed, heading and one identity across all cameras.</p>
             <ul class="how">
-              <li data-i18n="p.jp.1">A C++/CUDA camera server per camera: YOLO26 detection, ByteTrack tracking and ground-plane localization with uncertainty.</li>
+              <li data-i18n="p.jp.1">A C++/CUDA camera server per camera: YOLO26 detection, ByteTrack tracking, homography projection to the ground plane and a Kalman filter for speed and heading with uncertainty.</li>
               <li data-i18n="p.jp.2">A Python world model fuses all cameras into global IDs that survive occlusions and ID switches, and adds lane queues and traffic-light state.</li>
-              <li data-i18n="p.jp.3">Calibration by clicking a few points in the image and on the map; a TypeScript web console shows the live twin, the camera videos and playback.</li>
+              <li data-i18n="p.jp.3">Camera pose estimation from a few clicked image-to-map control points; a TypeScript web console shows the live twin, the camera videos and playback.</li>
+              <li data-i18n="p.jp.4">About 180 unit tests in C++, Python and TypeScript, a Dockerised CUDA build, GitHub Actions CI with clang-format and clang-tidy, and four architecture decision records.</li>
             </ul>
             <p class="result"><b data-i18n="result">Result</b><span data-i18n="p.jp.r">Against TUMTraf LiDAR ground truth: 0.54 m median position error and 85% within 2 m up to 40 m from the camera; about 13.7 fps per camera with two cameras on a laptop GPU.</span></p>
-            <ul class="chips"><li>C++23</li><li>CUDA</li><li>YOLO26</li><li>ByteTrack</li><li>ONNX Runtime</li><li>Python</li><li>TypeScript</li><li>Docker</li></ul>
+            <ul class="chips"><li>C++23</li><li>CUDA</li><li>YOLO26</li><li>ByteTrack</li><li data-i18n="c.kf">Kalman filter</li><li>Eigen</li><li>ONNX Runtime</li><li>Python</li><li>TypeScript</li><li>Docker</li><li>GitHub Actions</li></ul>
             <a class="gh" href="https://github.com/moavazpour/JunctionPerception"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2.2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg><span data-i18n="gh.code">Code on GitHub</span></a>
           </div>
         </article>
@@ -313,7 +386,7 @@
         <article class="project reveal">
           <div class="media" data-media="roadside3d"><div class="frame"><img src="assets/roadside3d.webp" alt="3D bounding boxes on road users seen from a roadside camera on a highway" loading="lazy"></div><i></i><i></i><i></i><i></i></div>
           <div>
-            <div class="ctx" data-i18n="p.r3d.ctx">University team project · 2026</div>
+            <div class="ctx" data-i18n="p.r3d.ctx">University team project · 2026 · grade 1.0</div>
             <h3 data-i18n="p.r3d.title">Universal Roadside 3D Object Detector</h3>
             <p class="desc" data-i18n="p.r3d.desc">One roadside 3D detection model trained on seven merged roadside and vehicle-side datasets, planned for integration at the HD Testfeld intersections in Ingolstadt. I coordinated the project and led the data pipeline.</p>
             <ul class="how">
@@ -402,21 +475,46 @@
   /* ---------------- i18n (English lives in the HTML) ---------------- */
   var DE = {
     'skip': 'Zum Inhalt springen',
-    'nav.focus': 'Schwerpunkte', 'nav.projects': 'Projekte',
-    'hero.tagline': 'Echtzeit-Perception direkt auf Edge-Hardware.',
-    'hero.lede': 'Ich entwickle Perception-Systeme, die in Echtzeit auf Edge-Hardware laufen: Objekterkennung und Tracking, OCR und 3D-Perception aus LiDAR und Kameras, für Verkehr und automatisiertes Fahren. Unten finden Sie meine Projekte, jeweils mit Demo-Video und dem Code oder der Beschreibung auf GitHub.',
+    'nav.profile': 'Profil', 'nav.skills': 'Kenntnisse', 'nav.projects': 'Projekte',
+    'hero.tagline': 'Von Pixeln und Punktwolken zur Roboterbewegung.',
+    'hero.lede': 'Ich entwickle die Software, mit der Roboter sehen und handeln: Kamera- und LiDAR-Perception, Zustandsschätzung, Kinematik und Regelung in C++ und ROS 2, getestet in der Simulation und bewährt auf echter Hardware. Unten finden Sie meine Projekte, jeweils mit Demo-Video und dem Code oder der Beschreibung auf GitHub.',
     'hero.loc': 'Metropolregion München',
     'hero.cta': 'Zu den Projekten',
-    'sec.focus': 'Technische Schwerpunkte',
-    'sec.focus.sub': 'Was die Projekte unten gemeinsam haben: Perception, die im Feld funktionieren muss, auf begrenzter Hardware und mit echten Daten.',
-    'f1.t': 'Echtzeit-Detektion &amp; Tracking',
-    'f1.d': 'Training und Deployment von YOLO-Modellen, Multi-Object-Tracking, OCR-Nachverarbeitung und Best-Frame-Auswahl.',
-    'f2.t': 'Edge-Deployment',
-    'f2.d': 'TensorRT FP16 auf NVIDIA Jetson, CUDA-OpenCV-DNN und Multithreaded-C++-Pipelines für Industrie-PCs ohne GPU.',
-    'f3.t': '3D-Perception',
-    'f3.d': 'LiDAR-Punktwolken, CenterPoint und keypoint-basierte 3D-Boxen, Kamera-LiDAR-Kalibrierung und SUMO–CARLA-Co-Simulation.',
-    'f4.t': 'Daten &amp; Foundation Models',
-    'f4.d': 'Zusammenführen und Validieren großer Datensätze aus vielen Quellen sowie FastSAM und DINOv2 für Pipelines ohne Labels.',
+    'sec.profile': 'Profil',
+    'ab.1': 'Ich bin Robotics Software Engineer. Ich entwickle die Software zwischen den Sensoren eines Roboters und seiner Bewegung: Perception aus Kameras und LiDAR, Zustandsschätzung, Kinematik und Regelung, geschrieben in C++ und ROS 2.',
+    'ab.2': 'Vor meinem Master habe ich über zwei Jahre als Computer Vision Engineer gearbeitet. Ich habe eine Multithreaded-C++-ANPR-Engine entworfen, die auf NVIDIA Jetson und Edge-PCs lief, von einem Pilot mit 8 Kameras auf 74 Kameras wuchs und in einem Feldtest mit 1.200 Fahrzeugen 99,4 % der Kennzeichen exakt las. Dabei habe ich gelernt, was Software braucht, um im Feld zuverlässig zu laufen: Echtzeitgrenzen, unzuverlässige Hardware und Tests unter realen Bedingungen.',
+    'ab.3': 'Heute studiere ich Automated Driving and Vehicle Safety (M.Eng.) an der TH Ingolstadt und arbeite nebenher an Simulation für kooperative Perception und an Testautomatisierung. Mein neuestes Projekt schließt den Kreis von der Kamera bis zur Bewegung: ein Franka Panda mit 7 Freiheitsgraden in Gazebo, der einen Würfel mit seiner Handgelenkkamera findet, sich per Visual Servoing darauf ausrichtet und ihn mit 1,2 mm mittlerem Fehler ablegt, mit einem selbst geschriebenen kartesischen Regler.',
+    'ab.4': 'Ich suche eine Werkstudentenstelle und eine Masterarbeit in der Robotik, gern mit langfristiger Perspektive.',
+    'tl.h': 'Erfahrung &amp; Ausbildung',
+    'tl.1.w': '10/2026 – heute', 'tl.1.r': 'Werkstudent, KI-Testplattform',
+    'tl.2.w': '08/2026 – heute', 'tl.2.r': 'Wissenschaftliche Hilfskraft, Kooperative Perception',
+    'tl.3.r': 'Werkstudent, Funktions- &amp; Systementwicklung (Zentralsteuergerät)',
+    'tl.4.r': 'M.Eng. Automated Driving and Vehicle Safety',
+    'tl.5.r': 'Computer Vision Engineer',
+    'tl.6.r': 'B.Sc. Elektrotechnik', 'tl.6.o': 'Technical and Vocational University · Yazd',
+    'hud.1': 'Drohne + mobiler Manipulator · 24-Strahl-LiDAR · SLAM',
+    'sec.skills': 'Kenntnisse',
+    'sec.skills.sub': 'Was ich in den Projekten unten einsetze, geordnet danach, wo es in der Software eines Roboters sitzt.',
+    'f1.t': 'Kinematik &amp; Regelung',
+    'f1.d': 'Kartesische Geschwindigkeitsregelung, Damped-Least-Squares-IK und Nullraumregelung für redundante Arme, positionsbasiertes Visual Servoing und Zustandsmaschinen für Aufgaben.',
+    'f2.t': 'Perception',
+    'f2.d': 'Objekterkennung, Multi-Object-Tracking und Kalman-Filter; Kamerakalibrierung und Posenschätzung; LiDAR-Punktwolken und Kamera-LiDAR-Kalibrierung.',
+    'f3.t': 'Softwareentwicklung',
+    'f3.d': 'Objektorientiertes, multithreaded C++17/23 mit Design Patterns, Unit-Tests, CI und Docker; Python und C# für Tools und Testautomatisierung.',
+    'f4.t': 'Edge-Hardware &amp; Simulation',
+    'f4.d': 'Echtzeit-Inferenz auf NVIDIA Jetson, Integration von Industriekameras und Simulation, um vor der Hardware zu testen und Daten zu erzeugen.',
+    'ex.1.t': 'Außerdem vertraut mit',
+    'ex.1.d': 'SLAM, Reinforcement und Imitation Learning, Qt, SolidWorks, STM32 und AVR, CAN und RS-485, Vector CANoe, LLM-APIs und agentisches Programmieren',
+    'ex.2.t': 'Sprachen',
+    'ex.2.d': 'Englisch (C1, IELTS 7,0) · Deutsch (B2, C1 in Arbeit) · Persisch (Muttersprache)',
+    'c.kf': 'Kalman-Filter',
+    'p.pvs.ctx': 'Eigenes Projekt · 2026',
+    'p.pvs.title': 'Visual Servoing &amp; Pick-and-Place mit einem 7-DOF-Panda',
+    'p.pvs.desc': 'Ein simulierter Franka Panda in Gazebo findet einen Würfel mit seiner Handgelenkkamera, richtet sich per Visual Servoing darüber aus, greift ihn und stellt ihn in ein Regal. Er orientiert sich nur an ArUco-Markern, startet jeden Zyklus aus einer neuen Zufallsanordnung und wird gegen die Ground Truth aus Gazebo gemessen.',
+    'p.pvs.1': 'Ein selbst geschriebener kartesischer Geschwindigkeitsregler mit KDL und Eigen bei 100 Hz: Damped-Least-Squares-IK nahe Singularitäten, Nullraumprojektion für das redundante 7. Gelenk und geschlossene Posenrückführung mit Anti-Windup.',
+    'p.pvs.2': 'Positionsbasiertes Visual Servoing auf ArUco-Posen (OpenCV, IPPE-PnP) mit Tiefpassfilter, Ausreißererkennung und Hysterese zwischen Fahren und Halten.',
+    'p.pvs.3': 'Eine Pick-and-Place-Zustandsmaschine mit tastendem Griff, Kontakterkennung, grober und dann naher Lokalisierung des Regals und einer Kamerakontrolle nach dem Ablegen; fünf ROS-2-Pakete mit ros2_control und CI-Build.',
+    'p.pvs.r': 'Über 75 aufeinanderfolgende Zufallsanordnungen: 1,2 ± 0,9 mm mittlerer Ablagefehler, 0,5° medianer Gierwinkelfehler, 89 % Erfolg und 49 s pro Zyklus.',
     'sec.projects': 'Projekte',
     'sec.projects.sub': 'Zu jedem Projekt gibt es ein Demo-Video und ein GitHub-Repository mit den Details.',
     'result': 'Ergebnis',
@@ -429,7 +527,7 @@
     'p.anpr.2': 'YOLOv4-tiny mit TensorRT FP16 bei ~25 FPS auf Jetson Nano, mit bis zu 4 Kameras pro Gerät.',
     'p.anpr.3': 'Motion-Gating, Fahrtrichtung, Tracking und Best-Frame-Auswahl pro Fahrzeug. An einem Standort mit Intel Atom ohne GPU hob ein bewegungsgesteuerter ROI-Puffer die Erfassungsrate von unter 30 % auf ~70 %.',
     'p.anpr.r': 'Feldtest mit 1.200 Fahrzeugen über 24 h: keines verpasst, 99,4 % der Kennzeichen exakt gelesen.',
-    'p.r3d.ctx': 'Teamprojekt an der Hochschule · 2026',
+    'p.r3d.ctx': 'Teamprojekt an der Hochschule · 2026 · Note 1,0',
     'p.r3d.title': 'Universeller Roadside-3D-Objektdetektor',
     'p.r3d.desc': 'Ein 3D-Detektionsmodell für die Straßeninfrastruktur, trainiert auf sieben zusammengeführten Roadside- und Fahrzeug-Datensätzen und geplant für die Kreuzungen des HD-Testfelds in Ingolstadt. Ich habe das Projekt koordiniert und die Datenpipeline geleitet.',
     'p.r3d.1': 'Einheitliches Label-Schema, Keypoint-Reihenfolge, Klassentaxonomie und Splits über LUMPI, RoScenes, TUMTraf, V2X-Radar, V2X-Seq, ZOD und DAIR-V2X: über 1,7 Mio. gelabelte Objekte.',
@@ -446,9 +544,10 @@
     'p.jp.ctx': 'Eigenes Projekt · 2026',
     'p.jp.title': 'Digitaler Zwilling einer Kreuzung aus mehreren Kameras',
     'p.jp.desc': 'Macht aus dem Video einer oder mehrerer fest montierter Verkehrskameras eine live, metrische Vogelperspektive der Kreuzung. Jedes Fahrzeug, jeder Radfahrer und Fußgänger erhält Kartenposition, Geschwindigkeit, Fahrtrichtung und eine Identität über alle Kameras hinweg.',
-    'p.jp.1': 'Ein C++/CUDA-Kameraserver pro Kamera: YOLO26-Detektion, ByteTrack-Tracking und Lokalisierung auf der Bodenebene mit Unsicherheit.',
+    'p.jp.1': 'Ein C++/CUDA-Kameraserver pro Kamera: YOLO26-Detektion, ByteTrack-Tracking, Homographie-Projektion auf die Bodenebene und ein Kalman-Filter für Geschwindigkeit und Fahrtrichtung mit Unsicherheit.',
     'p.jp.2': 'Ein Weltmodell in Python fusioniert alle Kameras zu globalen IDs, die Verdeckungen und ID-Wechsel überstehen, und ergänzt Rückstaus pro Spur und den Ampelzustand.',
-    'p.jp.3': 'Kalibrierung durch Anklicken weniger Punkte im Bild und auf der Karte; eine Web-Konsole in TypeScript zeigt den Live-Zwilling, die Kameravideos und die Wiedergabe.',
+    'p.jp.3': 'Schätzung der Kamerapose aus wenigen angeklickten Bild-Karte-Passpunkten; eine Web-Konsole in TypeScript zeigt den Live-Zwilling, die Kameravideos und die Wiedergabe.',
+    'p.jp.4': 'Rund 180 Unit-Tests in C++, Python und TypeScript, ein dockerisierter CUDA-Build, GitHub-Actions-CI mit clang-format und clang-tidy und vier Architecture Decision Records.',
     'p.jp.r': 'Gegen TUMTraf-LiDAR-Ground-Truth: 0,54 m medianer Positionsfehler und 85 % innerhalb von 2 m bis 40 m Abstand zur Kamera; rund 13,7 fps pro Kamera mit zwei Kameras auf einer Laptop-GPU.',
     'p.tsr.ctx': 'Seminarprojekt · 2026',
     'p.tsr.title': 'Verkehrszeichenerkennung &amp; EU-ISA',
@@ -468,7 +567,7 @@
   var nodes = document.querySelectorAll('[data-i18n]'), EN = {};
   nodes.forEach(function (n) { var k = n.dataset.i18n; if (!(k in EN)) EN[k] = n.innerHTML; });
   var metaDesc = document.querySelector('meta[name=description]');
-  var META = { en: metaDesc.content, de: 'Mo Avazpour, Computer Vision & Perception Engineer in der Metropolregion München. Echtzeit-Detektion, Tracking und 3D-Perception auf Edge-Hardware: Projekte mit Demo-Videos und Code auf GitHub.' };
+  var META = { en: metaDesc.content, de: 'Mo Avazpour, Robotics Software Engineer in der Metropolregion München. Perception, Kinematik und Regelung für Roboter in C++ und ROS 2, von Kamera und LiDAR bis zur Bewegung: Projekte mit Demo-Videos und Code auf GitHub.' };
   function setLang(l) {
     var dict = l === 'de' ? DE : EN;
     nodes.forEach(function (n) { var k = n.dataset.i18n; if (dict[k] != null) n.innerHTML = dict[k]; });
@@ -522,193 +621,337 @@
     document.querySelectorAll('[data-media]').forEach(function (m) { vo.observe(m); });
   }
 
-  /* ---------------- hero: LiDAR on a traffic-light pole at an intersection ----------------
-     A 40-beam spinning LiDAR sits on top of the south-west signal pole, 6.6 m above the road.
-     The static scene (road markings, buildings, poles, trees) is ray-cast once; every frame only
-     the rays that point at a moving road user are re-cast against its box. Cars, trucks, cyclists
-     and pedestrians follow a simple signal cycle, and each one gets a 3D box, a track ID and its speed. */
+  /* ---------------- hero: a drone and a mobile manipulator working together on a factory floor ----------------
+     A quadcopter searches the hall's main aisle with its down-facing camera. When it spots a parcel lying on the
+     floor it flies over it, confirms the detection and sends the position to the ground robot. The robot plans a
+     path, drives there, picks the parcel off the floor with its arm (inverse kinematics), carries it on its deck to
+     the outbound station and puts it on the table. Every frame the robot's 24-beam LiDAR is ray-cast against the
+     hall: static returns are fused into a voxel map (as in SLAM), people and the forklift are tracked as 3D boxes,
+     and the robot waits when someone is in its way. Robot, drone, table and parcels are drawn as shaded solids. */
   var cv = document.getElementById('cloud'), ctx = cv.getContext('2d');
-  var OX = -8.6, OY = -8.6, OZ = 6.6, MAXR = 70, L = 60, RW = 7, TAU = Math.PI * 2;
-  var K_ROAD = 1, K_SIDE = 2, K_MARK = 3, K_BLD = 4, K_POLE = 5, K_TREE = 6;
-  var statics = [], heads = [];
-  function sbox(x0, x1, y0, y1, z0, z1, kind) { statics.push({ x0: Math.min(x0, x1), x1: Math.max(x0, x1), y0: Math.min(y0, y1), y1: Math.max(y0, y1), z0: z0, z1: z1, kind: kind }); }
-  function tree(x, y) { sbox(x - .15, x + .15, y - .15, y + .15, 0, 2.8, K_TREE); sbox(x - 1.4, x + 1.4, y - 1.4, y + 1.4, 2.5, 5, K_TREE); }
-  // buildings on the four corners
-  [[1, 1, 12, 9], [1, -1, 16, 11], [-1, 1, 10, 14], [-1, -1, 13, 8]].forEach(function (q) {
-    sbox(q[0] * 14, q[0] * 31, q[1] * 14, q[1] * 42, 0, q[2], K_BLD);
-    sbox(q[0] * 34, q[0] * 52, q[1] * 14, q[1] * 29, 0, q[3], K_BLD);
-  });
-  // signal poles with an arm over the road and a signal head; SW + NE show the north–south phase
-  [[-1, -1, 'x', 'ns'], [1, 1, 'x', 'ns'], [1, -1, 'y', 'ew'], [-1, 1, 'y', 'ew']].forEach(function (p) {
-    var px = p[0] * 8.6, py = p[1] * 8.6, ex = p[2] === 'x' ? px - p[0] * 7.5 : px, ey = p[2] === 'y' ? py - p[1] * 7.5 : py;
-    sbox(px - .16, px + .16, py - .16, py + .16, 0, 6.2, K_POLE);
-    if (p[2] === 'x') sbox(px, ex, py - .1, py + .1, 5.55, 5.75, K_POLE); else sbox(px - .1, px + .1, py, ey, 5.55, 5.75, K_POLE);
-    sbox(ex - .2, ex + .2, ey - .2, ey + .2, 4.5, 5.55, K_POLE);
-    heads.push({ x: ex, y: ey, z: 5.0, grp: p[3] });
-  });
-  [18, 30, 42].forEach(function (a) { [[a, 10.6], [-a, 10.6], [a, -10.6], [-a, -10.6]].forEach(function (p) { tree(p[0], p[1]); tree(p[1], p[0]); }); });
+  var TAU = Math.PI * 2, small = innerWidth < 700, LZ = 1.025, MAXR = 32;
+  // robot geometry (metres, robot frame: x forward, y left, z up)
+  var L1 = .6, L2 = .55, OFS = .12, GL = .2, SHX = .28, SHZ = .72, TOP = .5, DECKX = -.15, DECKZ = .515, MASTX = -.42, TOTE = .2, GOPEN = .28;
+  var seed = 11; function rnd() { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; } // same layout on every load
 
-  // what the ground looks like to the sensor: road, sidewalk, or a painted marking (high intensity)
-  function groundKind(x, y) {
-    var ax = Math.abs(x), ay = Math.abs(y), onEW = ay < RW, onNS = ax < RW;
-    if (!onEW && !onNS) return K_SIDE;
-    if (onEW && ax > 8.5 && ax < 11.5) return Math.floor((y + RW) / 0.9) % 2 ? K_ROAD : K_MARK;   // zebra crossings
-    if (onNS && ay > 8.5 && ay < 11.5) return Math.floor((x + RW) / 0.9) % 2 ? K_ROAD : K_MARK;
-    if (onEW && !onNS && ax > 12.5 && ax < 13 && x * y > 0) return K_MARK;                          // stop lines
-    if (onNS && !onEW && ay > 12.5 && ay < 13 && x * y < 0) return K_MARK;
-    if (onEW && !onNS && ax > 13 && ((ay < .12 && Math.floor(ax / 3) % 2 === 0) || Math.abs(ay - 5.1) < .1)) return K_MARK;
-    if (onNS && !onEW && ay > 13 && ((ax < .12 && Math.floor(ay / 3) % 2 === 0) || Math.abs(ax - 5.1) < .1)) return K_MARK;
-    return K_ROAD;
+  // ---- the hall. kinds: 1 wall, 2 pillar, 3 rack, 4 machine, 5 conveyor, 6 table, 7 fence; moving: 8 tote, 9 person, 10 forklift
+  var STAT = [];
+  function sb(x0, x1, y0, y1, z0, z1, k) { STAT.push({ x0: Math.min(x0, x1), x1: Math.max(x0, x1), y0: Math.min(y0, y1), y1: Math.max(y0, y1), z0: z0, z1: z1, k: k }); }
+  sb(-26, 26, 15, 15.4, 0, 9, 1); sb(-26, 26, -15.4, -15, 0, 9, 1); sb(25.6, 26, -15, 15, 0, 9, 1); sb(-26, -25.6, -15, 15, 0, 9, 1);
+  [-20, -10, 0, 10, 20].forEach(function (x) { [-12.2, 12.2].forEach(function (y) { sb(x - .25, x + .25, y - .25, y + .25, 0, 9, 2); }); });
+  [13.5, -13.5].forEach(function (y) {                                                         // pallet racks along the long walls
+    [[-23, -3], [3, 23]].forEach(function (s) {
+      var x0 = s[0], x1 = s[1], n = 8, bay = (x1 - x0) / n, u, b;
+      [1.5, 3.0, 4.5].forEach(function (z) { sb(x0, x1, y - .55, y + .55, z, z + .1, 3); });
+      for (u = 0; u <= n; u++) { var ux = x0 + u * bay; sb(ux - .05, ux + .05, y - .55, y - .45, 0, 5.2, 3); sb(ux - .05, ux + .05, y + .45, y + .55, 0, 5.2, 3); }
+      for (b = 0; b < n; b++) [0, 1.6, 3.1].forEach(function (z) { if (rnd() < .25) return; sb(x0 + b * bay + .15, x0 + (b + 1) * bay - .15, y - .5, y + .5, z, z + .9 + rnd() * .4, 3); });
+    });
+  });
+  [[-18, 9], [-12, 9], [-6, 9], [6, -9.5], [12, -9.5], [18, -9.5]].forEach(function (m) {    // CNC machines with cabinet and panel
+    var sg = m[1] > 0 ? -1 : 1;
+    sb(m[0] - 1.5, m[0] + 1.5, m[1] - 1.1, m[1] + 1.1, 0, 2.4, 4);
+    sb(m[0] + 1.6, m[0] + 2.2, m[1] - .4, m[1] + .4, 0, 1.9, 4);
+    sb(m[0] - .8, m[0] + .2, m[1] + sg * 1.1, m[1] + sg * 1.25, 1.1, 1.7, 4);
+  });
+  [[8, 20, 7, 7.06], [8, 20, 11.0, 11.06], [8, 8.06, 7, 11.06], [19.94, 20, 7, 11.06]].forEach(function (f) { sb(f[0], f[1], f[2], f[3], 0, 2, 7); }); // fenced robot cell
+  sb(13.1, 13.9, 8.6, 9.4, 0, .9, 4); sb(13.25, 13.75, 8.75, 9.25, .9, 1.7, 4); sb(13.4, 15.4, 8.85, 9.15, 1.55, 1.8, 4); sb(15.1, 15.35, 8.85, 9.15, .95, 1.8, 4); sb(16, 17.6, 8.3, 9.7, 0, .85, 6);
+  [[-18.5, -8], [-16.8, -8.2], [-14, -7.9], [-18.5, -10.2], [-11, -9.4], [-9.2, -9.6]].forEach(function (p) { sb(p[0] - .6, p[0] + .6, p[1] - .5, p[1] + .5, 0, .4 + rnd() * 1.1, 3); }); // pallet staging
+  [[-18, 6, 4.5], [-6, 18, -4.5]].forEach(function (c) {                                      // two conveyors
+    var y = c[2];
+    sb(c[0], c[1], y - .4, y + .4, .75, .9, 5); sb(c[0], c[1], y - .45, y - .38, .9, 1.0, 5); sb(c[0], c[1], y + .38, y + .45, .9, 1.0, 5);
+    for (var x = c[0] + .2; x < c[1]; x += 2) { sb(x - .05, x + .05, y - .4, y - .3, 0, .75, 5); sb(x - .05, x + .05, y + .3, y + .4, 0, .75, 5); }
+  });
+  // the outbound station: one table with three places for parcels
+  var TBL = { x: 0, y: 3.45, slots: [false, false, false] }, SLOT = [-.38, 0, .38];
+  sb(TBL.x - .6, TBL.x + .6, TBL.y - .35, TBL.y + .35, .72, .76, 6);
+  [[-1, -1], [1, -1], [-1, 1], [1, 1]].forEach(function (q) { var lx = TBL.x + q[0] * .54, ly = TBL.y + q[1] * .29; sb(lx - .03, lx + .03, ly - .03, ly + .03, 0, .72, 6); });
+  // what the floor looks like to the sensor: painted lines have a high intensity
+  function floorKind(x, y) {
+    var ay = Math.abs(y);
+    if (Math.abs(x) < 24 && ay > 3.86 && ay < 3.98) return 12;                                  // aisle edge lines
+    if (Math.abs(x) < 24 && ay < .06 && Math.floor((x + 100) / 1.5) % 2 === 0) return 12;       // dashed centre line
+    var dx = Math.abs(x - TBL.x + SHX), dy = Math.abs(y - 2.6);                                  // docking box at the station
+    if (dx < .85 && dy < .6 && (dx > .77 || dy > .52)) return 12;
+    return 10;
   }
 
-  function slab(dx, dy, dz, b) { // ray from the sensor against an axis-aligned box; -1 = miss
+  // arm targets in the robot frame (forward, left, up): the point between the fingertips
+  var P_DUP = [DECKX, 0, 1.0], P_DECK = [DECKX, 0, DECKZ + TOTE / 2 + .03];
+  var Q_STOW = [0, Math.PI / 2, -2.85, 0, 0]; Q_STOW[3] = -Math.PI / 2 - Q_STOW[1] - Q_STOW[2]; // upper arm up, forearm folded down beside it
+  // [seconds, move, from, to, gripper]: 'j' = joint-space move (no singularities on the long swings), 'l' = straight line, 'g' = hold still
+  function seqFor(g) {
+    if (g.act === 'pick') { // off the floor beside the robot, onto the deck
+      var up = [SHX, .85, .8], lo = [SHX, .85, TOTE / 2 + .03];
+      return [[1.7, 'j', Q_STOW, up], [1.2, 'l', up, lo], [.6, 'g', lo, lo, 'grab'], [1.1, 'l', lo, up], [1.8, 'j', up, P_DUP],
+        [.8, 'l', P_DUP, P_DECK], [.6, 'g', P_DECK, P_DECK, 'release'], [.6, 'l', P_DECK, P_DUP], [1.5, 'j', P_DUP, Q_STOW]];
+    }
+    var o = SLOT[g.slot], tu = [SHX + o, .85, 1.1], tl = [SHX + o, .85, .76 + TOTE / 2 + .03]; // off the deck onto a free place on the table
+    return [[1.5, 'j', Q_STOW, P_DUP], [.8, 'l', P_DUP, P_DECK], [.6, 'g', P_DECK, P_DECK, 'grab'], [.7, 'l', P_DECK, P_DUP], [1.8, 'j', P_DUP, tu],
+      [1.0, 'l', tu, tl], [.6, 'g', tl, tl, 'release'], [.8, 'l', tl, tu], [1.7, 'j', tu, Q_STOW]];
+  }
+  var R = { x: TBL.x - SHX + 2.2, y: 2.6, yaw: 0, v: 0, mode: 'idle', path: [], goal: null, seq: null, tt: 0, si: 0, hold: 'none', grip: GOPEN, q: Q_STOW.slice(), blocked: false }, trail = [];
+  R.ee = fk(R.q);
+  var people = [
+    { id: 1, ax: 'y', c: 19.5, lo: -7.8, hi: 6.5, s: -3, dir: 1, sp: 1.2, cls: 'person' },
+    { id: 2, ax: 'x', c: 6.6, lo: -20, hi: 5, s: -9, dir: -1, sp: 1.1, cls: 'person' },
+    { id: 3, ax: 'x', c: -6.8, lo: -4, hi: 20, s: 8, dir: 1, sp: 1.3, cls: 'person' },
+    { id: 4, ax: 'y', c: -23.5, lo: -11, hi: 11, s: 0, dir: 1, sp: 1.0, cls: 'person' },
+    { id: 5, ax: 'x', c: -11.25, lo: -21, hi: 21, s: -6, dir: 1, sp: 2.2, cls: 'forklift' }
+  ];
+  people.forEach(function (p) { p.pause = 0; p.v = 0; if (p.cls === 'forklift') { p.lx = 2.6; p.ly = 1.1; p.h = 2.2; } else { p.lx = p.ly = .5; p.h = 1.62 + p.id * .05; } });
+  function ppos(p) { return p.ax === 'x' ? [p.s, p.c] : [p.c, p.s]; }
+
+  // ---- the drone: flies search lanes over the aisle at 3 m and looks down with its camera ----
+  var DW = [[-19, -1.7], [19, -1.7], [21, 0], [19, 1.7], [-19, 1.7], [-21, 0]], DALT = 3, DFW = 1.2, DLT = 1.7; // footprint half-sizes
+  var UAV = { x: -12, y: 1.7, z: DALT, yaw: Math.PI, vx: 0, vy: 0, mode: 'search', wi: 4, t: 0, tgt: null, pitch: 0, roll: 0 };
+  // parcels dropped in the aisle; state: floor -> held -> gone. The drone finds them, the robot collects them.
+  var SPOTS = [[-13.5, -1.5], [9, 1.3], [-6, 1.7], [15, -1.2], [-17, .6], [4.5, -1.9], [-9.5, -.4], [12.5, 1.9], [-2.5, -1.2], [17, .9]];
+  var PARCELS = [], queue = [], spotI = 0, spawnT = 0;
+  function spawn() {
+    for (var k = 0; k < SPOTS.length; k++) {
+      var s = SPOTS[spotI]; spotI = (spotI + 1) % SPOTS.length;
+      if (Math.hypot(s[0] - R.x, s[1] - R.y) < 7 || Math.hypot(s[0] - UAV.x, s[1] - UAV.y) < 5) continue;   // never pop up in view
+      if (PARCELS.some(function (p) { return Math.hypot(p.x - s[0], p.y - s[1]) < 3; })) continue;
+      PARCELS.push({ x: s[0], y: s[1], state: 'floor', found: false, sent: false }); return;
+    }
+  }
+  function wrapA(a) { while (a > Math.PI) a -= TAU; while (a < -Math.PI) a += TAU; return a; }
+  function droneStep(dt) {
+    var U = UAV, gx, gy, sp;
+    U.t += dt;
+    if (U.mode === 'search') {
+      var f = PARCELS.filter(function (p) { return p.state === 'floor' && p.found && !p.sent; })[0];
+      if (f) { U.mode = 'confirm'; U.tgt = f; U.t = 0; }
+    }
+    if (U.mode === 'search') { var w = DW[U.wi]; gx = w[0]; gy = w[1]; sp = 3; if (Math.hypot(gx - U.x, gy - U.y) < 1) U.wi = (U.wi + 1) % DW.length; }
+    else { gx = U.tgt.x; gy = U.tgt.y; sp = 2.2; }
+    // fly toward the goal with limited acceleration, slowing down near it
+    var ex = gx - U.x, ey = gy - U.y, dd = Math.hypot(ex, ey), want = U.mode === 'search' ? sp : Math.min(sp, dd * 1.2);
+    var wx = dd > 1e-3 ? ex / dd * want : 0, wy = dd > 1e-3 ? ey / dd * want : 0;
+    var ax = wx - U.vx, ay = wy - U.vy, al = Math.hypot(ax, ay), amax = 2 * dt;
+    if (al > amax) { ax *= amax / al; ay *= amax / al; }
+    U.vx += ax; U.vy += ay; U.x += U.vx * dt; U.y += U.vy * dt;
+    var v = Math.hypot(U.vx, U.vy);
+    if (v > .4) U.yaw += Math.max(-1.1, Math.min(1.1, 1.8 * wrapA(Math.atan2(U.vy, U.vx) - U.yaw))) * dt;
+    // a multirotor tilts into its acceleration and against the drag of its speed
+    var c = Math.cos(U.yaw), s = Math.sin(U.yaw), fa = (ax * c + ay * s) / dt, la = (-ax * s + ay * c) / dt;
+    var tp = .05 * fa + .03 * (U.vx * c + U.vy * s), tl = -(.05 * la + .03 * (-U.vx * s + U.vy * c)), kk = Math.min(1, 5 * dt);
+    U.pitch += (tp - U.pitch) * kk; U.roll += (tl - U.roll) * kk;
+    U.z = DALT + .06 * Math.sin(simT * 1.3);
+    // anything inside the camera footprint is detected
+    PARCELS.forEach(function (p) {
+      if (p.state !== 'floor' || p.found) return;
+      var dx = p.x - U.x, dy = p.y - U.y;
+      if (Math.abs(dx * c + dy * s) < DFW && Math.abs(-dx * s + dy * c) < DLT) p.found = true;
+    });
+    if (U.mode === 'confirm' && dd < .25 && v < .3) { U.mode = 'hover'; U.t = 0; }
+    else if (U.mode === 'hover' && U.t > 1.2) { U.mode = 'report'; U.t = 0; }
+    else if (U.mode === 'report' && U.t > 2.4) {
+      U.tgt.sent = true; queue.push(U.tgt); U.tgt = null; U.mode = 'search';
+      var bi = 0; DW.forEach(function (q, k) { if (Math.hypot(q[0] - U.x, q[1] - U.y) < Math.hypot(DW[bi][0] - U.x, DW[bi][1] - U.y)) bi = k; });
+      U.wi = (bi + 1) % DW.length;
+    }
+  }
+
+  // ---- the robot's jobs: a path of points, then a final pose and an arm sequence ----
+  function go(pts, goal) { R.path = pts; R.goal = goal; R.mode = 'drive'; }
+  function pickJob(p) { // stop with the parcel beside the arm, on the robot's left; approach straight along the aisle
+    var best = null;
+    [0, Math.PI].forEach(function (yaw) {
+      var c = Math.round(Math.cos(yaw)), gx = p.x - c * SHX, gy = p.y - c * .85, px = gx - 2.2 * c;
+      if (Math.abs(gy) > 2.65 || Math.abs(px) > 18) return;
+      var cost = Math.hypot(px - R.x, gy - R.y);
+      if (!best || cost < best.cost) best = { cost: cost, pts: [{ x: px, y: gy }, { x: gx, y: gy }], goal: { x: gx, y: gy, yaw: yaw, act: 'pick', p: p } };
+    });
+    go(best.pts, best.goal);
+  }
+  function dropJob(p) {
+    var gx = TBL.x - SHX;
+    if (TBL.slots.every(Boolean)) TBL.slots = [false, false, false]; // the full table was taken away meanwhile
+    go([{ x: gx - 2.4, y: 2.6 }, { x: gx, y: 2.6 }], { x: gx, y: 2.6, yaw: 0, act: 'place', slot: TBL.slots.indexOf(false), p: p });
+  }
+
+  var simT = 0;
+  function lerp3(a, b, e) { return [a[0] + (b[0] - a[0]) * e, a[1] + (b[1] - a[1]) * e, a[2] + (b[2] - a[2]) * e]; }
+  function step(dt) {
+    simT += dt;
+    people.forEach(function (p) {
+      if (p.pause > 0) { p.pause -= dt; p.v = 0; return; }
+      p.s += p.dir * p.sp * dt; p.v = p.sp;
+      if (p.s > p.hi || p.s < p.lo) { p.s = Math.max(p.lo, Math.min(p.hi, p.s)); p.dir *= -1; p.pause = 1.2 + p.id * .5; }
+    });
+    spawnT -= dt;
+    if (spawnT <= 0 && PARCELS.filter(function (p) { return p.state === 'floor'; }).length < 2) { spawn(); spawnT = 6; }
+    droneStep(dt);
+    var err, g = R.goal;
+    if (R.mode === 'idle') {
+      R.blocked = false; R.v = 0;
+      if (queue.length) pickJob(queue.shift());
+    } else if (R.mode === 'drive') {
+      var w = R.path[0], fin = R.path.length === 1 && g, ex = w.x - R.x, ey = w.y - R.y, dist = Math.hypot(ex, ey);
+      if (fin ? dist < .05 : dist < .4) {
+        R.path.shift();
+        if (!R.path.length) { R.v = 0; if (g) { R.mode = 'align'; R.x = w.x; R.y = w.y; } else R.mode = 'idle'; }
+        return;
+      }
+      err = wrapA(Math.atan2(ey, ex) - R.yaw);
+      R.yaw += Math.max(-1, Math.min(1, 2.4 * err)) * dt;
+      var want = 1.4 * Math.pow(Math.max(0, Math.cos(err)), 3) * Math.min(1, dist / 1.6 + (fin ? .04 : .3)), block = false;
+      if (Math.cos(err) > .95) want = Math.max(want, .07);
+      people.forEach(function (p) { // someone close in front of the robot: stop and wait
+        var q = ppos(p), dx = q[0] - R.x, dy = q[1] - R.y, dd = Math.hypot(dx, dy) - (p.cls === 'forklift' ? 1.2 : 0);
+        if (dd < 2.4 && (dx * Math.cos(R.yaw) + dy * Math.sin(R.yaw)) / Math.hypot(dx, dy) > .5) block = true;
+      });
+      R.blocked = block; if (block) want = 0;
+      R.v = want < R.v ? Math.max(want, R.v - 2.5 * dt) : Math.min(want, R.v + .9 * dt);
+      R.x += Math.cos(R.yaw) * R.v * dt; R.y += Math.sin(R.yaw) * R.v * dt;
+      if (!trail.length || Math.hypot(trail[trail.length - 1][0] - R.x, trail[trail.length - 1][1] - R.y) > .4) { trail.push([R.x, R.y]); if (trail.length > 300) trail.shift(); }
+    } else if (R.mode === 'align') {
+      R.blocked = false;
+      err = wrapA(g.yaw - R.yaw);
+      R.yaw += Math.max(-.9, Math.min(.9, 2.4 * err)) * dt;
+      if (Math.abs(err) < .01) { R.yaw = g.yaw; R.mode = 'task'; R.seq = seqFor(g); R.si = 0; R.tt = 0; }
+    } else {
+      var sg = R.seq[R.si];
+      R.tt += dt;
+      var u = Math.min(1, R.tt / sg[0]), e = u * u * u * (u * (6 * u - 15) + 10); // smootherstep: zero velocity and acceleration at both ends
+      if (sg[1] === 'j') {
+        var qa = toQ(sg[2]), qb = toQ(sg[3]).slice();
+        qb[0] = qa[0] + wrapA(qb[0] - qa[0]);
+        R.q = qa.map(function (v, k) { return v + (qb[k] - v) * e; });
+      } else R.q = ik(lerp3(sg[2], sg[3], e));
+      R.ee = fk(R.q);
+      if (sg[4] === 'grab') R.grip = GOPEN - (GOPEN - TOTE) * e;
+      if (sg[4] === 'release') R.grip = TOTE + (GOPEN - TOTE) * e;
+      if (u >= 1) {
+        if (sg[4] === 'grab') { R.hold = 'grip'; g.p.state = 'held'; }
+        if (sg[4] === 'release') {
+          if (g.act === 'pick') R.hold = 'deck';
+          else { R.hold = 'none'; TBL.slots[g.slot] = true; PARCELS.splice(PARCELS.indexOf(g.p), 1); }
+        }
+        R.si++; R.tt = 0;
+        if (R.si >= R.seq.length) { if (g.act === 'pick') dropJob(g.p); else go([{ x: TBL.x - SHX + 2.2, y: 2.6 }], null); }
+      }
+    }
+  }
+
+  // ---- kinematics: 3D transforms and the arm's inverse kinematics ----
+  function M(r, t) { return { R: r, t: t }; }
+  function mul(A, B) {
+    var a = A.R, b = B.R, t = B.t;
+    return M([a[0] * b[0] + a[1] * b[3] + a[2] * b[6], a[0] * b[1] + a[1] * b[4] + a[2] * b[7], a[0] * b[2] + a[1] * b[5] + a[2] * b[8],
+      a[3] * b[0] + a[4] * b[3] + a[5] * b[6], a[3] * b[1] + a[4] * b[4] + a[5] * b[7], a[3] * b[2] + a[4] * b[5] + a[5] * b[8],
+      a[6] * b[0] + a[7] * b[3] + a[8] * b[6], a[6] * b[1] + a[7] * b[4] + a[8] * b[7], a[6] * b[2] + a[7] * b[5] + a[8] * b[8]],
+      [a[0] * t[0] + a[1] * t[1] + a[2] * t[2] + A.t[0], a[3] * t[0] + a[4] * t[1] + a[5] * t[2] + A.t[1], a[6] * t[0] + a[7] * t[1] + a[8] * t[2] + A.t[2]]);
+  }
+  function tr(x, y, z) { return M([1, 0, 0, 0, 1, 0, 0, 0, 1], [x, y, z]); }
+  function rz(a) { var c = Math.cos(a), s = Math.sin(a); return M([c, -s, 0, s, c, 0, 0, 0, 1], [0, 0, 0]); }
+  function ry(a) { var c = Math.cos(a), s = Math.sin(a); return M([c, 0, s, 0, 1, 0, -s, 0, c], [0, 0, 0]); }
+  function rx(a) { var c = Math.cos(a), s = Math.sin(a); return M([1, 0, 0, 0, c, -s, 0, s, c], [0, 0, 0]); }
+  function ap(T, x, y, z) { var r = T.R; return [r[0] * x + r[1] * y + r[2] * z + T.t[0], r[3] * x + r[4] * y + r[5] * z + T.t[1], r[6] * x + r[7] * y + r[8] * z + T.t[2]]; }
+  // the arm: base yaw q0, shoulder q1, elbow q2, wrist pitch q3 (keeps the gripper vertical) and wrist roll q4.
+  // The forearm is offset sideways by OFS (like a UR-style cobot), so the links fold side by side.
+  function wrapQ(a) { return a - Math.round(a / (Math.PI / 2)) * (Math.PI / 2); }
+  function ik(p) {
+    var dx = p[0] - SHX, r = Math.max(OFS + 1e-3, Math.hypot(dx, p[1])), Rr = Math.sqrt(r * r - OFS * OFS);
+    var q0 = Math.atan2(p[1], dx) - Math.atan2(OFS, Rr), z = p[2] + GL - SHZ;
+    var D = Math.min(L1 + L2 - 1e-3, Math.hypot(Rr, z)), c2 = (D * D - L1 * L1 - L2 * L2) / (2 * L1 * L2);
+    var q2 = -Math.acos(Math.max(-1, Math.min(1, c2))), q1 = Math.atan2(z, Rr) - Math.atan2(L2 * Math.sin(q2), L1 + L2 * Math.cos(q2));
+    return [q0, q1, q2, -Math.PI / 2 - q1 - q2, wrapQ(q0)]; // roll turns the fingers square to the tote
+  }
+  function fk(q) { // fingertip centre in the robot frame
+    var Rr = L1 * Math.cos(q[1]) + L2 * Math.cos(q[1] + q[2]), z = SHZ + L1 * Math.sin(q[1]) + L2 * Math.sin(q[1] + q[2]) - GL;
+    return [SHX + Rr * Math.cos(q[0]) - OFS * Math.sin(q[0]), Rr * Math.sin(q[0]) + OFS * Math.cos(q[0]), z];
+  }
+  function toQ(x) { return x.length === 5 ? x : ik(x); }
+
+  // ---- the sensor: 24 beams from -25° to +15° on the mast, re-cast every frame as the robot moves ----
+  var BEAMS = small ? 16 : 24, AZ = small ? 300 : 440, N = BEAMS * AZ, STEP = TAU / AZ;
+  var DX = new Float32Array(N), DY = new Float32Array(N), DZ = new Float32Array(N);
+  for (var bi = 0; bi < BEAMS; bi++) {
+    var el = (-25 + bi * 40 / (BEAMS - 1)) * Math.PI / 180;
+    for (var ai = 0; ai < AZ; ai++) { var ii = bi * AZ + ai, az = ai * STEP; DX[ii] = Math.cos(el) * Math.cos(az); DY[ii] = Math.cos(el) * Math.sin(az); DZ[ii] = Math.sin(el); }
+  }
+  var HX = new Float32Array(N), HY = new Float32Array(N), HZ = new Float32Array(N), HC = new Int8Array(N), PX = new Float32Array(N), PY = new Float32Array(N), PZ = new Float32Array(N);
+  var COLS = []; for (var cc = 0; cc < AZ; cc++) COLS.push([]);
+  function slab(ox, oy, oz, dx, dy, dz, b) { // ray against an axis-aligned box; -1 = miss
     var t0 = 0, t1 = 1e9, ta, tb, s;
-    if (dx !== 0) { ta = (b.x0 - OX) / dx; tb = (b.x1 - OX) / dx; if (ta > tb) { s = ta; ta = tb; tb = s; } if (ta > t0) t0 = ta; if (tb < t1) t1 = tb; if (t0 > t1) return -1; } else if (OX < b.x0 || OX > b.x1) return -1;
-    if (dy !== 0) { ta = (b.y0 - OY) / dy; tb = (b.y1 - OY) / dy; if (ta > tb) { s = ta; ta = tb; tb = s; } if (ta > t0) t0 = ta; if (tb < t1) t1 = tb; if (t0 > t1) return -1; } else if (OY < b.y0 || OY > b.y1) return -1;
-    ta = (b.z0 - OZ) / dz; tb = (b.z1 - OZ) / dz; if (ta > tb) { s = ta; ta = tb; tb = s; } if (ta > t0) t0 = ta; if (tb < t1) t1 = tb;
+    if (dx !== 0) { ta = (b.x0 - ox) / dx; tb = (b.x1 - ox) / dx; if (ta > tb) { s = ta; ta = tb; tb = s; } if (ta > t0) t0 = ta; if (tb < t1) t1 = tb; if (t0 > t1) return -1; } else if (ox < b.x0 || ox > b.x1) return -1;
+    if (dy !== 0) { ta = (b.y0 - oy) / dy; tb = (b.y1 - oy) / dy; if (ta > tb) { s = ta; ta = tb; tb = s; } if (ta > t0) t0 = ta; if (tb < t1) t1 = tb; if (t0 > t1) return -1; } else if (oy < b.y0 || oy > b.y1) return -1;
+    ta = (b.z0 - oz) / dz; tb = (b.z1 - oz) / dz; if (ta > tb) { s = ta; ta = tb; tb = s; } if (ta > t0) t0 = ta; if (tb < t1) t1 = tb;
     return t1 >= t0 && t0 > 0 ? t0 : -1;
   }
-
-  // palette index: 0–9 height ramp, 10 road, 11 sidewalk, 12 marking, 13 car, 14 truck, 15 pedestrian, 16 cyclist
-  var CI = { car: 13, truck: 14, ped: 15, cyclist: 16 }, NCOL = 17;
-  var small = innerWidth < 700, BEAMS = small ? 28 : 40, AZ = small ? 360 : 480, N = BEAMS * AZ, STEP = TAU / AZ;
-  var DX = new Float32Array(N), DY = new Float32Array(N), DZ = new Float32Array(N), AZA = new Float32Array(N);
-  var TS = new Float32Array(N), CS = new Uint8Array(N), NZ = new Float32Array(N), TC = new Float32Array(N), CC = new Uint8Array(N);
-  for (var bi = 0; bi < BEAMS; bi++) {
-    // most beams look down so their ground rings land evenly every ~1.4 m (3–50 m); the top few see buildings
-    var UP = small ? 5 : 6, nG = BEAMS - UP;
-    var el = bi < nG ? -Math.atan(OZ / (3 + bi * 47 / (nG - 1))) : (-2 + (bi - nG) * 10 / (UP - 1)) * Math.PI / 180;
-    for (var ai = 0; ai < AZ; ai++) {
-      var i = bi * AZ + ai, az = ai * STEP + bi * 0.0021, dx = Math.cos(el) * Math.cos(az), dy = Math.cos(el) * Math.sin(az), dz = Math.sin(el);
-      DX[i] = dx; DY[i] = dy; DZ[i] = dz; AZA[i] = az % TAU; NZ[i] = (Math.random() - .5) * 0.06;
-      var t = dz < 0 ? -OZ / dz : 1e9, kind = 0;
-      for (var k = 0; k < statics.length; k++) { var h = slab(dx, dy, dz, statics[k]); if (h > 0 && h < t) { t = h; kind = statics[k].kind; } }
-      if (t > MAXR || t < 1) { TS[i] = 1e9; continue; }
-      TS[i] = t;
-      if (!kind) { var g = groundKind(OX + dx * t, OY + dy * t); CS[i] = g === K_ROAD ? 10 : g === K_SIDE ? 11 : 12; }
-      else CS[i] = Math.floor(Math.max(0, Math.min(.999, (OZ + dz * t) / 16)) * 10);
+  // the voxel map (0.25 m voxels; floor on a 0.5 m grid), stored with its colour index
+  var MMAX = small ? 30000 : 60000, MX = new Float32Array(MMAX), MY = new Float32Array(MMAX), MZ = new Float32Array(MMAX), MC = new Uint8Array(MMAX), mN = 0, mSet = new Set();
+  function hIdx(z) { return Math.floor(Math.max(0, Math.min(.999, z / 7)) * 10); }
+  function mapAdd(x, y, z, c, floor) {
+    if (mN >= MMAX) return;
+    var key = floor ? 1e8 + Math.round(x * 2 + 100) * 1000 + Math.round(y * 2 + 100) : Math.round(x * 4 + 120) * 100000 + Math.round(y * 4 + 80) * 100 + Math.round(z * 4);
+    if (mSet.has(key)) return; mSet.add(key);
+    MX[mN] = floor ? Math.round(x * 2) / 2 : x; MY[mN] = floor ? Math.round(y * 2) / 2 : y; MZ[mN] = z; MC[mN] = c; mN++;
+  }
+  function lidarPos() { return [R.x + MASTX * Math.cos(R.yaw), R.y + MASTX * Math.sin(R.yaw)]; }
+  var dyn = [], hits = {};
+  function totes() { // moving totes on both conveyors and the parcels on the table and the floor
+    var out = [], k, x;
+    for (k = 0; k < 10; k++) { x = -18 + ((k * 2.4 + simT * .6) % 24); out.push({ x0: x - .25, x1: x + .25, y0: 4.3, y1: 4.7, z0: .9, z1: 1.22, k: 8 }); }
+    for (k = 0; k < 10; k++) { x = 18 - ((k * 2.4 + 1.1 + simT * .6) % 24); out.push({ x0: x - .25, x1: x + .25, y0: -4.7, y1: -4.3, z0: .9, z1: 1.22, k: 8 }); }
+    TBL.slots.forEach(function (f, k) { if (f) { var x = TBL.x + SLOT[k]; out.push({ x0: x - TOTE / 2, x1: x + TOTE / 2, y0: TBL.y - TOTE / 2, y1: TBL.y + TOTE / 2, z0: .76, z1: .76 + TOTE, k: 8 }); } });
+    PARCELS.forEach(function (p) { if (p.state === 'floor') out.push({ x0: p.x - TOTE / 2, x1: p.x + TOTE / 2, y0: p.y - TOTE / 2, y1: p.y + TOTE / 2, z0: 0, z1: TOTE, k: 8 }); });
+    return out;
+  }
+  function scan() { // one revolution; boxes are binned by the azimuth columns they cover so each ray tests only a few
+    var lp = lidarPos(), ox = lp[0], oy = lp[1], oz = LZ, i, c;
+    dyn = people.map(function (p) { var q = ppos(p), hx = (p.ax === 'x' ? p.lx : p.ly) / 2, hy = (p.ax === 'x' ? p.ly : p.lx) / 2; return { x0: q[0] - hx, x1: q[0] + hx, y0: q[1] - hy, y1: q[1] + hy, z0: 0, z1: p.h, k: p.cls === 'forklift' ? 10 : 9, p: p }; });
+    var all = STAT.concat(dyn, totes());
+    for (c = 0; c < AZ; c++) COLS[c].length = 0;
+    for (i = 0; i < all.length; i++) {
+      var b = all[i], nx = Math.max(b.x0, Math.min(ox, b.x1)), ny = Math.max(b.y0, Math.min(oy, b.y1));
+      if (Math.hypot(nx - ox, ny - oy) > MAXR) continue;
+      var ac = Math.atan2((b.y0 + b.y1) / 2 - oy, (b.x0 + b.x1) / 2 - ox), lo = 0, hi = 0;
+      [[b.x0, b.y0], [b.x1, b.y0], [b.x0, b.y1], [b.x1, b.y1]].forEach(function (p) {
+        var q = Math.atan2(p[1] - oy, p[0] - ox) - ac; if (q > Math.PI) q -= TAU; if (q < -Math.PI) q += TAU;
+        if (q < lo) lo = q; if (q > hi) hi = q;
+      });
+      if (ac < 0) ac += TAU;
+      for (c = Math.floor((ac + lo) / STEP); c <= Math.ceil((ac + hi) / STEP); c++) COLS[((c % AZ) + AZ) % AZ].push(b);
+    }
+    hits = {};
+    for (c = 0; c < AZ; c++) {
+      var list = COLS[c];
+      for (var bm = 0; bm < BEAMS; bm++) {
+        i = bm * AZ + c;
+        var dx = DX[i], dy = DY[i], dz = DZ[i], t = dz < 0 ? -oz / dz : 1e9, hb = null;
+        for (var j = 0; j < list.length; j++) { var h = slab(ox, oy, oz, dx, dy, dz, list[j]); if (h > 0 && h < t) { t = h; hb = list[j]; } }
+        if (t > MAXR) { HC[i] = -1; continue; }
+        var px = ox + dx * t, py = oy + dy * t, pz = oz + dz * t, col;
+        if (!hb) { col = floorKind(px, py); mapAdd(px, py, 0, col === 12 ? 12 : 11, true); }
+        else if (hb.k === 8) col = 14;
+        else if (hb.k === 9 || hb.k === 10) { col = hb.k === 9 ? 15 : 16; hits[hb.p.id] = (hits[hb.p.id] || 0) + 1; }
+        else { col = hIdx(pz); mapAdd(px, py, pz, col, false); }
+        HX[i] = px; HY[i] = py; HZ[i] = pz; HC[i] = col;
+      }
     }
   }
 
   var PAL = {
     dark: { col: ['#0f3b4c', '#14566a', '#177487', '#2a8fb0', '#4a9fd8', '#6f9ceb', '#8fa8f0', '#b7b4ee', '#e3b6c6', '#f6c38a',
-      '#1d5169', '#2b6f86', '#e8f4ff', '#34d399', '#fbbf24', '#f472b6', '#60a5fa'],
-      ring: 'rgba(122,165,240,.13)', glow: '#eaf2ff', glowA: 0.7, label: 'rgba(5,8,15,.78)', alpha: 0.85 },
+      '#1d5169', '#2b6f86', '#f2e48a', '#34d399', '#fbbf24', '#f472b6', '#60a5fa'],
+      ring: 'rgba(122,165,240,.14)', glow: '#eaf2ff', glowA: 0.7, label: 'rgba(5,8,15,.8)', alpha: 0.88, mapA: 0.32, path: '#f59e0b', edge: 'rgba(0,0,0,.4)',
+      amb: .4, spec: .45, shadow: 'rgba(0,0,0,.6)',
+      mesh: { body: [48, 56, 70], cover: [226, 231, 238], accent: [245, 150, 20], dark: [22, 26, 34], joint: [176, 184, 196], tire: [30, 32, 38], metal: [150, 160, 174],
+        glass: [24, 36, 54], light: [52, 211, 153], red: [225, 45, 45], yellow: [240, 190, 20], card: [178, 138, 92], tape: [140, 104, 66], label: [235, 238, 242],
+        ttop: [104, 116, 134], tleg: [64, 74, 88] } },
     light: { col: ['#b4c3d4', '#9bb0c7', '#7f9aba', '#6584ac', '#4f6f9d', '#3f5d8d', '#34507f', '#3b437a', '#5f3d73', '#8f4a3a',
-      '#8ea3bb', '#b3c2d3', '#0b1a3a', '#059669', '#c26a06', '#db2777', '#2563eb'],
-      ring: 'rgba(30,58,110,.16)', glow: '#0b1220', glowA: 0.5, label: 'rgba(255,255,255,.9)', alpha: 0.92 }
+      '#8ea3bb', '#b3c2d3', '#a16207', '#059669', '#c26a06', '#db2777', '#2563eb'],
+      ring: 'rgba(30,58,110,.16)', glow: '#0b1220', glowA: 0.5, label: 'rgba(255,255,255,.9)', alpha: 0.92, mapA: 0.42, path: '#d97706', edge: 'rgba(11,18,32,.3)',
+      amb: .48, spec: .35, shadow: 'rgba(11,18,32,.28)',
+      mesh: { body: [58, 68, 84], cover: [248, 249, 251], accent: [240, 140, 10], dark: [30, 36, 46], joint: [188, 195, 205], tire: [38, 42, 50], metal: [160, 170, 184],
+        glass: [28, 40, 60], light: [14, 170, 115], red: [215, 40, 40], yellow: [235, 180, 10], card: [198, 158, 108], tape: [158, 120, 78], label: [250, 250, 252],
+        ttop: [150, 162, 178], tleg: [100, 110, 124] } }
   };
-  PAL.dark.map = 'rgba(170,200,240,.26)'; PAL.light.map = 'rgba(30,58,110,.28)';
-  var SIG = { g: '#22c55e', y: '#eab308', r: '#ef4444' };
-  // map segments [x0, y0, x1, y1] on the ground, mirrored into all four arms of the intersection
-  var MAP = [];
-  [[1, 0], [-1, 0], [0, 1], [0, -1]].forEach(function (d4) {
-    function seg(a0, b0, a1, b1) { // a = along the arm (away from the centre), b = across it
-      if (d4[0]) MAP.push([d4[0] * a0, b0, d4[0] * a1, b1]); else MAP.push([b0, d4[1] * a0, b1, d4[1] * a1]);
-    }
-    seg(RW, RW, 55, RW); seg(RW, -RW, 55, -RW);                                   // curbs
-    for (var a = 13; a < 55; a += 6) seg(a, 0, a + 3, 0);                         // dashed centre line
-    seg(13, 5.1, 55, 5.1); seg(13, -5.1, 55, -5.1);                               // bike-lane lines
-    seg(8.5, -RW, 8.5, RW); seg(11.5, -RW, 11.5, RW);                             // crossing edges
-  });
-  // stop lines (on the right-hand side of each approach)
-  MAP.push([-12.8, -RW, -12.8, 0], [12.8, 0, 12.8, RW], [0, -12.8, RW, -12.8], [-RW, 12.8, 0, 12.8]);
   function themeName() { return (d.dataset.theme ? d.dataset.theme === 'dark' : mq.matches) ? 'dark' : 'light'; }
 
-  /* ---- traffic: a 24 s signal cycle, vehicles that stop for red and queue, pedestrians on the crossings ---- */
-  var simT = 0, agents = [], nextId = 1;
-  function rand(a, b) { return a + Math.random() * (b - a); }
-  function signal(grp) { var c = simT % 24; if (grp === 'ew') return c < 9 ? 'g' : c < 11.5 ? 'y' : 'r'; return c >= 12 && c < 21 ? 'g' : c >= 21 && c < 23.5 ? 'y' : 'r'; }
-  function greenAge(grp) { var c = simT % 24; return grp === 'ew' ? c : c - 12; }
-  var LANES = [
-    { ax: 'x', dir: 1, off: -3.5, grp: 'ew' }, { ax: 'x', dir: -1, off: 3.5, grp: 'ew' },
-    { ax: 'y', dir: 1, off: 3.5, grp: 'ns' }, { ax: 'y', dir: -1, off: -3.5, grp: 'ns' },
-    { ax: 'x', dir: 1, off: -6, grp: 'ew', bike: true }, { ax: 'x', dir: -1, off: 6, grp: 'ew', bike: true },
-    { ax: 'y', dir: 1, off: 6, grp: 'ns', bike: true }, { ax: 'y', dir: -1, off: -6, grp: 'ns', bike: true }
-  ];
-  LANES.forEach(function (l) { l.timer = rand(0, 4); });
-  var STOP = L - 12.8; // travelled distance at which a vehicle's front reaches its stop line
-  function placeVehicle(a) {
-    var l = a.lane, p = l.dir * (a.s - L);
-    if (l.ax === 'x') { a.x = p; a.y = l.off; a.lx = a.len; a.ly = a.wid; a.vx = a.v * l.dir; a.vy = 0; }
-    else { a.x = l.off; a.y = p; a.lx = a.wid; a.ly = a.len; a.vx = 0; a.vy = a.v * l.dir; }
-  }
-  function spawnVehicle(l) {
-    var last = null;
-    agents.forEach(function (o) { if (o.lane === l && (!last || o.s < last.s)) last = o; });
-    var cls = l.bike ? 'cyclist' : Math.random() < 0.14 ? 'truck' : 'car';
-    var len = cls === 'truck' ? 9 : cls === 'car' ? rand(4.2, 4.8) : 1.8;
-    if (last && last.s - last.len / 2 < len + 3) return false;
-    var a = { id: nextId++, cls: cls, lane: l, len: len, wid: cls === 'truck' ? 2.5 : cls === 'car' ? 1.9 : .7, h: cls === 'truck' ? 3.3 : cls === 'car' ? rand(1.4, 1.6) : 1.75,
-      v0: cls === 'truck' ? 7 : cls === 'car' ? rand(8, 11) : rand(4, 5.5), s: len / 2 };
-    a.v = a.v0 * 0.9; placeVehicle(a); agents.push(a); return true;
-  }
-  function stepVehicle(a, dt) {
-    var front = a.s + a.len / 2, target = 1e9, lead = null, st = signal(a.lane.grp);
-    agents.forEach(function (o) { if (o !== a && o.lane === a.lane && o.s > a.s && (!lead || o.s < lead.s)) lead = o; });
-    if (lead) target = lead.s - lead.len / 2 - 2.2;
-    if (st !== 'g' && front < STOP + 0.3 && (st === 'r' || STOP - front > a.v * a.v / 8 * 0.9)) target = Math.min(target, STOP);
-    var want = Math.min(a.v0, Math.sqrt(2 * 4 * Math.max(0, target - front)));
-    a.v = want < a.v ? Math.max(want, a.v - 8 * dt) : Math.min(want, a.v + 2.2 * dt);
-    a.s += a.v * dt; placeVehicle(a);
-    return a.s < 2 * L + 10;
-  }
-  var CROSS = [{ c: -10, walk: 'y', grp: 'ns' }, { c: 10, walk: 'y', grp: 'ns' }, { c: -10, walk: 'x', grp: 'ew' }, { c: 10, walk: 'x', grp: 'ew' }];
-  var pedTimer = 1;
-  function spawnPed() {
-    var cw = CROSS[(Math.random() * 4) | 0], sg = Math.sign(cw.c), side = Math.random() < .5 ? 1 : -1, wp;
-    var a0 = cw.c + sg * rand(7, 16), a1 = cw.c + sg * rand(7, 16);
-    if (cw.walk === 'y') wp = [[a0, side * 9.7], [cw.c, side * 9.7], [cw.c, -side * 9.7], [a1, -side * 9.7]];
-    else wp = [[side * 9.7, a0], [side * 9.7, cw.c], [-side * 9.7, cw.c], [-side * 9.7, a1]];
-    agents.push({ id: nextId++, cls: 'ped', cw: cw, wp: wp, k: 1, x: wp[0][0], y: wp[0][1], lx: .6, ly: .6, h: rand(1.6, 1.85), sp: rand(1.2, 1.6), vx: 0, vy: 0 });
-  }
-  function stepPed(a, dt) {
-    var w = a.wp[a.k], ddx = w[0] - a.x, ddy = w[1] - a.y, dist = Math.hypot(ddx, ddy);
-    if (dist < 0.05) {
-      if (a.k === 1 && !(signal(a.cw.grp) === 'g' && greenAge(a.cw.grp) < 6)) { a.vx = a.vy = 0; return true; } // wait at the curb
-      a.k++; if (a.k >= a.wp.length) return false;
-      return true;
-    }
-    var m = Math.min(dist, a.sp * dt); a.vx = ddx / dist * a.sp; a.vy = ddy / dist * a.sp;
-    a.x += ddx / dist * m; a.y += ddy / dist * m;
-    return true;
-  }
-  function step(dt) {
-    simT += dt;
-    LANES.forEach(function (l) {
-      l.timer -= dt;
-      if (l.timer <= 0) l.timer = spawnVehicle(l) ? (l.bike ? rand(18, 34) : rand(5, 10)) : 0.5;
-    });
-    pedTimer -= dt;
-    if (pedTimer <= 0) { var np = agents.filter(function (a) { return a.cls === 'ped'; }).length; if (np < 4) spawnPed(); pedTimer = rand(4, 9); }
-    agents = agents.filter(function (a) { return a.cls === 'ped' ? stepPed(a, dt) : stepVehicle(a, dt); });
-  }
-  for (var w = 0; w < 220; w++) step(0.1); // start with traffic already on the road
-
-  // re-cast only the rays that can see each road user
-  function castDynamic() {
-    TC.set(TS); CC.set(CS);
-    for (var n = 0; n < agents.length; n++) {
-      var a = agents[n], b = { x0: a.x - a.lx / 2, x1: a.x + a.lx / 2, y0: a.y - a.ly / 2, y1: a.y + a.ly / 2, z0: 0, z1: a.h };
-      if (Math.hypot(a.x - OX, a.y - OY) > MAXR) continue;
-      var ac = Math.atan2(a.y - OY, a.x - OX), lo = 0, hi = 0;
-      [[b.x0, b.y0], [b.x1, b.y0], [b.x0, b.y1], [b.x1, b.y1]].forEach(function (c) {
-        var q = Math.atan2(c[1] - OY, c[0] - OX) - ac; if (q > Math.PI) q -= TAU; if (q < -Math.PI) q += TAU;
-        if (q < lo) lo = q; if (q > hi) hi = q;
-      });
-      if (ac < 0) ac += TAU;
-      var c0 = Math.floor((ac + lo) / STEP) - 7, c1 = Math.ceil((ac + hi) / STEP) + 1, ci = CI[a.cls];
-      for (var c = c0; c <= c1; c++) {
-        var col = ((c % AZ) + AZ) % AZ;
-        for (var bb = 0; bb < BEAMS; bb++) {
-          var r = bb * AZ + col, t = slab(DX[r], DY[r], DZ[r], b);
-          if (t > 0 && t < TC[r]) { TC[r] = t; CC[r] = ci; }
-        }
-      }
-    }
-  }
-
-  var PX = new Float32Array(N), PY = new Float32Array(N), PZ = new Float32Array(N);
   var W = 0, H = 0, DPR = Math.min(devicePixelRatio || 1, 2);
   // points are drawn into an RGBA buffer at CSS-pixel size, then scaled onto the canvas in one drawImage
   var off = document.createElement('canvas'), octx = off.getContext('2d'), img = null, buf = null, BW = 0, BH = 0;
@@ -716,6 +959,7 @@
   ['dark', 'light'].forEach(function (k) {
     var p = PAL[k], n = parseInt(p.glow.slice(1), 16);
     p.pk = new Uint32Array(p.col.map(function (h) { return packHex(h, Math.round(p.alpha * 255)); }));
+    p.mk = new Uint32Array(p.col.map(function (h) { return packHex(h, Math.round(p.mapA * 255)); }));
     p.gr = (n >> 16) & 255; p.gg = (n >> 8) & 255; p.gb = n & 255;
   });
   function plot(x, y, s, v) {
@@ -736,127 +980,408 @@
   }
   resize(); addEventListener('resize', function () { resize(); if (reduce) render(6); });
 
-  var cam = {};
+  // ---- camera: orbits slowly around the robot and follows it ----
+  var cam = {}, camX = R.x, camY = R.y, camZ = .7, camD = 0;
   function setCam(time) {
-    var th = -2.0 + time * 0.04, elv = 0.7, dist = 50, tx = -1, ty = -1, tz = 0;
+    // follow the story: the drone while it searches and checks a find, then along the radio message to the robot, then the robot
+    var wide = W > 900, base = wide ? 8.5 : 6.5, U = UAV, gx = R.x, gy = R.y, gz = .7, gd = base;
+    var kc = .035, free = R.mode === 'idle' && !queue.length; // the robot has no job
+    if (!free) kc = .05;
+    else if (U.mode === 'report') { var e = Math.min(1, U.t / 2), m = e * e * (3 - 2 * e); gx = U.x + (R.x - U.x) * m; gy = U.y + (R.y - U.y) * m; gz = 1.6 - .9 * m; gd = base + 1 - m; kc = .1; }
+    else { gx = U.x; gy = U.y; gz = 1.6; gd = base + 1; }
+    if (!camD) { camX = gx; camY = gy; camZ = gz; camD = gd; }
+    camX += (gx - camX) * kc; camY += (gy - camY) * kc; camZ += (gz - camZ) * kc; camD += (gd - camD) * kc;
+    var th = -2.35 + time * 0.045, elv = .5 + .015 * (camD - base), dist = camD, tx = camX, ty = camY, tz = camZ;
     var px = tx + dist * Math.cos(elv) * Math.cos(th), py = ty + dist * Math.cos(elv) * Math.sin(th), pz = tz + dist * Math.sin(elv);
     var fx = tx - px, fy = ty - py, fz = tz - pz, fl = Math.hypot(fx, fy, fz); fx /= fl; fy /= fl; fz /= fl;
-    var rx = fy, ry = -fx, rl = Math.hypot(rx, ry); rx /= rl; ry /= rl;                     // right = f × up
-    var ux = ry * fz, uy = -rx * fz, uz = rx * fy - ry * fx;                                 // up = r × f
-    var wide = W > 900;
-    cam = { px: px, py: py, pz: pz, fx: fx, fy: fy, fz: fz, rx: rx, ry: ry, ux: ux, uy: uy, uz: uz,
-      cx: wide ? W * 0.68 : W * 0.5, cy: wide ? H * 0.52 : H * 0.42, foc: Math.min(W, H * 1.5) * (wide ? 1.0 : 1.2) };
+    var rx_ = fy, ry_ = -fx, rl = Math.hypot(rx_, ry_); rx_ /= rl; ry_ /= rl;                    // right = f × up
+    cam = { px: px, py: py, pz: pz, fx: fx, fy: fy, fz: fz, rx: rx_, ry: ry_, ux: ry_ * fz, uy: -rx_ * fz, uz: rx_ * fy - ry_ * fx,
+      cx: wide ? W * 0.68 : W * 0.5, cy: wide ? H * 0.56 : H - 150, foc: Math.min(W, H * 1.5) * (wide ? 1.0 : 1.1) };
   }
   function proj(x, y, z, out) {
     var vx = x - cam.px, vy = y - cam.py, vz = z - cam.pz, zc = vx * cam.fx + vy * cam.fy + vz * cam.fz;
-    if (zc < 0.5) return false;
+    if (zc < 0.3) return false;
     out[0] = cam.cx + cam.foc * (vx * cam.rx + vy * cam.ry) / zc;
     out[1] = cam.cy - cam.foc * (vx * cam.ux + vy * cam.uy + vz * cam.uz) / zc;
     out[2] = zc; return true;
   }
-  var tmp = [0, 0, 0], tmp2 = [0, 0, 0], hudT = 0;
-  var EDGES = [[0, 1], [1, 2], [2, 3], [3, 0], [4, 5], [5, 6], [6, 7], [7, 4], [0, 4], [1, 5], [2, 6], [3, 7]];
-  var hudPts = document.getElementById('hudPts'), hudObj = document.getElementById('hudObj');
-  function render(time) {
-    setCam(time); castDynamic();
-    var th = themeName(), pal = PAL[th], col = pal.col, pk = pal.pk;
-    // project every return (inlined proj(): this loop runs for every ray, every frame)
-    var vis = 0, cpx = OX - cam.px, cpy = OY - cam.py, cpz = OZ - cam.pz, fx = cam.fx, fy = cam.fy, fz = cam.fz, rx = cam.rx, ry = cam.ry,
-      ux = cam.ux, uy = cam.uy, uz = cam.uz, ccx = cam.cx, ccy = cam.cy, foc = cam.foc;
-    for (var i = 0; i < N; i++) {
-      var t = TC[i]; PZ[i] = 0;
-      if (t > MAXR) continue;
-      t += NZ[i];
-      var vx = cpx + DX[i] * t, vy = cpy + DY[i] * t, vz = cpz + DZ[i] * t, zc = vx * fx + vy * fy + vz * fz;
-      if (zc < 0.5) continue;
-      PX[i] = ccx + foc * (vx * rx + vy * ry) / zc; PY[i] = ccy - foc * (vx * ux + vy * uy + vz * uz) / zc; PZ[i] = zc; vis++;
+  var tmp = [0, 0, 0], tmp2 = [0, 0, 0];
+  function seg3(a, b) { if (proj(a[0], a[1], a[2], tmp) && proj(b[0], b[1], b[2], tmp2)) { ctx.moveTo(tmp[0], tmp[1]); ctx.lineTo(tmp2[0], tmp2[1]); } }
+  function ring3(x, y, z, r, n) { var first = true; for (var s = 0; s <= n; s++) { var an = s / n * TAU; if (proj(x + r * Math.cos(an), y + r * Math.sin(an), z, tmp)) { if (first) { ctx.moveTo(tmp[0], tmp[1]); first = false; } else ctx.lineTo(tmp[0], tmp[1]); } else first = true; } }
+
+  // ---- solid model: prisms, boxes and cylinders as shaded faces, sorted back to front ----
+  var BF = [[0, 4, 6, 2], [1, 3, 7, 5], [0, 1, 5, 4], [2, 6, 7, 3], [0, 2, 3, 1], [4, 5, 7, 6]];
+  function box(F, T, cx, cy, cz, sx, sy, sz, col, emit) {
+    var v = [];
+    for (var i = 0; i < 8; i++) v.push(ap(T, cx + (i & 1 ? .5 : -.5) * sx, cy + (i & 2 ? .5 : -.5) * sy, cz + (i & 4 ? .5 : -.5) * sz));
+    var o = ap(T, cx, cy, cz);
+    BF.forEach(function (f) { F.push({ p: [v[f[0]], v[f[1]], v[f[2]], v[f[3]]], c: col, o: o, e: emit, g: CUR }); });
+  }
+  function cyl(F, T, cz, r, h, n, col, cap, emit) { // axis along the local z axis, from cz to cz + h
+    var lo = [], hi = [], i;
+    for (i = 0; i < n; i++) { var a = (i + .5) / n * TAU, ca = Math.cos(a) * r, sa = Math.sin(a) * r; lo.push(ap(T, ca, sa, cz)); hi.push(ap(T, ca, sa, cz + h)); }
+    var o = ap(T, 0, 0, cz + h / 2);
+    for (i = 0; i < n; i++) { var j = (i + 1) % n; F.push({ p: [lo[i], lo[j], hi[j], hi[i]], c: col, o: o, g: CUR, sm: 1, e: emit }); }
+    F.push({ p: lo, c: cap || col, o: o, g: CUR, e: emit }); F.push({ p: hi, c: cap || col, o: o, g: CUR, e: emit });
+  }
+  function prism(F, T, P, z0, z1, col, top) { // a convex footprint extruded from z0 to z1
+    var lo = [], hi = [], n = P.length, cx = 0, cy = 0, i;
+    for (i = 0; i < n; i++) { lo.push(ap(T, P[i][0], P[i][1], z0)); hi.push(ap(T, P[i][0], P[i][1], z1)); cx += P[i][0]; cy += P[i][1]; }
+    var o = ap(T, cx / n, cy / n, (z0 + z1) / 2);
+    for (i = 0; i < n; i++) { var j = (i + 1) % n; F.push({ p: [lo[i], lo[j], hi[j], hi[i]], c: col, o: o, g: CUR }); }
+    F.push({ p: lo, c: col, o: o, g: CUR }); F.push({ p: hi, c: top || col, o: o, g: CUR });
+  }
+  function chamf(lx, ly, c, ox) { // a rectangle with chamfered corners, centred at (ox, 0)
+    var a = lx / 2, b = ly / 2; ox = ox || 0;
+    return [[a + ox, -b + c], [a + ox, b - c], [a - c + ox, b], [-a + c + ox, b], [-a + ox, b - c], [-a + ox, -b + c], [-a + c + ox, -b], [a - c + ox, -b]];
+  }
+  var LGT = (function () { var l = Math.hypot(.35, .5, .8); return [.35 / l, .5 / l, .8 / l]; })();
+  // faces are grouped into objects (body, mast, arm, each table); objects are ordered back to front first,
+  // then the faces inside each one, so a big table top never paints over the robot standing in front of it
+  var CUR = 0, OBJ = [], ARM = 0, BODY = 0, TOBJ = {};
+  function obj(c) { OBJ.push(c); CUR = OBJ.length - 1; return CUR; }
+  function rgb(c, k, add) { return 'rgb(' + Math.min(255, Math.round(c[0] * k + add)) + ',' + Math.min(255, Math.round(c[1] * k + add)) + ',' + Math.min(255, Math.round(c[2] * k + add)) + ')'; }
+  function drawFaces(F, pal) {
+    var list = [], od = OBJ.map(function (c) { return (c[0] - cam.px) * cam.fx + (c[1] - cam.py) * cam.fy + (c[2] - cam.pz) * cam.fz; });
+    var order = OBJ.map(function (c, k) { return k; }).sort(function (x, y) { return od[y] - od[x]; });
+    function after(o, ref) { var a = order.indexOf(o), b = order.indexOf(ref); if (a >= 0 && b >= 0 && a < b) { order.splice(a, 1); order.splice(order.indexOf(ref) + 1, 0, o); } }
+    after(ARM, BODY);                                                          // the arm sits on top of the body
+    if (R.mode === 'task' && Math.abs(R.ee[1]) > .3) { if (R.goal.act === 'place' && TOBJ.tbl != null) after(ARM, TOBJ.tbl); if (R.goal.act === 'pick' && TOBJ.p != null) after(ARM, TOBJ.p); } // reaching over the table or the parcel
+    var rank = []; order.forEach(function (o, k) { rank[o] = k; });
+    for (var i = 0; i < F.length; i++) {
+      var f = F[i], p = f.p, a = p[0], b = p[1], c = p[2];
+      var ux = b[0] - a[0], uy = b[1] - a[1], uz = b[2] - a[2], vx = c[0] - a[0], vy = c[1] - a[1], vz = c[2] - a[2];
+      var nx = uy * vz - uz * vy, ny = uz * vx - ux * vz, nz = ux * vy - uy * vx, nl = Math.hypot(nx, ny, nz);
+      if (nl < 1e-12) continue; nx /= nl; ny /= nl; nz /= nl;
+      var mx = 0, my = 0, mz = 0, k;
+      for (k = 0; k < p.length; k++) { mx += p[k][0]; my += p[k][1]; mz += p[k][2]; }
+      mx /= p.length; my /= p.length; mz /= p.length;
+      if ((mx - f.o[0]) * nx + (my - f.o[1]) * ny + (mz - f.o[2]) * nz < 0) { nx = -nx; ny = -ny; nz = -nz; }   // point outward
+      var ex = cam.px - mx, ey = cam.py - my, ez = cam.pz - mz, el = Math.hypot(ex, ey, ez);
+      if (ex * nx + ey * ny + ez * nz <= 0) continue;                                                       // facing away
+      var sp = [], ok = true;
+      for (k = 0; k < p.length; k++) { if (!proj(p[k][0], p[k][1], p[k][2], tmp)) { ok = false; break; } sp.push(tmp[0], tmp[1]); }
+      if (!ok) continue;
+      var fill, edge;
+      if (f.e) { fill = rgb(f.c, 1, 0); edge = fill; }
+      else {
+        // ambient + diffuse from a fixed key light, plus a small specular highlight toward the viewer
+        var dif = Math.max(0, nx * LGT[0] + ny * LGT[1] + nz * LGT[2]);
+        var hx = LGT[0] + ex / el, hy = LGT[1] + ey / el, hz = LGT[2] + ez / el, hl = Math.hypot(hx, hy, hz);
+        var spec = Math.pow(Math.max(0, (nx * hx + ny * hy + nz * hz) / hl), 28) * pal.spec;
+        var sh = pal.amb + (1 - pal.amb) * dif;
+        fill = rgb(f.c, sh, spec * 255); edge = f.sm ? fill : rgb(f.c, sh * .72, spec * 120);
+      }
+      list.push({ r: rank[f.g], s: sp, d: (mx - cam.px) * cam.fx + (my - cam.py) * cam.fy + (mz - cam.pz) * cam.fz, c: fill, k: edge });
     }
-    // write the points into a pixel buffer (far cheaper than one fillRect per point); road users last, on top
+    list.sort(function (x, y) { return x.r - y.r || y.d - x.d; });
+    ctx.lineWidth = .8; ctx.lineJoin = 'round';
+    list.forEach(function (q) {
+      ctx.beginPath(); ctx.moveTo(q.s[0], q.s[1]);
+      for (var k = 2; k < q.s.length; k += 2) ctx.lineTo(q.s[k], q.s[k + 1]);
+      ctx.closePath(); ctx.fillStyle = q.c; ctx.fill(); ctx.strokeStyle = q.k; ctx.stroke();
+    });
+  }
+  function shadow(pal) { // a soft contact shadow under the robot
+    var base = mul(tr(R.x, R.y, 0), rz(R.yaw)), P = chamf(1.3, .95, .22), first = true;
+    ctx.save(); ctx.filter = 'blur(7px)'; ctx.fillStyle = pal.shadow; ctx.beginPath();
+    for (var i = 0; i < P.length; i++) { var w = ap(base, P[i][0], P[i][1], .002); if (!proj(w[0], w[1], w[2], tmp)) { ctx.restore(); return; } if (first) { ctx.moveTo(tmp[0], tmp[1]); first = false; } else ctx.lineTo(tmp[0], tmp[1]); }
+    ctx.closePath(); ctx.fill(); ctx.restore();
+  }
+  var RF = {}; // frames of the arm, kept for the overlays
+  var HPI = Math.PI / 2;
+  function buildMeshes(C) {
+    var F = [], base = mul(tr(R.x, R.y, 0), rz(R.yaw)), i;
+    OBJ = []; TOBJ = {}; BODY = obj(ap(base, 0, 0, .3));
+    // body: rubber bumper, graphite lower body, orange band, white upper shell and a rubber mat for the tote
+    prism(F, base, chamf(1.12, .74, .13), .1, .2, C.dark);
+    prism(F, base, chamf(1.08, .7, .12), .2, .36, C.body);
+    prism(F, base, chamf(1.1, .72, .125), .36, .395, C.accent);
+    prism(F, base, chamf(1.06, .68, .12), .395, TOP, C.cover);
+    prism(F, base, chamf(.36, .36, .04, DECKX), TOP, DECKZ, C.dark);
+    // front: light bar, safety scanner window; sides: status LEDs
+    box(F, base, .541, 0, .29, .012, .4, .028, C.light, true);
+    box(F, base, .561, 0, .15, .014, .32, .045, C.glass);
+    box(F, base, .3, .351, .29, .22, .012, .024, C.light, true); box(F, base, .3, -.351, .29, .22, .012, .024, C.light, true);
+    // drive wheels with hubs
+    [[.33, .395], [-.33, .395], [.33, -.395], [-.33, -.395]].forEach(function (w) {
+      var s = w[1] > 0 ? 1 : -1, W = mul(base, mul(tr(w[0], w[1], .1), rx(-s * HPI)));
+      cyl(F, W, -.035, .1, .07, 18, C.tire, C.tire);
+      cyl(F, W, .035, .045, .008, 12, C.metal);
+    });
+    // emergency stop on the rear corner
+    cyl(F, mul(base, tr(-.42, -.25, TOP)), 0, .045, .012, 14, C.yellow);
+    cyl(F, mul(base, tr(-.42, -.25, TOP + .012)), 0, .03, .028, 14, C.red);
+    // the parcel on the deck
+    if (R.hold === 'deck') parcel(F, mul(base, tr(DECKX, 0, DECKZ)), C);
+    // radio antenna on the rear corner (the drone's reports arrive here)
+    cyl(F, mul(base, tr(-.46, .27, TOP)), 0, .022, .03, 10, C.dark);
+    cyl(F, mul(base, tr(-.46, .27, TOP)), .03, .007, .43, 6, C.dark);
+    cyl(F, mul(base, tr(-.46, .27, TOP)), .46, .016, .025, 10, C.light, null, true);
+    // sensor tower: a stepped, rounded column with a status light, and the LiDAR puck with a lit window band
+    obj(ap(base, MASTX, 0, .8));
+    prism(F, base, chamf(.2, .26, .05, MASTX), TOP, TOP + .04, C.dark);
+    prism(F, base, chamf(.17, .22, .045, MASTX), TOP + .04, .78, C.cover);
+    prism(F, base, chamf(.176, .226, .047, MASTX), .78, .805, C.accent);
+    prism(F, base, chamf(.12, .15, .035, MASTX), .805, .93, C.body);
+    box(F, base, MASTX, .111, .66, .07, .004, .05, C.light, true); box(F, base, MASTX, -.111, .66, .07, .004, .05, C.light, true);
+    box(F, base, MASTX - .086, 0, .62, .004, .12, .1, C.glass);                   // small display at the back
+    var LT = mul(base, tr(MASTX, 0, .93));
+    cyl(F, LT, 0, .06, .02, 20, C.dark);
+    cyl(F, LT, .02, .085, .03, 24, C.metal);
+    cyl(F, LT, .05, .08, .065, 24, C.glass);
+    cyl(F, LT, .078, .0805, .008, 24, C.light, null, true);
+    cyl(F, LT, .115, .086, .03, 24, C.cover);
+    cyl(F, LT, .145, .055, .01, 20, C.cover);
+    // arm: base turret, shoulder and elbow drums with orange caps, round links, wrist and a two-finger gripper
+    var q = R.q; R.ee = fk(q);
+    ARM = obj(ap(base, (SHX + R.ee[0]) / 2, R.ee[1] / 2, (SHZ + R.ee[2]) / 2 + .15));
+    var A0 = mul(base, mul(tr(SHX, 0, TOP), rz(q[0])));
+    cyl(F, A0, 0, .11, .04, 20, C.dark);
+    cyl(F, A0, .04, .085, SHZ - TOP - .1, 20, C.joint);
+    var S = mul(A0, tr(0, 0, SHZ - TOP)), Sy = mul(S, rx(-HPI));                 // local z of Sy = joint axis (arm y)
+    cyl(F, Sy, -.085, .088, .17, 20, C.joint);
+    cyl(F, Sy, -.095, .07, .01, 16, C.accent); cyl(F, Sy, .085, .07, .01, 16, C.accent);
+    var T1 = mul(S, ry(-q[1]));
+    cyl(F, mul(T1, ry(HPI)), .07, .055, L1 - .14, 18, C.cover);
+    var E = mul(T1, tr(L1, 0, 0)), Ey = mul(E, rx(-HPI));
+    cyl(F, Ey, -.07, .072, OFS + .14, 20, C.joint);
+    cyl(F, Ey, -.08, .058, .01, 16, C.accent); cyl(F, Ey, OFS + .07, .058, .01, 16, C.accent);
+    var T2 = mul(mul(E, tr(0, OFS, 0)), ry(-q[2]));
+    cyl(F, mul(T2, ry(HPI)), .06, .044, L2 - .12, 18, C.cover);
+    var Wr = mul(T2, tr(L2, 0, 0)), Wy = mul(Wr, rx(-HPI));
+    cyl(F, Wy, -.06, .055, .12, 18, C.joint);
+    cyl(F, Wy, .06, .045, .01, 14, C.accent);
+    var G = mul(mul(Wr, ry(-q[3])), rx(q[4]));                                   // local x of G points straight down
+    cyl(F, mul(G, ry(HPI)), .05, .045, .04, 16, C.dark);
+    box(F, G, .115, 0, 0, .05, .32, .07, C.body);                                // gripper body with a rail
+    box(F, G, .115, 0, .037, .03, .2, .006, C.metal);
+    box(F, G, .18, R.grip / 2 + .011, 0, .1, .022, .055, C.metal); box(F, G, .18, -R.grip / 2 - .011, 0, .1, .022, .055, C.metal);
+    box(F, G, .08, 0, .06, .045, .06, .035, C.dark);                              // wrist camera
+    box(F, G, .08, 0, .078, .02, .025, .002, C.glass);
+    if (R.hold === 'grip') parcel(F, mul(G, mul(tr(GL + .03, 0, 0), ry(-HPI))), C, true);
+    RF.G = G; RF.ant = ap(base, -.46, .27, TOP + .47);
+    // the station table and the parcels on it
+    TOBJ.tbl = null;
+    if (Math.hypot(TBL.x - R.x, TBL.y - R.y) < 24) {
+      TOBJ.tbl = obj([TBL.x, TBL.y, .5]);
+      var T = tr(TBL.x, TBL.y, 0);
+      box(F, T, 0, 0, .74, 1.2, .7, .04, C.ttop);
+      box(F, T, 0, 0, .7, 1.1, .6, .04, C.tleg);
+      [[-1, -1], [1, -1], [-1, 1], [1, 1]].forEach(function (s) { box(F, T, s[0] * .54, s[1] * .29, .36, .05, .05, .72, C.tleg); });
+      TBL.slots.forEach(function (f, k) { if (f) parcel(F, mul(T, tr(SLOT[k], 0, .76)), C); });
+    }
+    // parcels still lying on the floor
+    TOBJ.p = null;
+    PARCELS.forEach(function (p) {
+      if (p.state !== 'floor' || Math.hypot(p.x - R.x, p.y - R.y) > 26) return;
+      var o = obj([p.x, p.y, TOTE / 2]); if (R.goal && R.goal.p === p) TOBJ.p = o;
+      parcel(F, tr(p.x, p.y, 0), C);
+    });
+    droneMesh(F, C);
+    return F;
+  }
+  function parcel(F, T, C, centred) { // a cardboard box with packing tape over the top and a shipping label
+    var z0 = centred ? -TOTE / 2 : 0;
+    box(F, T, 0, 0, z0 + TOTE / 2, TOTE, TOTE, TOTE, C.card);
+    box(F, T, 0, 0, z0 + TOTE + .001, .05, TOTE + .002, .002, C.tape);
+    box(F, T, TOTE / 2 + .001, .035, z0 + TOTE * .5, .002, TOTE * .42, TOTE * .3, C.label);
+  }
+  function droneMesh(F, C) { // a quadcopter: body shell, four arms with motors and spinning props, skids and a camera gimbal
+    var U = UAV, B = mul(mul(mul(tr(U.x, U.y, U.z), rz(U.yaw)), mul(ry(U.pitch), rx(U.roll))), M([1.35, 0, 0, 0, 1.35, 0, 0, 0, 1.35], [0, 0, 0])); // drawn a little larger than life
+    obj([U.x, U.y, U.z]);
+    prism(F, B, chamf(.36, .24, .07), -.07, -.025, C.dark);
+    prism(F, B, chamf(.34, .22, .065), -.025, .05, C.cover);
+    prism(F, B, chamf(.2, .14, .04, -.02), .05, .072, C.accent);
+    box(F, B, .171, 0, .012, .006, .12, .025, C.glass);
+    [[1, 1], [1, -1], [-1, 1], [-1, -1]].forEach(function (s, k) {
+      var mx = s[0] * .3, my = s[1] * .3, Mo = mul(B, tr(mx, my, 0));
+      box(F, mul(B, rz(Math.atan2(my, mx))), .27, 0, .012, .3, .034, .026, C.body);
+      cyl(F, Mo, -.025, .042, .06, 14, C.dark, C.metal);
+      cyl(F, Mo, -.04, .018, .015, 8, s[0] > 0 ? C.light : C.red, null, true); // navigation lights: green front, red back
+      box(F, mul(Mo, rz(simT * 37 + k * 1.3)), 0, 0, .05, .32, .024, .004, C.dark);
+    });
+    [-1, 1].forEach(function (s) {
+      box(F, B, .07, s * .1, -.12, .018, .018, .1, C.dark); box(F, B, -.07, s * .1, -.12, .018, .018, .1, C.dark);
+      box(F, B, 0, s * .1, -.175, .34, .024, .018, C.dark);
+    });
+    cyl(F, mul(B, tr(.1, 0, -.07)), -.045, .04, .045, 14, C.body);
+    box(F, B, .1, 0, -.112, .05, .05, .004, C.glass);
+    RF.cam = ap(B, .1, 0, -.12);
+  }
+  var EDGES = [[0, 1], [1, 2], [2, 3], [3, 0], [4, 5], [5, 6], [6, 7], [7, 4], [0, 4], [1, 5], [2, 6], [3, 7]];
+  function box3(b, color, lab, pal) { // a 3D bounding box with a label above it
+    var cs = [[b.x0, b.y0, b.z0], [b.x1, b.y0, b.z0], [b.x1, b.y1, b.z0], [b.x0, b.y1, b.z0], [b.x0, b.y0, b.z1], [b.x1, b.y0, b.z1], [b.x1, b.y1, b.z1], [b.x0, b.y1, b.z1]], sc = [];
+    for (var q = 0; q < 8; q++) { if (!proj(cs[q][0], cs[q][1], cs[q][2], tmp)) return false; sc.push([tmp[0], tmp[1]]); }
+    ctx.strokeStyle = color; ctx.lineWidth = 1.4; ctx.beginPath();
+    EDGES.forEach(function (e) { ctx.moveTo(sc[e[0]][0], sc[e[0]][1]); ctx.lineTo(sc[e[1]][0], sc[e[1]][1]); });
+    ctx.stroke();
+    if (lab) {
+      var top = sc.reduce(function (m, p) { return p[1] < m[1] ? p : m; }), tw = ctx.measureText(lab).width + 8;
+      ctx.fillStyle = pal.label; ctx.fillRect(top[0] - tw / 2, top[1] - 19, tw, 15); ctx.fillStyle = color; ctx.fillText(lab, top[0] - tw / 2 + 4, top[1] - 8);
+    }
+    return true;
+  }
+  var TASK = {
+    en: { rob: 'robot: ', uav: 'drone: ', idle: 'standby', toPick: 'driving to parcel', toDrop: 'bringing parcel to station', undock: 'leaving station', dock: 'docking',
+      pick: 'picking parcel', place: 'placing parcel', wait: 'waiting · person ahead', u_search: 'searching', u_confirm: 'object spotted', u_hover: 'verifying detection',
+      u_report: 'sending position', tote: 'parcel · 6D pose', zone: 'place target', found: 'parcel · drone cam', target: 'pick target', msg: 'parcel @ ', pts: 'pts', map: 'map', tracks: 'tracks' },
+    de: { rob: 'Roboter: ', uav: 'Drohne: ', idle: 'Bereitschaft', toPick: 'fährt zum Paket', toDrop: 'bringt Paket zur Station', undock: 'verlässt Station', dock: 'dockt an',
+      pick: 'greift Paket', place: 'legt Paket ab', wait: 'wartet · Person im Weg', u_search: 'sucht', u_confirm: 'Objekt entdeckt', u_hover: 'prüft Detektion',
+      u_report: 'sendet Position', tote: 'Paket · 6D-Pose', zone: 'Ablageziel', found: 'Paket · Drohnenkamera', target: 'Greifziel', msg: 'Paket @ ', pts: 'Pkt.', map: 'Karte', tracks: 'Tracks' }
+  };
+  function taskText(L) {
+    var r;
+    if (R.mode === 'task') r = L[R.goal.act];
+    else if (R.mode === 'align') r = L.dock;
+    else if (R.mode === 'idle') r = L.idle;
+    else if (R.blocked) r = L.wait;
+    else r = R.goal ? (R.goal.act === 'pick' ? L.toPick : L.toDrop) : L.undock;
+    return L.rob + r + ' · ' + L.uav + L['u_' + UAV.mode];
+  }
+  var hudPts = document.getElementById('hudPts'), hudMap = document.getElementById('hudMap'), hudObj = document.getElementById('hudObj'), hudTask = document.getElementById('hudTask'), hudT = -1;
+
+  function render(time) {
+    setCam(time); scan();
+    var th = themeName(), pal = PAL[th], col = pal.col, pk = pal.pk, mk = pal.mk, i, s, L = TASK[d.lang === 'de' ? 'de' : 'en'];
+    var cpx = cam.px, cpy = cam.py, cpz = cam.pz, fx = cam.fx, fy = cam.fy, fz = cam.fz, rx_ = cam.rx, ry_ = cam.ry, ux = cam.ux, uy = cam.uy, uz = cam.uz, ccx = cam.cx, ccy = cam.cy, foc = cam.foc;
     buf.fill(0);
-    for (var pass = 0; pass < 2; pass++)
-      for (var j = 0; j < N; j++) {
-        if (!PZ[j] || (CC[j] >= 13) !== (pass === 1)) continue;
-        plot(PX[j], PY[j], Math.max(1, Math.min(3, Math.round(0.9 + 28 / PZ[j]))), pk[CC[j]]);
-      }
-    // sweep afterglow: returns the rotating head just passed light up
-    if (!reduce) {
-      var sweep = (time * 1.6) % TAU;
-      // only the columns the head swept in the last 0.9 rad (plus the per-beam azimuth offset)
-      for (var gc = Math.floor((sweep - 0.9 - 0.09) / STEP); gc <= Math.ceil(sweep / STEP); gc++) {
-        var gcol = ((gc % AZ) + AZ) % AZ;
-        for (var gb = 0; gb < BEAMS; gb++) {
-          var g = gb * AZ + gcol;
-          if (!PZ[g]) continue; var df = sweep - AZA[g]; if (df < 0) df += TAU;
-          if (df > 0.9) continue;
-          glow(PX[g], PY[g], Math.max(1, Math.min(3, Math.round(1 + 28 / PZ[g]))), pal.glowA * (1 - df / 0.9), pk[CC[g]], pal);
-        }
-      }
+    // the map built so far (faint)
+    for (i = 0; i < mN; i++) {
+      var vx = MX[i] - cpx, vy = MY[i] - cpy, vz = MZ[i] - cpz, zc = vx * fx + vy * fy + vz * fz;
+      if (zc < 0.5) continue;
+      plot(ccx + foc * (vx * rx_ + vy * ry_) / zc, ccy - foc * (vx * ux + vy * uy + vz * uz) / zc, MC[i] >= 10 ? 1 : Math.max(1, Math.min(2, Math.round(14 / zc))), mk[MC[i]]);
+    }
+    // the live scan on top; the part the spinning head just passed lights up
+    var sweep = (time * 2.2) % TAU, vis = 0;
+    for (i = 0; i < N; i++) {
+      PZ[i] = 0; if (HC[i] < 0) continue;
+      vx = HX[i] - cpx; vy = HY[i] - cpy; vz = HZ[i] - cpz; zc = vx * fx + vy * fy + vz * fz;
+      if (zc < 0.5) continue;
+      PX[i] = ccx + foc * (vx * rx_ + vy * ry_) / zc; PY[i] = ccy - foc * (vx * ux + vy * uy + vz * uz) / zc; PZ[i] = zc; vis++;
+      plot(PX[i], PY[i], Math.max(1, Math.min(3, Math.round(.9 + 24 / zc))), pk[HC[i]]);
+    }
+    if (!reduce) for (i = 0; i < N; i++) {
+      if (!PZ[i]) continue;
+      var df = sweep - (i % AZ) * STEP; if (df < 0) df += TAU;
+      if (df < .8) glow(PX[i], PY[i], Math.max(1, Math.min(3, Math.round(1 + 24 / PZ[i]))), pal.glowA * (1 - df / .8), pk[HC[i]], pal);
     }
     octx.putImageData(img, 0, 0);
-    ctx.clearRect(0, 0, W, H);
-    ctx.imageSmoothingEnabled = false;
-    ctx.drawImage(off, 0, 0, BW, BH);
-    // faint HD-map layer: curbs, lane lines, crossings and stop lines
-    ctx.lineWidth = 1; ctx.strokeStyle = pal.map;
-    for (var m = 0; m < MAP.length; m++) {
-      var seg = MAP[m];
-      if (proj(seg[0], seg[1], 0.02, tmp) && proj(seg[2], seg[3], 0.02, tmp2)) { ctx.beginPath(); ctx.moveTo(tmp[0], tmp[1]); ctx.lineTo(tmp2[0], tmp2[1]); ctx.stroke(); }
-    }
-    // range rings around the pole, every 10 m
-    ctx.strokeStyle = pal.ring;
-    for (var rr = 10; rr <= 50; rr += 10) {
-      ctx.beginPath(); var first = true;
-      for (var s = 0; s <= 120; s++) { var an = s / 120 * TAU;
-        if (proj(OX + rr * Math.cos(an), OY + rr * Math.sin(an), 0, tmp)) { if (first) { ctx.moveTo(tmp[0], tmp[1]); first = false; } else ctx.lineTo(tmp[0], tmp[1]); } else first = true; }
-      ctx.stroke();
-    }
-    // signal heads
-    heads.forEach(function (hd) {
-      if (!proj(hd.x, hd.y, hd.z, tmp)) return;
-      var sc = SIG[signal(hd.grp)]; ctx.fillStyle = sc; ctx.shadowColor = sc; ctx.shadowBlur = 10;
-      ctx.beginPath(); ctx.arc(tmp[0], tmp[1], 3.6, 0, TAU); ctx.fill(); ctx.shadowBlur = 0;
-    });
-    // 3D boxes with track ID and speed
-    ctx.font = '600 10.5px ui-monospace, Consolas, monospace';
-    var tracked = 0;
-    for (var a = 0; a < agents.length; a++) {
-      var ag = agents[a], bc = col[CI[ag.cls]], pad = 0.12;
-      var range = Math.hypot(ag.x - OX, ag.y - OY);
-      if (range > 48) continue;
-      var x0 = ag.x - ag.lx / 2 - pad, x1 = ag.x + ag.lx / 2 + pad, y0 = ag.y - ag.ly / 2 - pad, y1 = ag.y + ag.ly / 2 + pad, z1 = ag.h + pad;
-      var cs = [[x0, y0, 0], [x1, y0, 0], [x1, y1, 0], [x0, y1, 0], [x0, y0, z1], [x1, y0, z1], [x1, y1, z1], [x0, y1, z1]], sc2 = [], ok = true;
-      for (var q = 0; q < 8; q++) { if (!proj(cs[q][0], cs[q][1], cs[q][2], tmp)) { ok = false; break; } sc2.push([tmp[0], tmp[1]]); }
-      if (!ok) continue;
-      tracked++;
-      ctx.strokeStyle = bc; ctx.lineWidth = 1.4; ctx.beginPath();
-      EDGES.forEach(function (e) { ctx.moveTo(sc2[e[0]][0], sc2[e[0]][1]); ctx.lineTo(sc2[e[1]][0], sc2[e[1]][1]); });
-      ctx.stroke();
-      var sp = Math.hypot(ag.vx, ag.vy);
-      if (sp > 0.2 && proj(ag.x, ag.y, ag.h / 2, tmp) && proj(ag.x + ag.vx / sp * (ag.cls === 'ped' ? 1 : 3), ag.y + ag.vy / sp * (ag.cls === 'ped' ? 1 : 3), ag.h / 2, tmp2)) {
-        ctx.beginPath(); ctx.moveTo(tmp[0], tmp[1]); ctx.lineTo(tmp2[0], tmp2[1]); ctx.stroke();   // heading
+    ctx.clearRect(0, 0, W, H); ctx.imageSmoothingEnabled = false; ctx.drawImage(off, 0, 0, BW, BH);
+
+    // range rings, odometry trail and the planned path through the next goals
+    ctx.lineWidth = 1; ctx.strokeStyle = pal.ring; ctx.beginPath();
+    for (s = 4; s <= 12; s += 4) ring3(R.x, R.y, .01, s, 90);
+    for (i = 1; i < trail.length; i++) seg3([trail[i - 1][0], trail[i - 1][1], .02], [trail[i][0], trail[i][1], .02]);
+    ctx.stroke();
+    if (R.mode === 'drive') {
+      var pts = [[R.x, R.y]].concat(R.path.map(function (p) { return [p.x, p.y]; }));
+      ctx.strokeStyle = pal.path; ctx.lineWidth = 1.8; ctx.setLineDash([6, 5]); ctx.beginPath();
+      for (i = 1; i < pts.length; i++) {
+        var a = pts[i - 1], b = pts[i], ns = Math.max(1, Math.ceil(Math.hypot(b[0] - a[0], b[1] - a[1]) / 2)); // split so the perspective stays right
+        for (s = 0; s < ns; s++) seg3([a[0] + (b[0] - a[0]) * s / ns, a[1] + (b[1] - a[1]) * s / ns, .03], [a[0] + (b[0] - a[0]) * (s + 1) / ns, a[1] + (b[1] - a[1]) * (s + 1) / ns, .03]);
       }
-      if (range > 30 || W < 700) continue; // label only what is close to the pole (and nothing on phones), to keep the text readable
-      var top = sc2.reduce(function (m, p) { return p[1] < m[1] ? p : m; });
-      var label = ag.cls + ' #' + ag.id + ' · ' + sp.toFixed(1) + ' m/s', tw = ctx.measureText(label).width + 8;
-      ctx.fillStyle = pal.label; ctx.fillRect(top[0] - tw / 2, top[1] - 19, tw, 15);
-      ctx.fillStyle = bc; ctx.fillText(label, top[0] - tw / 2 + 4, top[1] - 8);
+      ctx.stroke(); ctx.setLineDash([]);
+      if (R.goal) { ctx.beginPath(); ring3(R.goal.x, R.goal.y, .03, .55, 32); ctx.stroke(); }
     }
-    // the sensor on its pole
-    if (proj(OX, OY, OZ, tmp)) { ctx.fillStyle = col[13]; ctx.beginPath(); ctx.arc(tmp[0], tmp[1], 4, 0, TAU); ctx.fill(); }
-    if (time - hudT > 0.5 || reduce) { hudT = time; hudPts.textContent = (vis / 1000).toFixed(1) + 'k'; hudObj.textContent = tracked + ' tracks'; }
+    // the drone camera's footprint on the floor and its view frustum
+    var U = UAV, dcol = col[16], uc = Math.cos(U.yaw), us = Math.sin(U.yaw);
+    var fp = [[DFW, DLT], [DFW, -DLT], [-DFW, -DLT], [-DFW, DLT]].map(function (o) { return [U.x + o[0] * uc - o[1] * us, U.y + o[0] * us + o[1] * uc, .02]; });
+    var fpOk = fp.every(function (p) { return proj(p[0], p[1], p[2], tmp); });
+    if (fpOk) {
+      ctx.beginPath(); fp.forEach(function (p, k) { proj(p[0], p[1], p[2], tmp); if (k) ctx.lineTo(tmp[0], tmp[1]); else ctx.moveTo(tmp[0], tmp[1]); }); ctx.closePath();
+      ctx.fillStyle = dcol; ctx.globalAlpha = .07; ctx.fill(); ctx.globalAlpha = .6; ctx.strokeStyle = dcol; ctx.lineWidth = 1.2; ctx.stroke();
+      ctx.globalAlpha = .28; ctx.lineWidth = 1; ctx.beginPath();
+      var cp = [U.x + .1 * uc, U.y + .1 * us, U.z - .12];
+      fp.forEach(function (p) { seg3(cp, p); }); ctx.stroke(); ctx.globalAlpha = 1;
+    }
+
+    // the solid robot, drone, table and parcels
+    shadow(pal); drawFaces(buildMeshes(pal.mesh), pal);
+
+    // perception overlays
+    ctx.font = '600 10.5px ui-monospace, Consolas, monospace';
+    function tag(x, y, z, text, c, dy) {
+      if (!proj(x, y, z, tmp)) return; var tw = ctx.measureText(text).width + 8;
+      ctx.fillStyle = pal.label; ctx.fillRect(tmp[0] - tw / 2, tmp[1] - dy - 11, tw, 15); ctx.fillStyle = c; ctx.fillText(text, tmp[0] - tw / 2 + 4, tmp[1] - dy);
+    }
+    var tracked = 0;
+    dyn.forEach(function (b) {
+      if ((hits[b.p.id] || 0) < 4) return;
+      var rng = Math.hypot((b.x0 + b.x1) / 2 - R.x, (b.y0 + b.y1) / 2 - R.y);
+      if (rng > 24) return;
+      var c = col[b.k === 9 ? 15 : 16], lab = W >= 700 && rng < 16 ? b.p.cls + ' #' + b.p.id + ' · ' + b.p.v.toFixed(1) + ' m/s' : null;
+      if (box3({ x0: b.x0 - .08, x1: b.x1 + .08, y0: b.y0 - .08, y1: b.y1 + .08, z0: 0, z1: b.z1 + .08 }, c, lab, pal)) tracked++;
+    });
+    var det = col[13], picking = R.mode === 'task' && R.goal.act === 'pick';
+    // parcels the drone has found: boxed in the drone's colour until the robot's own camera takes over
+    PARCELS.forEach(function (p) {
+      if (p.state !== 'floor' || !p.found || (picking && R.goal.p === p)) return;
+      var mine = R.goal && R.goal.p === p, lab = W >= 700 ? (!p.sent ? L.found : mine ? L.target : null) : null;
+      box3({ x0: p.x - .16, x1: p.x + .16, y0: p.y - .16, y1: p.y + .16, z0: 0, z1: TOTE + .05 }, mine ? pal.path : dcol, lab, pal);
+    });
+    if (R.mode === 'task') {
+      var g = R.goal, G = RF.G, cpos = ap(G, .08, 0, .08);
+      // the wrist camera's view cone
+      var cn = [[-.12, -.09], [.12, -.09], [.12, .09], [-.12, .09]].map(function (o) { return ap(G, .45, o[0] * 1.6, o[1] * 1.6); });
+      if (Math.abs(R.ee[1]) > .3) { // only while it looks beside the robot
+        ctx.strokeStyle = det; ctx.globalAlpha = .55; ctx.lineWidth = 1; ctx.beginPath();
+        cn.forEach(function (p, k) { seg3(cpos, p); seg3(p, cn[(k + 1) % 4]); });
+        ctx.stroke(); ctx.globalAlpha = 1;
+      }
+      if (picking && R.si <= 2 && g.p.state === 'floor') box3({ x0: g.p.x - .14, x1: g.p.x + .14, y0: g.p.y - .14, y1: g.p.y + .14, z0: 0, z1: TOTE + .04 }, det, W >= 700 ? L.tote : null, pal);
+      if (g.act === 'place' && R.si >= 3 && R.si <= 6) {
+        var zx = TBL.x + SLOT[g.slot], zy = TBL.y;
+        ctx.strokeStyle = det; ctx.setLineDash([4, 3]); ctx.lineWidth = 1.4; ctx.beginPath();
+        seg3([zx - .16, zy - .16, .77], [zx + .16, zy - .16, .77]); seg3([zx + .16, zy - .16, .77], [zx + .16, zy + .16, .77]);
+        seg3([zx + .16, zy + .16, .77], [zx - .16, zy + .16, .77]); seg3([zx - .16, zy + .16, .77], [zx - .16, zy - .16, .77]);
+        ctx.stroke(); ctx.setLineDash([]);
+        if (W >= 700) tag(zx, zy, .8, L.zone, det, 19);
+      }
+    }
+    // the drone's report: a radio link to the robot's antenna with data packets running along it
+    if (U.mode === 'hover' || U.mode === 'report') {
+      if (W >= 700) tag(U.x, U.y, U.z + .25, U.mode === 'hover' ? L.uav + L.u_hover : L.msg + '(' + U.tgt.x.toFixed(1) + ', ' + U.tgt.y.toFixed(1) + ')', dcol, 8);
+      if (U.mode === 'report') {
+        var A = [U.x, U.y, U.z - .05], Bp = RF.ant, n = Math.max(8, Math.ceil(Math.hypot(Bp[0] - A[0], Bp[1] - A[1]) / 1.5));
+        ctx.strokeStyle = dcol; ctx.lineWidth = 2; ctx.globalAlpha = .9; ctx.setLineDash([7, 5]); ctx.lineDashOffset = -time * 40; ctx.beginPath();
+        for (s = 0; s < n; s++) seg3(lerp3(A, Bp, s / n), lerp3(A, Bp, (s + 1) / n));
+        ctx.stroke(); ctx.setLineDash([]); ctx.lineDashOffset = 0; ctx.globalAlpha = 1;
+        ctx.fillStyle = dcol; ctx.shadowColor = dcol; ctx.shadowBlur = 10;
+        for (s = 0; s < 3; s++) { var pp = lerp3(A, Bp, (U.t * .9 + s / 3) % 1); if (proj(pp[0], pp[1], pp[2], tmp)) { ctx.beginPath(); ctx.arc(tmp[0], tmp[1], 4, 0, TAU); ctx.fill(); } }
+        ctx.shadowBlur = 0;
+      }
+    }
+    // the spinning LiDAR head: a glow and the current beam direction
+    var lp = lidarPos();
+    if (proj(lp[0], lp[1], LZ, tmp)) {
+      ctx.fillStyle = col[13]; ctx.shadowColor = col[13]; ctx.shadowBlur = 12; ctx.beginPath(); ctx.arc(tmp[0], tmp[1], 2.4, 0, TAU); ctx.fill(); ctx.shadowBlur = 0;
+      if (!reduce) { ctx.strokeStyle = col[13]; ctx.globalAlpha = .5; ctx.lineWidth = 1.2; ctx.beginPath(); seg3([lp[0] + .9 * Math.cos(sweep), lp[1] + .9 * Math.sin(sweep), LZ], [lp[0] + 2.4 * Math.cos(sweep), lp[1] + 2.4 * Math.sin(sweep), LZ]); ctx.stroke(); ctx.globalAlpha = 1; }
+    }
+    if (R.blocked && R.mode === 'drive' && proj(R.x, R.y, 1.9, tmp)) {
+      var wl = L.wait, ww = ctx.measureText(wl).width + 8;
+      ctx.fillStyle = pal.label; ctx.fillRect(tmp[0] - ww / 2, tmp[1] - 19, ww, 15); ctx.fillStyle = pal.path; ctx.fillText(wl, tmp[0] - ww / 2 + 4, tmp[1] - 8);
+    }
+    if (time - hudT > .5 || reduce) {
+      hudT = time; hudPts.textContent = (vis / 1000).toFixed(1) + 'k ' + L.pts; hudMap.textContent = (mN / 1000).toFixed(1) + 'k ' + L.map;
+      hudObj.textContent = tracked + ' ' + L.tracks; hudTask.textContent = taskText(L);
+    }
   }
 
+  for (var wu = 0; wu < 60; wu++) { step(0.1); if (wu % 4 === 0) scan(); } // start with some of the map already built
+  if (reduce) for (wu = 0; wu < 240; wu++) { step(0.1); if (wu % 4 === 0) scan(); }
   var visible = true, t0 = performance.now(), last = t0, running = false;
   function loop(now) {
     if (!visible || document.hidden) { running = false; return; }
     requestAnimationFrame(loop);
-    if (now - last < 32) return; // ~30 fps is plenty for a LiDAR that spins at 10–20 Hz
+    if (now - last < 32) return; // ~30 fps
     step(Math.min(0.1, (now - last) / 1000)); last = now;
     render((now - t0) / 1000);
   }
   function start() { if (reduce) { render(6); return; } if (!running) { running = true; last = performance.now(); requestAnimationFrame(loop); } }
   if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { visible = es[0].isIntersecting; if (visible) start(); }).observe(hero);
   document.addEventListener('visibilitychange', function () { if (!document.hidden) start(); });
+  document.getElementById('langBtn').addEventListener('click', function () { if (reduce) render(6); });
   start();
 })();
 </script>
