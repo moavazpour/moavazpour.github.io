@@ -703,17 +703,24 @@
 
   // ---- the drone: flies search lanes over the aisle at 3 m and looks down with its camera ----
   var DW = [[-19, -1.7], [19, -1.7], [21, 0], [19, 1.7], [-19, 1.7], [-21, 0]], DALT = 3, DFW = 1.2, DLT = 1.7; // footprint half-sizes
-  var UAV = { x: -12, y: 1.7, z: DALT, yaw: Math.PI, vx: 0, vy: 0, mode: 'search', wi: 4, t: 0, tgt: null, pitch: 0, roll: 0 };
+  var UAV = { x: -12, y: -1.7, z: DALT, yaw: 0, vx: 0, vy: 0, mode: 'search', wi: 1, t: 0, tgt: null, pitch: 0, roll: 0 };
   // parcels dropped in the aisle; state: floor -> held -> gone. The drone finds them, the robot collects them.
   var SPOTS = [[-13.5, -1.5], [9, 1.3], [-6, 1.7], [15, -1.2], [-17, .6], [4.5, -1.9], [-9.5, -.4], [12.5, 1.9], [-2.5, -1.2], [17, .9]];
   var PARCELS = [], queue = [], spotI = 0, spawnT = 0;
-  function spawn() {
+  function spawn() { // drop the next parcel a little ahead of the drone on its search lane, so it is found within a few seconds
+    var w = DW[UAV.wi], dx = w[0] - UAV.x, dy = w[1] - UAV.y, dl = Math.hypot(dx, dy) || 1, best = null, bestA = 1e9, back = null;
+    dx /= dl; dy /= dl;
     for (var k = 0; k < SPOTS.length; k++) {
-      var s = SPOTS[spotI]; spotI = (spotI + 1) % SPOTS.length;
-      if (Math.hypot(s[0] - R.x, s[1] - R.y) < 7 || Math.hypot(s[0] - UAV.x, s[1] - UAV.y) < 5) continue;   // never pop up in view
+      var s = SPOTS[(spotI + k) % SPOTS.length];
+      if (Math.hypot(s[0] - R.x, s[1] - R.y) < 4 || Math.hypot(s[0] - UAV.x, s[1] - UAV.y) < 8) continue;   // never pop up in view
       if (PARCELS.some(function (p) { return Math.hypot(p.x - s[0], p.y - s[1]) < 3; })) continue;
-      PARCELS.push({ x: s[0], y: s[1], state: 'floor', found: false, sent: false }); return;
+      var along = (s[0] - UAV.x) * dx + (s[1] - UAV.y) * dy, side = Math.abs(-(s[0] - UAV.x) * dy + (s[1] - UAV.y) * dx);
+      if (along > 0 && side < DLT - .2 && along < bestA) { best = s; bestA = along; }
+      if (!back) back = s;
     }
+    var s2 = best || back; if (!s2) return;
+    spotI = (SPOTS.indexOf(s2) + 1) % SPOTS.length;
+    PARCELS.push({ x: s2[0], y: s2[1], state: 'floor', found: false, sent: false });
   }
   function wrapA(a) { while (a > Math.PI) a -= TAU; while (a < -Math.PI) a += TAU; return a; }
   function droneStep(dt) {
@@ -723,7 +730,7 @@
       var f = PARCELS.filter(function (p) { return p.state === 'floor' && p.found && !p.sent; })[0];
       if (f) { U.mode = 'confirm'; U.tgt = f; U.t = 0; }
     }
-    if (U.mode === 'search') { var w = DW[U.wi]; gx = w[0]; gy = w[1]; sp = 3; if (Math.hypot(gx - U.x, gy - U.y) < 1) U.wi = (U.wi + 1) % DW.length; }
+    if (U.mode === 'search') { var w = DW[U.wi]; gx = w[0]; gy = w[1]; sp = 3.5; if (Math.hypot(gx - U.x, gy - U.y) < 1) U.wi = (U.wi + 1) % DW.length; }
     else { gx = U.tgt.x; gy = U.tgt.y; sp = 2.2; }
     // fly toward the goal with limited acceleration, slowing down near it
     var ex = gx - U.x, ey = gy - U.y, dd = Math.hypot(ex, ey), want = U.mode === 'search' ? sp : Math.min(sp, dd * 1.2);
@@ -781,7 +788,8 @@
       if (p.s > p.hi || p.s < p.lo) { p.s = Math.max(p.lo, Math.min(p.hi, p.s)); p.dir *= -1; p.pause = 1.2 + p.id * .5; }
     });
     spawnT -= dt;
-    if (spawnT <= 0 && PARCELS.filter(function (p) { return p.state === 'floor'; }).length < 2) { spawn(); spawnT = 6; }
+    var onFloor = PARCELS.filter(function (p) { return p.state === 'floor'; });
+    if (spawnT <= 0 && onFloor.length < 3 && !onFloor.some(function (p) { return !p.found; })) { spawn(); spawnT = 3; } // always one left to find
     droneStep(dt);
     var err, g = R.goal;
     if (R.mode === 'idle') {
